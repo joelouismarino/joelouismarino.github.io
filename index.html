@@ -1,107 +1,311 @@
 <!DOCTYPE html>
-<!--
-	Interphase by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>Joe Marino</title>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/skel-layers.min.js"></script>
-		<script src="js/init.js"></script>
-		<noscript>
-			<link rel="stylesheet" href="css/skel.css" />
-			<link rel="stylesheet" href="css/style.css" />
-			<link rel="stylesheet" href="css/style-xlarge.css" />
-		</noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-	</head>
-	<body>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js ie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
 
-		<!-- Header -->
-			<header id="header">
-				<h1><a href="#">Joe Marino</a></h1>
-                <logo id ="logo">
-                    <a href="http://www.caltech.edu"><img src="images/Caltech_Logo/LOGO-ORANGE/LOGO-ORANGE-RGB/Caltech_LOGO-Orange_RGB.png"></a>
-                </logo>
-				<nav id="nav">
-					<ul>
-						<li><a href="#about">About</a></li>
-						<li><a href="#research">Research</a></li>
-						<li><a href="#footer">Contact</a></li>
-					</ul>
-				</nav>
-			</header>
+   <!--- Basic Page Needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>Joe Marino</title>
+	<meta name="description" content="Machine Learning Graduate Student">
+	<meta name="author" content="Joseph Marino">
 
-		<!-- About -->
-			<section id="about" class="wrapper">
-				<div class="container">
-                    <h2>About</h2>
-                    <p><span class="image left"><img src="images/me.jpg" alt="" /></span>I am a Ph.D. student in the <a href="http://www.cns.caltech.edu">Computation and Neural Systems</a> program at the California Institute of Technology. I am co-advised by Professors <a href="http://www.vision.caltech.edu/pietroperona.htm">Pietro Perona</a> and <a href="http://www.yisongyue.com/about.php">Yisong Yue</a>. Before coming to Caltech, I received my B.S. in physics from the University of Minnesota, Twin Cities. </p>
-                    <p>My academic interests are at the intersection of machine learning and neuroscience, with the end goal toward developing machine intelligence, while drawing inspiration from biology where appropriate. My research has been primarily in deep learning for the purposes of computer vision, specifically, object recognition.</p>
-                    <ul class="actions">
-                        <li><a href="marino_cv.pdf" class="button icon fa-download">Download CV</a></li>
-                    </ul>
-				</div>
-			</section>
+   <!-- Mobile Specific Metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+    ================================================== -->
+   <link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/main.css">
+   <link rel="stylesheet" href="css/media-queries.css">         
+
+   <!-- Script
+   =================================================== -->
+	<script src="js/modernizr.js"></script>
+
+   <!-- Favicons
+	=================================================== -->
+	<link rel="shortcut icon" href="favicon.png" >
+
+</head>
+
+<body class="homepage">
+
+   <div id="preloader"> 
+	   <div id="status">
+         <img src="images/loader.gif" height="60" width="60" alt="">
+         <div class="loader">Loading...</div>
+      </div>
+   </div>
+   
+
+   <!-- Header
+   =================================================== -->
+   <header id="main-header">
+
+   	<div class="row header-inner">
+
+	      <div class="logo">
+	         <a class="smoothscroll" </a>
+	      </div>
+
+	      <nav id="nav-wrap">         
+	         
+	         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">
+	         	<span class='menu-text'>Show Menu</span>
+	         	<span class="menu-icon"></span>
+	         </a>
+         	<a class="mobile-btn" href="#" title="Hide navigation">
+         		<span class='menu-text'>Hide Menu</span>
+         		<span class="menu-icon"></span>
+         	</a>         
+
+	         <ul id="nav" class="nav">
+	            <li class="current"><a class="smoothscroll" href="#about">About</a></li>
+                <li><a class="smoothscroll" href="#portfolio">Research</a></li>
+	            <li><a class="smoothscroll" href="#journal">Blog</a></li>
+	            <li><a class="smoothscroll" href="#contact">Contact</a></li>
+	         </ul> 
+
+	      </nav> <!-- /nav-wrap -->	      
+
+	   </div> <!-- /header-inner -->
+
+   </header> 
+
+
+<!-- About Section
+ ================================================== -->
+<section id="about">
+    
+   	<div class="row section-head">
+        
+        <div class="twelve columns">
             
+            <h1>About<span>.</span></h1>
             
-            <!-- Two -->
-            <section id="research" class="wrapper style2 align-center">
-                <div class="container">
-                    <header>
-                        <h2>Research</h2>
-                    </header>
-                        <h3 class="title">Taxonomic Methods of Training Classifiers</h3>
-                        <p><span class="image left"><img src="images/SampleTaxonomy.jpg" alt="" /></span>Data classes, in this case, visual objects, do not live in isolation. There often exists some underlying structure in the relationships between classes, contained in a taxonomy. Many current methods of training classifiers make no use of taxonomies. Rather, data classes are learned independently. In this line of research, I have investigated a number of methods of using the ImageNet taxonomy to train deep neural networks for object recognition. These methods include constructing taxonomic cost functions as well as a taxonomic variant of curriculum learning. One additional advantage of taxonomic training is the ability of the classifier to predict internal nodes. For instance, when confronted with a generic looking dog, the classifier can predict "dog" instead of predicting a specific breed of dog.</p>
+            <hr />
+            
+        </div>
+        
+    </div>
+    
+    <div class="row about-content">
+        
+        <div class="mob-whole three columns left">
+            
+            <img width="150" height="190" class="pull-center" src="images/me.png">
+            
+        </div> <!-- /left -->
+        
+        <div class="mob-whole nine columns right">
+            
+            <p>I am a Ph.D. student in the <a href="http://www.cns.caltech.edu">Computation and Neural Systems</a> program at the California Institute of Technology. I am co-advised by Professors <a href="http://www.vision.caltech.edu/pietroperona.htm">Pietro Perona</a> and <a href="http://www.yisongyue.com/about.php">Yisong Yue</a>. Before coming to Caltech, I received my B.S. in physics from the University of Minnesota, Twin Cities.
+            </p>
+            
+            <p>
+                <a href="marino_cv.pdf" class="button stroke orange"> <i class="fa fa-download" ></i> Download CV</a>
+            </p>
+            
+        </div> <!-- /right -->
+        
+    <div class="row section-head">
+        
+        <div class="twelve columns">
+                
+            <p>My academic interests are at the intersection of machine learning and neuroscience, with the end goal toward developing machine intelligence, while drawing inspiration from biology where appropriate. My research is centered on deep learning for the purpose of computer vision, specifically, object recognition.
+            </p>
+                
+        </div>
+            
+    </div>
+    
+</section> <!-- /about -->
+
+   <!-- Research
+   ================================================== -->
+   <section id="portfolio">
+
+      <div class="row section-head">
+
+      	<div class="twelve columns">
+
+	         <h1>Research<span>.</span></h1>
+
+	         <hr />
+
+	      </div>
+
+      </div>
+
+      <div class="row items">
+
+      	<div class="twelve columns">
+
+            <div id="portfolio-wrapper" class="bgrid-fourth s-bgrid-third mob-bgrid-half group">
+
+          	   <div class="bgrid item">
+                  <div class="item-wrap">
+
+                     <a href="tax_utility.html">
+                        <img src="images/imagenet_icon.jpg" alt="">
+                        <div class="overlay"></div>                       
+                        <div class="portfolio-item-meta">
+          					      <h5>Taxonomy-Aware Decision-Theoretic Classifiers</h5>
+          					</div>                         
+                     </a>
+
+                  </div>
                 </div>
-            </section>
-       
+                  
+                <div class="bgrid item">
+                      <div class="item-wrap">
+                          
+                          <a href="tax_self_paced.html">
+                              <img src="images/SampleTaxonomy.jpg" alt="Sample Taxonomy">
+                                  <div class="overlay"></div>
+                                  <div class="portfolio-item-meta">
+                                      <h5>Taxonomic Self-Paced Learning</h5>
+                                  </div>
+                                  </a>
+                          
+                      </div>
+                </div>
 
-		<!-- Footer/Contact-->
-			<footer id="footer">
-				<div class="container">
-					<div class="row">
-                        <section class="4u 6u$(medium) 12u$(small)">
-                            <ul class="icons">
-                                <li><a href="https://www.linkedin.com/pub/joe-marino/37/bb0/73" class="icon rounded fa-linkedin"><span class="label">LinkedIn</span></a></li>
-                                <li><a href="https://www.facebook.com/joe.marino.9022" class="icon rounded fa-facebook"><span class="label">Facebook</span></a></li>
-                                <li><a href="#" class="icon rounded fa-youtube"><span class="label">YouTube</span></a></li>
-                                <li><a href="https://github.com/joelouismarino" class="icon rounded fa-github"><span class="label">GitHub</span></a></li>
-                            </ul>
-                        </section>
-                        <section class="4u 6u(medium) 12u$(small)">
-                            <ul class="tabular">
-                                <li>
-                                    <h3>Mail</h3>
-                                    jmarino [at] caltech [dot] edu
-                                </li>
-                            </ul>
-                        </section>
-                        <section class="4u$ 12u$(medium) 12u$(small)">
-                            <ul class="tabular">
-                                <li>
-                                    <h3>Address</h3>
-                                    California Institute of Technology <br>
-                                    MC 136-93 <br>
-                                    1200 E. California Blvd. <br>
-                                    Pasadena, 91125, CA
-                                </li>
-                            </ul>
-                        </section>
-					</div>
-					<ul class="copyright">
-						<li>&copy; 2015 Joseph Marino. All rights reserved.</li>
-					</ul>
-				</div>
-			</footer>
+            </div> <!-- /portfolio-wrapper -->
 
-	</body>
+         </div> <!-- /twelve -->
+
+      </div>  <!-- /row -->
+      
+   </section> <!-- /Portfolio -->
+
+
+
+
+   <!-- journal
+   =================================================== -->
+   <section id="journal">
+
+	   <div class="row section-head">
+
+	   	<div class="twelve columns">
+
+			   <h1>Blog<span>.</span></h1>
+
+		    </div>
+
+	   </div>
+
+      <div class="row">
+
+      	<div class="twelve columns">
+
+	         <div id="blog-wrapper" class="bgrid-third s-bgrid-half mob-bgrid-whole group">
+
+	            <article class="bgrid">
+						
+						<h5>November 9, 2015</h5>
+	               <h3><a href="blog_backprop.html">Implementing Backpropagation</a></h3>
+	                           
+	               <p>Backpropagation is a method for computing derivatives in artificial neural networks, allowing us to use gradient descent to train these models. Here, I walk through implementing backpropagation.
+	               </p>
+	                        
+	            </article>
+
+                    
+
+	         </div> <!-- /blog-wrapper -->
+
+	      </div> <!-- /twelve -->
+
+      </div> <!-- /row -->
+
+   </section> <!-- /blog -->
+
+   
+   <!-- Contact Section
+   ================================================== -->
+   <section id="contact">
+
+   	<div class="row section-head">
+
+   		<div class="twelve columns">
+
+	         <h1>Contact<span>.</span></h1>
+
+	         <hr />
+
+	      </div>
+
+      </div>
+
+   </section>  <!-- /contact-->
+
+
+   <!-- Footer
+   ================================================== -->
+   <footer>
+
+      <div class="row">
+
+         <div class="twelve columns tab-whole right-cols">
+
+            <div class="row">
+
+               <div class="columns">
+                  <h3 class="address">Contact</h3>
+                  <p>
+                  jmarino [at] caltech.edu
+                  </p>
+                  <p>
+                  1200 E. California Blvd.<br>
+                  MC 136-93<br>
+                  Pasadena, 91125 CA<br>
+                  </p>
+                  <p>
+                  651.468.6441
+                  </p>
+               </div> <!-- /columns -->             
+
+               <div class="columns">
+                  <h3 class="contact">Connect</h3>
+
+                  <ul>
+                     <li><a href="https://www.linkedin.com/pub/joe-marino/37/bb0/73"><span></span><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="https://www.facebook.com/joe.marino.9022"><span></span><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://github.com/joelouismarino"><span></span><i class="fa fa-github"></i></a></li>
+                  </ul>
+
+            </div> <!-- /Row(nested) -->
+
+         </div>
+
+         <p class="copyright">&copy; Copyright 2015 Joseph Marino.</a></p>
+
+         <div id="go-top">
+            <a class="smoothscroll" title="Back to Top" href="#about"><span>Top</span><i class="fa fa-long-arrow-up"></i></a>
+         </div>
+
+      </div> <!-- /row -->
+
+   </footer> <!-- /footer -->
+
+
+   <!-- Java Script
+   ================================================== -->
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>   
+   <script src="js/jquery.flexslider.js"></script>
+   <script src="js/jquery.fittext.js"></script>
+   <script src="js/backstretch.js"></script> 
+   <script src="js/waypoints.js"></script>  
+   <script src="js/main.js"></script>
+
+</body>
+
 </html>
