@@ -1446,10 +1446,13 @@ hr {
 /* l. Portfolio Section
 /* =================================================================== */
 #portfolio {
-	background: white;
+	background: #12151b;
 	padding-top: 120px;
 	padding-bottom: 108px;
 	width: 100%;
+}
+#portfolio h1 {
+    color: white;
 }
 .ie #portfolio .row.items {
 	width: 1140px;
