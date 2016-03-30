@@ -283,6 +283,12 @@
                             <img src="images/matrix1.png">
                         </center>
                         
+                        We see that $W^\ell$ is a matrix of size $N^\ell \times N^{\ell-1}$. For simplicity, let's make the following change: let's redefine our weight matrix by absorbing the bias vector. We append $\vec{b}^{\,\ell}$ to $W^\ell$, making it the first column of the weight matrix. To properly account for this change, we append a 1 to the top of our input vector, $\vec{x}^{\,\ell-1}$. The math works out exactly the same, except now instead of a matrix multiplication followed by a vector addition, we simply have a matrix multiplication. With the redefined $W^\ell$, the new operation is
+                        
+                        <center>
+                            <img src="images/matrix2.png">
+                        </center>
+                        
                         </p>
                         
                         <p>
