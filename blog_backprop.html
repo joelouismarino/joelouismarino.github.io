@@ -298,13 +298,13 @@
                         </p>
                         
                         <p>
-                        
-                        We have a feedforward neural network, as shown in the following figure:
-                        </p>
+                        We have now defined a layer of the network. If we stack many of these layers together, we will have defined the entire network architecture. The following figure provides an illustration of a general network architecture. $x^0$ is the input to the network, and $x^L$ is the output. The dotted circles containing 1s represent the appended 1 to each $x^\ell$. Note that we do not append a 1 to $x^L$, since there is no further forward computation to be done.
                         
                         <center>
                             <img src="images/neural_net.png">
                         </center>
+                        
+                        </p>
                         
 						<p>
                         At each layer, we have a set of units $x$, a set of activations $s$, and a set of weights $W$. There are a total of $L$ layers in the network. We feed our data into layer $0$ and we have some output at layer $L$. At each layer, we include an additional unit called the bias (the dotted outlined unit), that is arbitrarily set to 1. Why do we do this, you ask? Let's take a look at each layer's computations to find out. $s^{\ell}_j$, the $j^{th}$ activation at layer $\ell$, is found by taking a weighted sum of the previous layer's units and adding on a bias term:
