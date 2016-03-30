@@ -168,7 +168,7 @@
                             s = \vec{w} \cdot \vec{x}.
                         \end{equation}
                         
-                            The <em>linear</em> part comes from the fact that we are multiplying each weight by a linear version of the input. That is to say, in (2), we multiply each $w_i$ by $x_i$, not by $x_i^2$ or $\log x_i$ or something else. The <em>summation</em> part is straightfoward: we sum up the results from each of these multiplications.
+                            The <em>linear</em> part comes from the fact that we are multiplying each weight by a linear version of the input. That is to say, in equation 2, we multiply each $w_i$ by $x_i$, not by $x_i^2$ or $\log x_i$ or something else. The <em>summation</em> part is straightfoward: we sum up the results from each of these multiplications.
                         </p>
                         <p>
                         Now on to the non-linear transformation. After taking a linear summation of the inputs, we pass the resulting scalar through a non-linear function. While there are many options that will work, the non-linearity traditionally employed in the neural network literature is the logistic <a href="https://en.wikipedia.org/wiki/Sigmoid_function">sigmoid function</a>, which has the form
@@ -250,7 +250,7 @@
                         </p>
                         
                         <p>
-                        Let's now formalize our notation for an arbitrary feedforward neural network architecture. Assume we have a neural network with a total of $L$ layers. At layer $\ell$, we have inputs $\vec{x}^{\ell-1}$, weights $W^\ell$, the resulting summations $\vec{s}^\ell$, and outputs $\vec{x}^{\ell}$.
+                        Let's now formalize our notation for an arbitrary feedforward neural network architecture. Assume we have a neural network with a total of $L$ layers. At layer $\ell$, we have inputs $\vec{x}^{\,\ell-1}$, weights $W^\ell$, the resulting summations $\vec{s}^{\,\ell}$, and outputs $\vec{x}^{\,\ell}$. Notice that, unlike our formulation in equation 3, $W^\ell$ is no longer a vector, but rather a matrix of weights. As a consequence, $\vec{s}^{\,\ell}$ is now a vector of summations. This just generalizes our previous formulations to the case where we have multiple output units in layer $\ell$.
                         
                         We have a feedforward neural network, as shown in the following figure:
                         </p>
