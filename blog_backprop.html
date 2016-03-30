@@ -146,7 +146,9 @@
                         <p>
                         Before we get into things, relax, take a deep breath, and remember the following: at the end of the day, <b>feedforward neural networks are just functions</b>, mapping inputs $x$ to output predictions $\hat{y}$:
                         
-                        $$\hat{y} = f(x).$$
+                        \begin{equation}
+                            \hat{y} = f(x).
+                        \end{equation}
                         
                         This function could be something simple, such as the identity function $f(x) = x$, or it could be incredibly intricate, like mapping pixel intensities to an object. The required complexity of the function depends on the complexity of the mapping between $x$ and the ground truth label $y$, our desired output; if we want to solve a difficult problem, we need a function that is well-suited (i.e. with enough parameters) to handle it. Behind all of the notation and equations, <b>backpropagation is simply an algorithm for learning the function $f$ from a set of data examples of the form $(x,y)$.</b>
                         </p>
@@ -159,10 +161,11 @@
                         \end{equation}
                             
                             where $i$ indexes over the entries in $w$ and $x$. The result of this operation is a scalar. If you are familiar with basic linear algebra, this can be equivalently written as the dot product of these two vectors:
+                        \begin{equation
+                            \vec{w} \cdot \vec{x}.
+                        \end{equation
                             
-                            $$\vec{w} \cdot \vec{x}.$$
-                            
-                            The 'linear' part comes from the fact that we are multiplying each weight by a linear version of the input. That is to say
+                            The 'linear' part comes from the fact that we are multiplying each weight by a linear version of the input. That is to say, in (2), we multiply each $w_i$ by $x_i$, not by $x_i^2$ or $\log x_i$ or something else. The 'summation' is straightfoward: we sum up the terms.
                         </p>
                         
                         <p>
