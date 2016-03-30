@@ -262,6 +262,20 @@
                             \vec{s}^{\,\ell} = W^\ell \vec{x}^{\,\ell-1}.
                         \end{equation}
                         
+                        There's one point to mention before proceeding. To add additional capacity to our model, we may not want a simple linear function for each unit. We may want to introduce an offset term, also referred to as a bias term. This would change equation 2 into
+                        
+                        \begin{equation}
+                        s = b + \sum_i w_i x_i,
+                        \end{equation}
+                        
+                        and would change equation 7 into
+                        
+                        \begin{equation}
+                        \vec{s}^{\,\ell} = \vec{b}^{\,\ell} + W^\ell \vec{x}^{\,\ell-1},
+                        \end{equation}
+                        
+                        where $\vec{b}^{\,\ell}$ is the vector of biases for layer $\ell$.
+                        
                         We have a feedforward neural network, as shown in the following figure:
                         </p>
                         
