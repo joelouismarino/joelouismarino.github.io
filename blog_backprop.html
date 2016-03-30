@@ -250,7 +250,12 @@
                         </p>
                         
                         <p>
-                        Let's now formalize our notation for an arbitrary feedforward neural network architecture. Assume we have a neural network with a total of $L$ layers. At layer $\ell$, we have inputs $\vec{x}^{\,\ell-1}$, weights $W^\ell$, the resulting summations $\vec{s}^{\,\ell}$, and outputs $\vec{x}^{\,\ell}$. Notice that, unlike our formulation in equation 3, $W^\ell$ is no longer a vector, but rather a matrix of weights. As a consequence, $\vec{s}^{\,\ell}$ is now a vector of summations. This just generalizes our previous formulations to the case where we have multiple output units in layer $\ell$.
+                        Let's now formalize our notation for an arbitrary feedforward neural network architecture. Assume we have a neural network with a total of $L$ layers. At layer $\ell$, we have inputs $\vec{x}^{\,\ell-1}$, weights $W^\ell$, the resulting summations $\vec{s}^{\,\ell}$, and outputs $\vec{x}^{\,\ell}$. Notice that, unlike our formulation in equation 3, $W^\ell$ is no longer a vector, but rather a matrix of weights. As a consequence, $\vec{s}^{\,\ell}$ is now a vector of summations. This just generalizes our previous formulations to the case where we have multiple output units in layer $\ell$. We can always recover the summation for a particular unit as
+                        
+                        \begin{equation}
+                        s^\ell_j = \sum_i W^\ell_{j,i}x^{\ell-1}_i.
+                        \end{equation}
+                        
                         
                         We have a feedforward neural network, as shown in the following figure:
                         </p>
