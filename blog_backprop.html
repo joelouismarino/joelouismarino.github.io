@@ -240,16 +240,18 @@
                         <center>
                             <img src="images/visual_features3.png">
                                 <p>
-                                    <em> Left: Serre &amp; Poggio, 2010, Right: Kandel et al., 2012</em>
+                                    <em>Sources: Left: Serre &amp; Poggio, 2010, Right: Kandel et al., 2012</em>
                                 </p>
                         </center>
                         
                         </p>
                         <p>
-                        So why does the network need to by wide? If we don't have enough units in a particular layer of the network, we introduce a bottleneck in the computation process; the layer won't have enough units to adequately represent the features. Why does the network need to be deep? Assuming the layers are sufficiently wide, deeper networks are capable of representing more levels of abstraction. For a complicated task, such as object recognition, that involves a highly abstract mapping between the input pixels and output object identity, depth is vital. This is the force behind the buzzword 'deep learning'.
+                        So why does the network need to be wide? If we don't have enough units in a particular layer of the network, we introduce a bottleneck in the computation process; the layer won't have enough units to adequately represent the features. Why does the network need to be deep? Assuming the layers are sufficiently wide, deeper networks are capable of representing more levels of abstraction. For a complicated task, such as object recognition, that involves a highly abstract mapping between the input pixels and output object identity, depth is vital. This higher level of abstraction is the force behind the trend toward deep learning.
                         </p>
                         
                         <p>
+                        Let's now formalize our notation for an arbitrary feedforward neural network architecture. Assume we have a neural network with a total of $L$ layers. At layer $\ell$, we have inputs $\vec{x}^{\ell-1}$, weights $W^\ell$, the resulting summations $\vec{s}^\ell$, and outputs $\vec{x}^{\ell}$.
+                        
                         We have a feedforward neural network, as shown in the following figure:
                         </p>
                         
