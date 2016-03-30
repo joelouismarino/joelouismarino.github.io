@@ -149,13 +149,17 @@
                         </p>
                         
                         <p>
-                        Feedforward neural networks are functions of a very specific form. They contain many units, analogous to biological neurons, each performing the same set of operation: a linear summation and a non-linearity. Let's break each of these down. What is a linear summation? Say we have a vector of inputs, call them $\vec{x}$, and say we have a vector of weights (with the same number of entries as $x$), call them $\vec{w}$. A linear summation has the form
+                        Feedforward neural networks are functions of a very specific form. They contain many units, analogous to biological neurons, each performing the same set of operation: a linear summation and a non-linearity. Let's break each of these down. What is a linear summation? Say we have a vector of inputs, $\vec{x}$, and say we have a corresponding vector of weights (with the same number of entries as $\vec{x}$), $\vec{w}$. A linear summation has the form
                         
-                            $$\sum_i w_i x_i,$$
+                        \begin{equation}
+                            \sum_i w_i x_i,
+                        \end{equation}
                             
-                            where $i$ indexes over the entries in $w$ and $x$. The result of this operation is a scalar. If you are familiar with basic linear algebra, this can be equivalently written as
+                            where $i$ indexes over the entries in $w$ and $x$. The result of this operation is a scalar. If you are familiar with basic linear algebra, this can be equivalently written as the dot product of these two vectors:
                             
                             $$\vec{w} \cdot \vec{x}.$$
+                            
+                            The 'linear' part comes from the fact that we are multiplying each weight by a linear version of the input. That is to say
                         </p>
                         
                         <p>
