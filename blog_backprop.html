@@ -169,11 +169,17 @@
                             The <em>linear</em> part comes from the fact that we are multiplying each weight by a linear version of the input. That is to say, in (2), we multiply each $w_i$ by $x_i$, not by $x_i^2$ or $\log x_i$ or something else. The <em>summation</em> part is straightfoward: we sum up the results from each of these multiplications.
                         </p>
                         <p>
-                        Now on to the non-linear transformation. While there are many options that will work, the non-linearity traditionally employed in the neural network literature is the logistic <a href="https://en.wikipedia.org/wiki/Sigmoid_function">sigmoid function</a>, which has the form
+                        Now on to the non-linear transformation. After taking a linear summation of the inputs, we pass the resulting scalar through a non-linear function. While there are many options that will work, the non-linearity traditionally employed in the neural network literature is the logistic <a href="https://en.wikipedia.org/wiki/Sigmoid_function">sigmoid function</a>, which has the form
                         
                         \begin{equation}
                             g(s) = \frac{1}{1+e^{-s}}.
                         \end{equation}
+                        
+                        Plotting this out, we get the following s-shaped curve:
+                        
+                        <center>
+                            <img src="images/sigmoid_labels.png">
+                        </center>
                         
                         </p>
                         
