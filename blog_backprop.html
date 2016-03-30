@@ -262,7 +262,7 @@
                             \vec{s}^{\,\ell} = W^\ell \vec{x}^{\,\ell-1}.
                         \end{equation}
                         
-                        There's one point to mention before proceeding. To add additional capacity to our model, we may not want a simple linear function for each unit. We may want to introduce an offset term, also referred to as a bias term. This would change equation 2 into
+                        There's one point to mention before proceeding. To add additional capacity to our model, we may not want a simple linear weighting of the inputs. We may want to introduce an offset term, $b$, also referred to as a bias term. This would change equation 2 into
                         
                         \begin{equation}
                         s = b + \sum_i w_i x_i,
@@ -275,6 +275,17 @@
                         \end{equation}
                         
                         where $\vec{b}^{\,\ell}$ is the vector of biases for layer $\ell$.
+                        
+                        <p>
+                        In working with these vectorized equations, it's important to step back and look at the dimensions of the matrix multiplications. Let's say that there are $N^\ell$ units in layer $\ell$. If we draw out equation 9, then we have:
+                        
+                        <center>
+                            <img src="images/matrix1.png">
+                        </center>
+                        
+                        </p>
+                        
+                        <p>
                         
                         We have a feedforward neural network, as shown in the following figure:
                         </p>
