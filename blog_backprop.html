@@ -154,7 +154,7 @@
                         </p>
                         
                         <p>
-                        Feedforward neural networks are functions of a very specific form. They contain many units, analogous to biological neurons, each performing the same set of operation: a linear summation and a non-linearity. Let's break each of these down. What is a linear summation? Say we have a vector of inputs, $\vec{x}$, and say we have a corresponding vector of weights (with the same number of entries as $\vec{x}$), $\vec{w}$. A linear summation has the form
+                        Feedforward neural networks are functions of a very specific form. They contain many units, analogous to biological neurons, each performing the same set of operations: a linear summation and a non-linear transformation. Let's break each of these down. What is a linear summation? Say we have a vector of inputs, $\vec{x}$, and say we have a corresponding vector of weights (with the same number of entries as $\vec{x}$), $\vec{w}$. A linear summation has the form
                         
                         \begin{equation}
                             \sum_i w_i x_i,
@@ -165,8 +165,10 @@
                         \begin{equation}
                             \vec{w} \cdot \vec{x}.
                         \end{equation}
+                        
+                            The <em>linear</em> part comes from the fact that we are multiplying each weight by a linear version of the input. That is to say, in (2), we multiply each $w_i$ by $x_i$, not by $x_i^2$ or $\log x_i$ or something else. The <em>summation</em> is straightfoward: we sum up the results from each of these multiplications.
                             
-                            The 'linear' part comes from the fact that we are multiplying each weight by a linear version of the input. That is to say, in (2), we multiply each $w_i$ by $x_i$, not by $x_i^2$ or $\log x_i$ or something else. The 'summation' is straightfoward: we sum up the terms.
+                            Now on to the non-linear transformation.
                         </p>
                         
                         <p>
