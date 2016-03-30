@@ -162,7 +162,7 @@
                             s = \sum_i w_i x_i,
                         \end{equation}
                             
-                            where $i$ indexes over the entries in $w$ and $x$. The result of this operation, $s$ is a scalar. If you are familiar with basic linear algebra, this can be equivalently written as the <a href="https://en.wikipedia.org/wiki/Dot_product">dot product</a> of these two vectors:
+                            where $i$ indexes over the entries in $w$ and $x$. The result of this operation, $s$, is a scalar. If you are familiar with basic linear algebra, this can be equivalently written as the <a href="https://en.wikipedia.org/wiki/Dot_product">dot product</a> of these two vectors:
                             
                         \begin{equation}
                             s = \vec{w} \cdot \vec{x}.
@@ -186,7 +186,7 @@
                         For large negative inputs, the exponential blows up and the function approaches 0, whereas for large positive inputs, the exponential goes to zero and the function approaches 1. For inputs that lie between these two extremes, we fall into an approximately linear region.
                         </p>
                         <p>
-                        Let's look at another possible non-linearity, the <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">rectified linear unit (ReLU)</a>. This function has the form
+                        Let's look at another non-linearity, the <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">rectified linear unit (ReLU)</a>. This function has the form
                         
                         \begin{equation}
                             g(s) = \text{max}(0,s).
@@ -216,7 +216,7 @@
                         
                         <h3>Network Architecture</h3>
                         
-                        Up to this point, our focus has been on the workings of an individual unit in the network. However, computation in neural networks depends heavily on the cooperation of many of these units. In a feedforward network architecture, we have two ways of adding units to our network, either in parallel or serial. The following figure illustrates each of these approaches.
+                        Up to this point, our focus has been on the workings of an individual unit in the network. However, computation in neural networks depends heavily on the cooperation of many of these units, representing aspects of the input in a distributed fashion. In a feedforward network architecture, we have two ways of adding units to our network, either in <em>parallel</em> or <em>serial</em>. The following figure illustrates each of these approaches.
                         
                         <center>
                             <img src="images/parallel_serial.png">
@@ -228,6 +228,21 @@
                         <p>
                         We see that adding units in parallel is equivalent to increasing the number of units in a particular layer or layers, whereas adding units serially is equivalent to adding an additional layer to the network. Both approaches are essential for constructing a neural network that is capable of performing useful computations; we need the network to be sufficiently wide and deep.
                         
+                        </p>
+                        
+                        <p>
+                        Part of the inspiration for this hierarchical, layered network architecture comes from biological neural networks, in particular, the neocortex. This brain structure is composed of many repeated basic circuits, grouped into regions, which are arranged hierarchically. For instance, when a visual signal first reaches the neocortex, it is represented by a group of neurons in the primary visual cortex as a set of simple visual features, such as oriented lines, color patches, and motion vectors. As the signal propagates down the ventral visual pathway, downstream areas combine the visual features from previous areas into more complicated, abstract features, such as simple shapes, patterns, and eventually objects. There is obviously more to the neocortex than this simple description, but the general principle of hierarchical design is valid.
+                        
+                        <center>
+                            <img src="images/visual_features.png">
+                                <p>
+                                    <em> Serre &amp; Poggio, 2010</em>
+                                </p>
+                        </center>
+                        
+                        </p>
+                        <p>
+                        So why does the network need to by wide? If we don't have enough units in a particular layer of the network, we introduce a bottleneck in the computation process; the layer won't have enough units to adequately represent the features. And why does the network need to be deep? Assuming the layers are sufficiently wide, deeper networks are capable of representing more levels of abstraction.
                         </p>
                         
                         <p>
