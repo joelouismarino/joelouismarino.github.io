@@ -140,7 +140,7 @@
                         <p class="lead">Or, how to train your neural network.</p>
 
                         <p>
-                        This past fall, I had the pleasure of TAing Caltech's course on neural computation, CNS 187. The course provides an overview of a number of biologically-inspired methods of computation, many of which are taken from the machine learning literature. The pinnacle of the class is the dreaded <a href="https://en.wikipedia.org/wiki/Multilayer_perceptron">multilayer perceptron</a>, a standard feedforward artificial neural network. Students are required to implement a general neural network, including the <a href="https://en.wikipedia.org/wiki/Backpropagation">backpropagation</a> algorithm, which is used to train the network. Having had to derive the algorithm a number of times for my students, the details are still relatively fresh in my mind, so I share them here for any future students who may be struggling with the material. By the end of this blog post, you will know how to implement the backpropagation algorithm.
+                        This past fall, I had the pleasure of TAing Caltech's course on neural computation, CNS 187. The course provides an overview of a number of biologically-inspired methods of computation, many of which are taken from the machine learning literature. The pinnacle of the class is the dreaded <a href="https://en.wikipedia.org/wiki/Multilayer_perceptron">multilayer perceptron</a>, a standard feedforward artificial neural network. Students are required to implement a general neural network, including the <a href="https://en.wikipedia.org/wiki/Backpropagation">backpropagation</a> algorithm, which is used to train the network. Having had to derive the algorithm a number of times for my students, the details are still relatively fresh in my mind, so I share them here for any future students who may be struggling with the material. By the end of this blog post, you will understand the basic workings of a feedforward neural network as well as how to implement the backpropagation algorithm.
                         </p>
                         
                         <p>
@@ -153,7 +153,7 @@
                         This function could be something simple, such as the identity function $f(x) = x$, or it could be incredibly intricate, like mapping pixel intensities to an object. The required complexity of the function depends on the complexity of the mapping between $x$ and the ground truth label $y$, our desired output; if we want to solve a difficult problem, we need a function that is well-suited (i.e. with enough parameters) to handle it. Behind all of the notation and equations, <b>backpropagation is simply an algorithm for learning the function $f$ from a set of data examples of the form $(x,y)$.</b>
                         </p>
                         
-                        <h3>Linear Summation + Non-Linear Transformation</h3>
+                        <h3>Basic Unit: Linear Summation + Non-Linear Transformation</h3>
                         
                         <p>
                         Feedforward neural networks are functions of a very specific form. They contain many units, analogous to biological neurons, each performing the same set of operations: a linear summation and a non-linear transformation. Let's break each of these down. What is a linear summation? Say we have a vector of inputs, $\vec{x}$, and say we have a corresponding vector of weights, $\vec{w}$, with the same number of entries as $\vec{x}$. A linear summation has the form
@@ -202,7 +202,7 @@
                         
                         </p>
                         <p>
-                        There are arguments in favor of using each of these non-linearities. However, in practice, using the right training techniques, it may not make a substantial difference which non-linear function we choose for our network. We are also not constrained to use the same non-linearity for every unit in the network. We only require that whichever non-linear function we choose be 1) <a href="https://en.wikipedia.org/wiki/Monotonic_function">monotonic</a>, 2) differentiable and 3) defined everywhere. The second point is actually not entirely strict, since we can get by with using the ReLU function, even though it has a (non-differentiable) cusp at 0.
+                        There are arguments in favor of using each of these non-linearities, as well as others. However, in practice, with the right training techniques, it may not make a substantial difference which non-linear function we choose. We are also not constrained to use the same non-linearity for every unit in the network. We only require that the non-linear function(s) we choose be 1) <a href="https://en.wikipedia.org/wiki/Monotonic_function">monotonic</a>, 2) differentiable, and 3) defined everywhere. The second point is actually not entirely strict, since we can get by with using the ReLU function, even though it has a (non-differentiable) cusp at 0.
                         </p>
                         
                         <center>
@@ -215,6 +215,15 @@
                         <p>
                         
                         <h3>Network Architecture</h3>
+                        
+                        Up to this point, our focus has been on the workings of an individual unit in the network. However, computation in neural networks depends heavily on the cooperation of many of these units. In a feedforward network architecture, we have two ways of adding units to our network, either in parallel or serial. The following figure illustrates each of these approaches.
+                        
+                        <center>
+                            <img src="images/parallel_serial.png">
+                        </center>
+                        
+                        Circles represent units within the network, and lines represent connection weights between these units. Feedforward neural networks are composed of layers of units, with connections between these layers. In a standard neural network, these connections map all of the units in one layer to all of the units in the adjacent layer. However, it is possible to construct networks with more limited connections or connections between non-adjacent layers.
+                        
                         
                         We have a feedforward neural network, as shown in the following figure:
                         </p>
