@@ -159,13 +159,13 @@
                         Feedforward neural networks are functions of a very specific form. They contain many units, analogous to biological neurons, each performing the same set of operations: a linear summation and a non-linear transformation. Let's break each of these down. What is a linear summation? Say we have a vector of inputs, $\vec{x}$, and say we have a corresponding vector of weights, $\vec{w}$, with the same number of entries as $\vec{x}$. A linear summation has the form
                         
                         \begin{equation}
-                            \sum_i w_i x_i,
+                            s = \sum_i w_i x_i,
                         \end{equation}
                             
-                            where $i$ indexes over the entries in $w$ and $x$. The result of this operation is a scalar. If you are familiar with basic linear algebra, this can be equivalently written as the <a href="https://en.wikipedia.org/wiki/Dot_product">dot product</a> of these two vectors:
+                            where $i$ indexes over the entries in $w$ and $x$. The result of this operation, $s$ is a scalar. If you are familiar with basic linear algebra, this can be equivalently written as the <a href="https://en.wikipedia.org/wiki/Dot_product">dot product</a> of these two vectors:
                             
                         \begin{equation}
-                            \vec{w} \cdot \vec{x}.
+                            s = \vec{w} \cdot \vec{x}.
                         \end{equation}
                         
                             The <em>linear</em> part comes from the fact that we are multiplying each weight by a linear version of the input. That is to say, in (2), we multiply each $w_i$ by $x_i$, not by $x_i^2$ or $\log x_i$ or something else. The <em>summation</em> part is straightfoward: we sum up the results from each of these multiplications.
@@ -226,7 +226,7 @@
                         </p>
                         
                         <p>
-                        We see that adding units in parallel is equivalent to increasing the number of units in a particular layer or layers, whereas adding units serially is equivalent to adding an additional layer to the network. Both approaches are essential for constructing a neural network that is capable of performing useful computations; we need our network to be sufficiently wide and deep.
+                        We see that adding units in parallel is equivalent to increasing the number of units in a particular layer or layers, whereas adding units serially is equivalent to adding an additional layer to the network. Both approaches are essential for constructing a neural network that is capable of performing useful computations; we need the network to be sufficiently wide and deep.
                         
                         </p>
                         
