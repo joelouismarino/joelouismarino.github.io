@@ -145,7 +145,17 @@
                         
                         $$\hat{y} = f(x).$$
                         
-                        This function could be something simple, such as the identity function $f(x) = x$, or it could be incredibly intricate, like mapping pixel intensities to an object. The required complexity of the function depends on the complexity of the mapping between $x$ and the ground truth label $y$, our desired output; if we want to solve a difficult problem, we need a function that is well-suited (i.e. with enough parameters) to handle it. Behind all of the notation and equations, backpropagation is simply an algorithm for learning the function $f$ from data examples $(x,y)$.
+                        This function could be something simple, such as the identity function $f(x) = x$, or it could be incredibly intricate, like mapping pixel intensities to an object. The required complexity of the function depends on the complexity of the mapping between $x$ and the ground truth label $y$, our desired output; if we want to solve a difficult problem, we need a function that is well-suited (i.e. with enough parameters) to handle it. Behind all of the notation and equations, <b>backpropagation is simply an algorithm for learning the function $f$ from a set of data examples of the form $(x,y)$.</b>
+                        </p>
+                        
+                        <p>
+                        Feedforward neural networks are functions of a very specific form. They contain many units, analogous to biological neurons, each performing the same set of operation: a linear summation and a non-linearity. Let's break each of these down. What is a linear summation? Say we have a vector of inputs, call them $\vec{x}$, and say we have a vector of weights (with the same number of entries as $x$), call them $\vec{w}$. A linear summation has the form
+                        
+                            $$\sum_i w_i x_i,$$
+                            
+                            where $i$ indexes over the entries in $w$ and $x$. The result of this operation is a scalar. If you are familiar with basic linear algebra, this can be equivalently written as
+                            
+                            $$\vec{w} \cdot \vec{x}.$$
                         </p>
                         
                         <p>
@@ -157,7 +167,7 @@
                         </center>
                         
 						<p>
-                        At each layer, we have a set of units $x$, a set of activations $s$, and a set of weights $W$. There are a total of $L$ layers in the network. We feed our data into layer $0$ and we have some output at layer $L$. At each layer, we include an additional unit called the bias (the dotted outlined unit), that is arbitrarily set to 1. Why do we do this, you ask? Let's take a look at each layer's computations to find out. $s^{\ell}_j$, the $j^th$ activation at layer $\ell$, is found by taking a weighted sum of the previous layer's units and adding on a bias term:
+                        At each layer, we have a set of units $x$, a set of activations $s$, and a set of weights $W$. There are a total of $L$ layers in the network. We feed our data into layer $0$ and we have some output at layer $L$. At each layer, we include an additional unit called the bias (the dotted outlined unit), that is arbitrarily set to 1. Why do we do this, you ask? Let's take a look at each layer's computations to find out. $s^{\ell}_j$, the $j^{th}$ activation at layer $\ell$, is found by taking a weighted sum of the previous layer's units and adding on a bias term:
                         
                         
                         
