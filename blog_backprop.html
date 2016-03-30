@@ -153,7 +153,7 @@
                         This function could be something simple, such as the identity function $f(x) = x$, or it could be incredibly intricate, like mapping pixel intensities to an object. The required complexity of the function depends on the complexity of the mapping between $x$ and the ground truth label $y$, our desired output; if we want to solve a difficult problem, we need a function that is well-suited (i.e. with enough parameters) to handle it. Behind all of the notation and equations, <b>backpropagation is simply an algorithm for learning the function $f$ from a set of data examples of the form $(x,y)$.</b>
                         </p>
                         
-                        <h3>Basic Unit: Linear Summation + Non-Linear Transformation</h3>
+                        <h3>The Basic Unit: Linear Summation + Non-Linear Transformation</h3>
                         
                         <p>
                         Feedforward neural networks are functions of a very specific form. They contain many units, analogous to biological neurons, each performing the same set of operations: a linear summation and a non-linear transformation. Let's break each of these down. What is a linear summation? Say we have a vector of inputs, $\vec{x}$, and say we have a corresponding vector of weights, $\vec{w}$, with the same number of entries as $\vec{x}$. A linear summation has the form
@@ -228,6 +228,10 @@
                         <p>
                         We see that adding units in parallel is equivalent to increasing the number of units in a particular layer or layers, whereas adding units serially is equivalent to adding an additional layer to the network. Both approaches are essential for constructing a neural network that is capable of performing useful computations; we need the network to be sufficiently wide and deep.
                         
+                        <center>
+                            <img src="images/depth_width.png">
+                        </center>
+                        
                         </p>
                         
                         <p>
@@ -242,7 +246,7 @@
                         
                         </p>
                         <p>
-                        So why does the network need to by wide? If we don't have enough units in a particular layer of the network, we introduce a bottleneck in the computation process; the layer won't have enough units to adequately represent the features. And why does the network need to be deep? Assuming the layers are sufficiently wide, deeper networks are capable of representing more levels of abstraction.
+                        So why does the network need to by wide? If we don't have enough units in a particular layer of the network, we introduce a bottleneck in the computation process; the layer won't have enough units to adequately represent the features. Why does the network need to be deep? Assuming the layers are sufficiently wide, deeper networks are capable of representing more levels of abstraction. For a complicated task, such as object recognition, that involves a highly abstract mapping between the input pixels and output object identity, depth is vital. This is the force behind the buzzword 'deep learning'.
                         </p>
                         
                         <p>
