@@ -153,6 +153,8 @@
                         This function could be something simple, such as the identity function $f(x) = x$, or it could be incredibly intricate, like mapping pixel intensities to an object. The required complexity of the function depends on the complexity of the mapping between $x$ and the ground truth label $y$, our desired output; if we want to solve a difficult problem, we need a function that is well-suited (i.e. with enough parameters) to handle it. Behind all of the notation and equations, <b>backpropagation is simply an algorithm for learning the function $f$ from a set of data examples of the form $(x,y)$.</b>
                         </p>
                         
+                        <h3>Linear Summation + Non-Linear Transformation</h3>
+                        
                         <p>
                         Feedforward neural networks are functions of a very specific form. They contain many units, analogous to biological neurons, each performing the same set of operations: a linear summation and a non-linear transformation. Let's break each of these down. What is a linear summation? Say we have a vector of inputs, $\vec{x}$, and say we have a corresponding vector of weights, $\vec{w}$, with the same number of entries as $\vec{x}$. A linear summation has the form
                         
@@ -181,7 +183,14 @@
                             <img src="images/sigmoid_labels.png">
                         </center>
                         
-                        For large negative inputs, the exponential blows up and the function approaches 0, whereas for large positive inputs, the exponential goes to zero and the function approaches 1. For inputs that lie between these two extremes, we fall into an approximately linear region. Recently, many researchers have started using a different non-linearity, the <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">rectified linear unit (ReLU)</a>.
+                        For large negative inputs, the exponential blows up and the function approaches 0, whereas for large positive inputs, the exponential goes to zero and the function approaches 1. For inputs that lie between these two extremes, we fall into an approximately linear region. Let's look at another possible non-linearity, the <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">rectified linear unit (ReLU)</a>. This function has the form
+                        
+                        \begin{equation}
+                            g(s) = \text{max}(0,s).
+                        \end{equation}
+                        
+                        When plotted out, we have this curve:
+                        
                         
                         </p>
                         
