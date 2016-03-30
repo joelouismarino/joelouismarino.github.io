@@ -285,6 +285,12 @@
                         
                         We see that $W^\ell$ is a matrix of size $N^\ell \times N^{\ell-1}$. For simplicity, let's make the following change: let's redefine our weight matrix by absorbing the bias vector. We append $\vec{b}^{\,\ell}$ to $W^\ell$, making it the first column of the weight matrix. To properly account for this change, we append a 1 to the top of our input vector, $\vec{x}^{\,\ell-1}$. The math works out exactly the same, except now instead of a matrix multiplication followed by a vector addition, we simply have a matrix multiplication. With the redefined $W^\ell$, the new operation is
                         
+                        \begin{equation}
+                        \vec{s}^{\,\ell} = W^\ell \begin{pmatrix} 1 \\ \vec{x}^{\,\ell-1} \end{pmatrix}.
+                        \end{equation}
+                        
+                        Note that we have implicitly redefined $W^\ell$ to contain the bias terms, whereas we have explicitly rewritten $\vec{x}^{\,\ell-1}$ with an appended 1. This can be drawn as
+                        
                         <center>
                             <img src="images/matrix2.png">
                         </center>
