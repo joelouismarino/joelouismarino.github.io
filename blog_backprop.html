@@ -183,7 +183,10 @@
                             <img src="images/sigmoid_labels.png">
                         </center>
                         
-                        For large negative inputs, the exponential blows up and the function approaches 0, whereas for large positive inputs, the exponential goes to zero and the function approaches 1. For inputs that lie between these two extremes, we fall into an approximately linear region. Let's look at another possible non-linearity, the <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">rectified linear unit (ReLU)</a>. This function has the form
+                        For large negative inputs, the exponential blows up and the function approaches 0, whereas for large positive inputs, the exponential goes to zero and the function approaches 1. For inputs that lie between these two extremes, we fall into an approximately linear region.
+                        </p>
+                        <p>
+                        Let's look at another possible non-linearity, the <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">rectified linear unit (ReLU)</a>. This function has the form
                         
                         \begin{equation}
                             g(s) = \text{max}(0,s).
@@ -191,9 +194,20 @@
                         
                         When plotted out, we have this curve:
                         
+                        <center>
+                            <img src="images/relu_labels.png">
+                        </center>
+                        
+                        Anything less than zero gets mapped to zero, while anything greater than zero is passed through as the identity.
                         
                         </p>
+                        <p>
+                        There are arguments in favor of using each of these non-linearities. However, in practice, using the right training techniques, it may not make a substantial difference which non-linear function we choose for our network. We are also not constrained to use the same non-linearity for every unit in the network. We only require that whichever non-linear function we choose be 1) <a href="https://en.wikipedia.org/wiki/Monotonic_function">monotonic</a> and 2) differentiable and defined everywhere. The second point is actually not entirely strict, since we can get by with using the ReLU function, even though it has a (non-differentiable) cusp at 0.
+                        </p>
                         
+                        <p>
+                        Stepping back, let's ask ourselves: why a linear summation followed by a non-linear transform? The motivation is rooted in biological neurons. Neurons receive inputs from other neurons through branching structures called dendrites.
+                        </p>
                         <p>
                         We have a feedforward neural network, as shown in the following figure:
                         </p>
@@ -310,7 +324,7 @@
                 
             </div>
             
-            <p class="copyright">&copy; Copyright 2015 Joseph Marino.</a></p>
+            <p class="copyright">&copy; Copyright 2016 Joseph Marino.</a></p>
             
             <div id="go-top">
                 <a class="smoothscroll" title="Back to Top" href="#top"><span>Top</span><i class="fa fa-long-arrow-up"></i></a>
