@@ -310,7 +310,19 @@
                             <img src="images/neural_net.png">
                         </center>
                         
-                        Let's review by briefly summarizing a forward pass through the network. We are given a set of data examples, which we assume to each be a vector of real numbers.
+                        Let's review by briefly summarizing a forward pass through the network. We are given a set of data examples, each of which we assume to be a vector of real numbers. We string together some number of examples, and pass them into our network as the matrix $x^0$. We append a vector of 1s to the top of this matrix and multiply by the first set of weights and biases, wrapped together as $W^1$ to get the first set of summations, $s^1$:
+                        
+                        \begin{equation}
+                        s^1 = W^1 \begin{pmatrix} 1 \\ x^0 \end{pmatrix}.
+                        \end{equation}
+                        
+                        We then pass this matrix through some non-linearity to get the next layer's inputs, $x^1$:
+                        
+                        \begin{equation}
+                        x^1 = g(s^1).
+                        \end{equation}
+                        
+                        We proceed in this fashion until we reach the outputs of the final layer $x^L$.
                         
                         </p>
                         
