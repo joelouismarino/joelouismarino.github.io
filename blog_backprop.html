@@ -295,6 +295,12 @@
                             <img src="images/matrix2.png">
                         </center>
                         
+                        Finally, we make one more modification to vectorize our network even further. If we can load the entire dataset of examples into memory, then we can run the entire dataset through the network at once. If the entire dataset doesn't fit in memory, then we will have to process the dataset in batches. At any rate, we would like to be able to feed multiple examples into the network at the same time. We can accomplish this be appending multiple example vectors together to form a matrix, with each example being a column of the matrix. Thus, $x$ and $s$ are now matrices. If each batch has $N_{examples}$ examples, then we can re-draw the linear operation as
+                        
+                        <center>
+                            <img src="images/matrix3.png">
+                        </center>
+                        
                         </p>
                         
                         <p>
