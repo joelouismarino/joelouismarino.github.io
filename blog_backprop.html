@@ -295,7 +295,7 @@
                             <img src="images/matrix2.png">
                         </center>
                         
-                        Finally, we make one more modification to vectorize our network even further. If we can load the entire dataset of examples into memory, then we can run the entire dataset through the network at once. If the entire dataset doesn't fit in memory, then we will have to process the dataset in batches. At any rate, we would like to be able to feed multiple examples into the network at the same time. We can accomplish this be appending multiple example vectors together to form a matrix, with each example being a column of the matrix. Thus, $x$ and $s$ are now matrices. If each batch has $N_{examples}$ examples, then we can re-draw the linear operation as
+                        Finally, we make one more modification to vectorize our network even further. We would like to be able to feed multiple examples into the network at the same time. We can accomplish this be appending multiple example vectors together to form a matrix, with each example being a column of the matrix. Thus, $x$ and $s$ are now matrices. If each batch has $N_{examples}$ examples, then we can re-draw the linear operation as
                         
                         <center>
                             <img src="images/matrix3.png">
@@ -304,13 +304,17 @@
                         </p>
                         
                         <p>
-                        We have now defined a layer of the network. If we stack many of these layers together, we will have defined the entire network architecture. The following figure provides an illustration of a general network architecture. $x^0$ is the input to the network, and $x^L$ is the output. The dotted circles containing 1s represent the appended 1 to each $x^\ell$. Note that we do not append a 1 to $x^L$, since there is no further forward computation to be done.
+                        We have now defined a layer of the network. If we stack many of these layers together, we will have defined the entire network architecture. The following figure provides an illustration of a general network architecture. $x^0$ is the input to the network, and $x^L$ is the output. The dotted circles containing 1s represent the appended 1s to each $x^\ell$. Note that we do not append 1s to $x^L$, since there is no further forward computation to be done.
                         
                         <center>
                             <img src="images/neural_net.png">
                         </center>
                         
+                        Let's review by briefly summarizing a forward pass through the network. We are given a set of data examples, which we assume to each be a vector of real numbers.
+                        
                         </p>
+                        
+                        
                         
 						<p>
                         At each layer, we have a set of units $x$, a set of activations $s$, and a set of weights $W$. There are a total of $L$ layers in the network. We feed our data into layer $0$ and we have some output at layer $L$. At each layer, we include an additional unit called the bias (the dotted outlined unit), that is arbitrarily set to 1. Why do we do this, you ask? Let's take a look at each layer's computations to find out. $s^{\ell}_j$, the $j^{th}$ activation at layer $\ell$, is found by taking a weighted sum of the previous layer's units and adding on a bias term:
