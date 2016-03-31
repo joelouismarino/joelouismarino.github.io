@@ -329,36 +329,10 @@
                         
                         
 						<p>
-                        At each layer, we have a set of units $x$, a set of activations $s$, and a set of weights $W$. There are a total of $L$ layers in the network. We feed our data into layer $0$ and we have some output at layer $L$. At each layer, we include an additional unit called the bias (the dotted outlined unit), that is arbitrarily set to 1. Why do we do this, you ask? Let's take a look at each layer's computations to find out. $s^{\ell}_j$, the $j^{th}$ activation at layer $\ell$, is found by taking a weighted sum of the previous layer's units and adding on a bias term:
+                        
+                        <h3>Learning Through Backpropagation</h3>
                         
                         
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        To run the data through the network, we perform a series of computations at each layer. These computations consist of a linear weighted sum of the previous layer's units to get the current layer's activations:
-                        
-                        $$s^\ell = W^\ell \begin{pmatrix} 1 \\ x^{\ell-1} \end{pmatrix}.$$
-                        
-                        The $1$ is the bias unit. This equation is in a <em> vectorized </em> form, meaning that $s, W,$ and $x$ are all either vectors or matrices. This is followed by a non-linearity to get the current layer's units:
-                        
-                        $$x^\ell = g(s^\ell).$$
-                        
-                        $g( )$ is a monotonic, differentiable non-linearity function. For instance, we can use a rectified linear unit (ReLU), hyperbolic tangent (tanh), logistic sigmoid, or others. As with most other introductory tutorials to backpropagation, I will use the logistic sigmoid non-linearity, which has the form
-                        
-                        $$ g(s) = \frac{1}{1+e^{-s}},$$
-                        
-                        and looks something like:
-                        <center>
-                            <img src="images/sigmoid.png">
-                        </center>
-                        
-                        Feedforward neural networks are most commonly use in a supervised learning setting.
                         
 						</p>
 
