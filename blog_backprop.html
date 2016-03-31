@@ -322,7 +322,7 @@
                         x^1 = g(s^1).
                         \end{equation}
                         
-                        We proceed in this fashion until we reach the outputs of the final layer, $x^L$. This series of operations, as simple as they are, may still seem abstract or unintuitive. But remember, what we have constructed is all just one big function.
+                        We proceed in this fashion until we reach the outputs of the final layer, $x^L$. This series of operations, as simple as they are, may still seem abstract or unintuitive. But remember, what we have constructed is all just one big function, albeit with many layers:
                         
                         \begin{equation}
                         x^L = f(x^0) = g\left(W^L \begin{pmatrix} 1 \\ g\left(W^{L-1} \begin{pmatrix} 1 \\ g\left(W^{L-2} \begin{pmatrix} 1 \\ \dots \end{pmatrix}\right) \end{pmatrix}\right) \end{pmatrix}\right).
@@ -336,7 +336,7 @@
                         
                         <h3>Learning Through Backpropagation</h3>
                         
-                        
+                        So we have defined the method of passing data forward through the network, however without learning the weights of the network (the parameters of the function), the output will be useless. In this section, we will walk through the backpropagation algorithm, allowing us to learn these weights from the data.
                         
 						</p>
 
