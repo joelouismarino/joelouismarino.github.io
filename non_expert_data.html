@@ -138,8 +138,14 @@
                     <h3> Results </h3>
                     
                     <p>
-                    We demonstrate our methods using two fine-grained datasets. The first is <a href="http://vision.stanford.edu/aditya86/ImageNetDogs/">Stanford Dogs</a>, which contains 20,580 images of 120 classes of dogs. Each class contains 100 training images of dogs at various ages and colors. The other dataset is a collection of 76,613 images of 555 classes of North American birds compiled from <a href="http://dl.allaboutbirds.org/nabirds">NABirds</a>, <a href="http://www.vision.caltech.edu/visipedia/CUB-200-2011.html">CUB-200-2011</a>, and <a href="http://birdsnap.com">Birdsnap</a>.
+                    We demonstrate our methods using two fine-grained datasets. The first is <a href="http://vision.stanford.edu/aditya86/ImageNetDogs/">Stanford Dogs</a>, which contains 20,580 images of 120 classes of dogs. Each class contains 100 training images of dogs at various ages and colors. The other dataset is a collection of 76,613 images of 555 classes of North American birds compiled from <a href="http://dl.allaboutbirds.org/nabirds">NABirds</a>, <a href="http://www.vision.caltech.edu/visipedia/CUB-200-2011.html">CUB-200-2011</a>, and <a href="http://birdsnap.com">Birdsnap</a>. We constructed visual taxonomies for both of these domains. The dog domain has three levels, with 35, 72, and 120 classes at each respective level. The birds taxonomy has four levels, with 17, 130, 241, and 555 classes at each respective level.
                     </p>
+                    
+                    <p>
+                    The size of the birds dataset is atypical of the amount of data available for many real world fine-grained domains. A researcher creating a vision system for an obscure domain may only have access to a handful of expert labeled images per class. For this reason, we selected a subset containing 4,995 images (9 images per class) from our 52,701 training images as our more `realistic' dataset. We trained in three different settings: 4,995 expert labeled examples, 52,701 expert labeled examples, and a partitioning of our dataset into 47,706 non-expert labeled images and 4,995 expert labeled images. Non-expert labeled images have coarse labels at the second level of the taxonomy, whereas expert labeled images have fine-grained labels at the fourth taxonomic level. Each model was trained by re-initializing the loss layers in a pre-trained <a href="http://www.cs.unc.edu/~wliu/papers/GoogLeNet.pdf">GoogLeNet</a> network and fine-tuning the entire network.
+                    </p>
+                    
+                    
                     
 				</div>
 	         
