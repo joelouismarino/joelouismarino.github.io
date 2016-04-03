@@ -125,7 +125,7 @@
                     </center>
                     
                     <p>
-                    There are a number of methods for taxonomic training. We use <a href="tax_curriculum_learning.html">taxonomic curriculum learning </a>, in which a classifier is trained on classes in a coarse-to-fine manner. To accomodate this approach, we make a series of cuts through the taxonomy. These cuts define the levels of the taxonomy that we use for training. We then train on successively deeper cuts through the taxonomy.
+                    There are a number of methods for taxonomic training. We use <a href="tax_curriculum_learning.html">taxonomic curriculum learning </a>, in which a classifier is trained on classes in a coarse-to-fine manner. To accomodate this approach, we make a series of cuts through the taxonomy. These cuts define the levels of the taxonomy that we use for training. We then train the classifier, a convolutional neural network, on successively deeper cuts through the taxonomy.
                     </p>
                     
                     <center>
@@ -138,7 +138,7 @@
                     <h3> Results </h3>
                     
                     <p>
-                    
+                    We demonstrate our methods using two fine-grained datasets. The first is <a href="http://vision.stanford.edu/aditya86/ImageNetDogs/">Stanford Dogs</a>, which contains 20,580 images of 120 classes of dogs. Each class contains 100 training images of dogs at various ages and colors. The other dataset is a collection of 76,613 images of 555 classes of North American birds compiled from <a href="http://dl.allaboutbirds.org/nabirds">NABirds</a>, <a href="http://www.vision.caltech.edu/visipedia/CUB-200-2011.html">CUB-200-2011</a>, and <a href="http://birdsnap.com">Birdsnap</a>.
                     </p>
                     
 				</div>
