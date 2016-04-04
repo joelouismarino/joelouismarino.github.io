@@ -196,25 +196,6 @@
                             </p>
                     </center>
                     
-                    <table align="center">
-                        <tr>
-                            <td></td>
-                            <td>Ave. $D_\text{tax}$</td>
-                        </tr>
-                        <tr>
-                            <td>Fine-Grained</td>
-                            <td>1.922</td>
-                        </tr>
-                        <tr>
-                            <td>Multi-task</td>
-                            <td>1.609</td>
-                        </tr>
-                        <tr>
-                            <td>Taxonomic Curriculum</td>
-                            <td><b>1.541</b></td>
-                        </tr>
-                    </table>
-                    
                     </p>
                     
                     <p>
@@ -232,7 +213,12 @@
                     <p>
                     Again, taxonomic curriculum learning does not result in a substantial improvement in accuracy over multi-task learning. However, we see that with a deeper re-initialization, taxonomic curriculum learning results in a noticeably lower average taxonomic distance:
                     
-                    
+                    <center>
+                        <img src="images/dist_9_im.png">
+                            <p>
+                            <em>Training with 9 images per class and deeper network re-initialization. Left: Accuracy by level. Right: Average taxonomic distance on the test set.</em>
+                            </p>
+                    </center>
                     
                     </p>
                     
