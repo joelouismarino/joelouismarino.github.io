@@ -11,8 +11,18 @@
 	<title>Research</title>
 	<meta name="description" content="">  
 	<meta name="author" content="">
-
-   <!-- Mobile Specific Metas
+        
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});
+    </script>
+    <script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+        
+        <!-- Mobile Specific Metas
    ================================================== -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -103,7 +113,7 @@
                     <h3> Method </h3>
                     
                     <p>
-                    We start by constructing visual taxonomies. The taxonomic construction method is described <a href="non_expert_data.html"> here </a>. We work with the same experimental set-up, testing taxonomic curriculum learning on the dogs and birds domains. Given a visual taxonomy, we make distinct cuts progressively through the taxonomy, which we refer to as levels. Some classes may appear in multiple levels, while other classes may not appear in any. We then learn a classifier for each level. This supports batch processing and allows us to separate out the different classifiers to learn different features that are relevant for each level. With the levels of the taxonomy defining a set of similar, yet distinct learning tasks, we can employ some form of <a href="ftp://ftp.cs.wisc.edu/machine-learning/shavlik-group/torrey.handbook09.pdf">transfer learning</a> between them.
+                    We start by constructing visual taxonomies. The datasets, taxonomic construction method, and taxonomies are described <a href="non_expert_data.html"> here </a>. We work with the same experimental set-up, testing taxonomic curriculum learning on the dogs and birds domains. Given a visual taxonomy, we make distinct cuts progressively through the taxonomy, which we refer to as levels. Some classes may appear in multiple levels, while other classes may not appear in any. We then learn a classifier for each level. This supports batch processing and allows us to separate out the different classifiers to learn different features that are relevant for each level. With the levels of the taxonomy defining a set of similar, yet distinct learning tasks, we can employ some form of <a href="ftp://ftp.cs.wisc.edu/machine-learning/shavlik-group/torrey.handbook09.pdf">transfer learning</a> between them.
                     </p>
                     
                     <p>
@@ -118,10 +128,16 @@
                     </center>
                     
                     <p>
-                    We compare taxonomic curriculum learning with two baseline methods. The first is the standard approach of ignoring the taxonomy and training purely on labels at the fine-grained level. The second is multi-task learning, in which labels from all levels of the taxonomy are trained on simultaneously. We achieve this by adding multiple output layers to the network, one for each task, so that, given an input example, the network produces a prediction at each level of the taxonomy. If an example does not have a label at a particular level, then its gradient contribution for that level is zero. By comparing the performance of these two baselines with taxonomic curriculum learning, we can determine (1) whether or not the taxonomy assists in learning and (2) whether or not training on the levels of the taxonomy sequentially has any added benefit.
+                    We compare taxonomic curriculum learning with two baseline methods. The first is the standard approach of ignoring the taxonomy and training purely on labels at the fine-grained level. The second is multi-task learning, in which labels from all levels of the taxonomy are trained on simultaneously. We achieve this by adding multiple output layers to the network, one for each task, so that, given an input example, the network produces a prediction at each level of the taxonomy. If an example does not have a label at a particular level, then its gradient contribution for that level is zero. By comparing the performance of these two baselines with taxonomic curriculum learning, we can determine 1) whether or not the taxonomy assists in learning and 2) whether or not training on the levels of the taxonomy sequentially has any added benefit.
                     </p>
                     
                     <h3> Results </h3>
+                    
+                    We first compare taxonomic curriculum learning with the baseline methods on the basis of classification accuracy at each level of the taxonomy. For each trial, we re-initialized the loss layers in a pre-trained <a href="http://www.cs.unc.edu/~wliu/papers/GoogLeNet.pdf">GoogLeNet</a> network, then fine-tuned the entire network. With the standard approach to fine-grained learning, we trained only on the final level of the taxonomy and propagated predictions up to internal classes. With this approach, the accuracy $a_\ell$ at taxonomic level $\ell$ in a taxonomy of $L$ layers is given by
+                    
+                    \begin{equation}
+                    a_\ell = \frac{1}{N} \sum_{i = 1}^N  1_{[\hat{y}_{i,L} \in \mathcal{L}(y_{i,\ell})]},
+                    \end{equation}
                     
                     
                     
