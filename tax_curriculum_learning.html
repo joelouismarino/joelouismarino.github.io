@@ -97,7 +97,13 @@
                     <h3> Motivation </h3>
                     
 					<p>
-                    Fine-grained object classes, by definition, share many visual features. With these shared visual features, we can group fine-grained classes into coarse clusters, which tend to form a visual taxonomy. The relevant visual features for distinguishing between classes in the taxonomy become more detailed with depth. Humans tend to learn object classes following this coarse to fine ordering. A child might start by first learning a base object class, such as a dog. As the child sees and interacts with dogs, it might learn to distinguish between big dogs and small dogs, then between classes of breeds, such as poodles, spaniels, and bulldogs. This stands in contrast to current methods of training deep networks, which involve training on all fine-grained classes simultaneously. We pose the following question: does ordering training into a series of coarse- to fine-grained tasks help in training a deep network? Here, we define ‘help’ to be either resulting in better fine-grained accuracy or more interpretable predictions, as defined by the taxonomy.
+                    Fine-grained object classes, by definition, share many visual features. With these shared visual features, we can group fine-grained classes into coarse clusters, which tend to form a visual taxonomy. The relevant visual features for distinguishing between classes in the taxonomy become more detailed with depth. Humans tend to learn object classes following this coarse to fine ordering. A child might start by first learning a base object class, such as a dog. As the child sees and interacts with dogs, it might learn to distinguish between big dogs and small dogs, then between classes of breeds, such as poodles, spaniels, and bulldogs. This stands in contrast to current methods of training deep networks, which involve training on all fine-grained classes simultaneously. We take inspiration from taxonomic training methods and <a href="http://ronan.collobert.com/pub/matos/2009_curriculum_icml.pdf">curriculum learning</a>, posing the following question: does ordering training into a series of coarse- to fine-grained tasks help in training a deep network? Here, we define ‘help’ to be either resulting in better fine-grained accuracy or more interpretable predictions, as defined by the taxonomy.
+                    </p>
+                    
+                    <h3> Method </h3>
+                    
+                    <p>
+                    We start by constructing visual taxonomies. The taxonomic construction method is described <a href="non_expert_data.html"> here </a>.
                     </p>
                     
 				</div>
