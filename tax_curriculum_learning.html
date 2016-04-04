@@ -139,7 +139,19 @@
                     a_\ell = \frac{1}{N} \sum_{i = 1}^N  1_{[\hat{y}_{i,L} \in \mathcal{L}(y_{i,\ell})]},
                     \end{equation}
                     
+                    where $\mathcal{L}(y_{i,\ell})$ is the set of leaf classes in the sub-tree rooted at the internal class $y_{i,\ell}$, the ground truth label at level $\ell$ for example $i$, and $\hat{y}_{i,L}$ is the fine-grained prediction of the network for example $i$. With taxonomic curriculum learning and multi-task learning, accuracy at each level adheres to the normal definition, since we have predictions and labels at each level. Note that we do not enforce consistency in these predictions.
+                    </p>
                     
+                    <p>
+                    We compared all three learning methods on both datasets for two cases. In the first case, all training examples have labels at the fine-grained level of the taxonomy, meaning there is an equal number of labels for each level: 52,701 for birds and 12,000 for dogs. In the second case, the labels for the training examples are skewed toward the coarse levels of the taxonomy. For both datasets, we selected subsets of images for each class (9 per class for birds and 5 per class for dogs) to have fine-grained labels, with all other examples having only coarse-grained labels. The following figure contains the test accuracy results of training with each method in each case.
+                    </p>
+                    
+                    <center>
+                        <img src="images/results_dogs_birds.png">
+                            <p>
+                            <em>Comparison of training methods by accuracy at each level of the taxonomy. Taxonomic curriculum learning outperforms the baseline methods when the class distribution is non-uniform.</em>
+                            </p>
+                    </center>
                     
 				</div>
                 
