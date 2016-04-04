@@ -21,6 +21,13 @@
     <script type="text/javascript"
         src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
     </script>
+    
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
         
         <!-- Mobile Specific Metas
    ================================================== -->
@@ -126,15 +133,16 @@
                             <em>Training methods.</em>
                             </p>
                     </center>
-                    <p>
-                    <b> Accuracy-Based Comparison</b>
-                    </p>
                     
                     <p>
                     We compare taxonomic curriculum learning with two baseline methods. The first is the standard approach of ignoring the taxonomy and training purely on labels at the fine-grained level. The second is multi-task learning, in which labels from all levels of the taxonomy are trained on simultaneously. We achieve this by adding multiple output layers to the network, one for each task, so that, given an input example, the network produces a prediction at each level of the taxonomy. If an example does not have a label at a particular level, then its gradient contribution for that level is zero. By comparing the performance of these two baselines with taxonomic curriculum learning, we can determine 1) whether or not the taxonomy assists in learning and 2) whether or not training on the levels of the taxonomy sequentially has any added benefit.
                     </p>
                     
                     <h3> Results </h3>
+                    
+                    <p>
+                    <b> Accuracy-Based Comparison</b>
+                    </p>
                     
                     We first compare taxonomic curriculum learning with the baseline methods on the basis of classification accuracy at each level of the taxonomy. For each trial, we re-initialized the loss layers in a pre-trained <a href="http://www.cs.unc.edu/~wliu/papers/GoogLeNet.pdf">GoogLeNet</a> network, then fine-tuned the entire network. With the standard approach to fine-grained learning, we trained only on the final level of the taxonomy and propagated predictions up to internal classes. With this approach, the accuracy $a_\ell$ at taxonomic level $\ell$ in a taxonomy of $L$ layers is given by
                     
@@ -173,6 +181,26 @@
                     \end{equation}
                     
                     Thus, for a given example, the taxonomic distance is the number of levels above the leaf level at which the prediction first matches the label. A smaller taxonomic distance represents a more reasonable prediction, quantifying the fact that in a taxonomic setting, not all errors are equal.
+                    
+                    <table style="width:100%">
+                        <tr>
+                            <td></td>
+                            <td>Ave. $D_\text{tax}$</td>
+                        </tr>
+                        <tr>
+                            <td>Fine-Grained</td>
+                            <td>1.608</td>
+                        </tr>
+                        <tr>
+                            <td>Multi-task</td>
+                            <td>1.289</td>		
+                        </tr>
+                        <tr>
+                            <td>Taxonomic Curriculum</td>
+                            <td><b>1.280</b></td>		
+                        </tr>
+                    </table>
+                    
                     </p>
                     
 				</div>
