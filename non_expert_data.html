@@ -160,8 +160,11 @@
                     With the Stanford Dogs dataset, we selected subsets of 5, 10, and 50 images from the 100 images for each class. These subsets are our expert labeled training sets, with labels at level 3 of the taxonomy. We trained models using all 100 images with non-expert labels at either the first or second level of the taxonomy in combination with each of the subsets. For comparison, we also trained models using only the expert labeled subsets. The fine-grained accuracy of these models is plotted in the following figure. Increasing the ratio of non-expert labels to expert labels leads to a larger gain in performance. The plot also portrays the relative information contained in the labels at each level. For a fixed number of expert labeled examples, training with non-expert labels at level 2 is better than training with the same amount of non-expert labels at level 1, as should be expected.  However, training with only 10 expert labels per class outperforms training with 5 expert labels and 95 level 2 non-expert labels per class.
                     </p>
                     
+                    <h3> Conclusion </h3>
+                    
                     <p>
-                    With the domains that we analyzed, we found that for a given amount of additional expert labeled data, one typically requires an order of magnitude more non-expert labeled data to achieve the same performance improvement. Of course, there may be a limit to this improvement.
+                    Visual taxonomies allow for the possibility of using non-expert labels for fine-grained object recognition. These labels are relatively easy to collect, and when combined with a small number of expert labels, can result in significant performance gains. With the domains that we analyzed, we found that for a given amount of additional expert labeled data, one typically requires an order of magnitude more non-expert labeled data to achieve the same performance improvement. Of course, there may be a limit to this improvement. Our method is not confined to taxonomic tree structures; other coarse clusterings of classes could work as well. For object domains like food, this may be a more representative structure.
+
                     </p>
                     
 				</div>
