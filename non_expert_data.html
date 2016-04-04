@@ -142,10 +142,27 @@
                     </p>
                     
                     <p>
-                    The size of the birds dataset is atypical of the amount of data available for many real world fine-grained domains. A researcher creating a vision system for an obscure domain may only have access to a handful of expert labeled images per class. For this reason, we selected a subset containing 4,995 images (9 images per class) from our 52,701 training images as our more `realistic' dataset. We trained in three different settings: 4,995 expert labeled examples, 52,701 expert labeled examples, and a partitioning of our dataset into 47,706 non-expert labeled images and 4,995 expert labeled images. Non-expert labeled images have coarse labels at the second level of the taxonomy, whereas expert labeled images have fine-grained labels at the fourth taxonomic level. Each model was trained by re-initializing the loss layers in a pre-trained <a href="http://www.cs.unc.edu/~wliu/papers/GoogLeNet.pdf">GoogLeNet</a> network and fine-tuning the entire network.
+                    The size of the birds dataset is atypical of the amount of data available for many real world fine-grained domains. A researcher creating a vision system for an obscure domain may only have access to a handful of expert labeled images per class. For this reason, we selected a subset containing 4,995 images (9 images per class) from our 52,701 training images as our more 'realistic' dataset. We trained in three different settings: 4,995 expert labeled examples, 52,701 expert labeled examples, and a partitioning of our dataset into 47,706 non-expert labeled images and 4,995 expert labeled images. Non-expert labeled images have coarse labels at the second level of the taxonomy, whereas expert labeled images have fine-grained labels at the fourth taxonomic level. Each model was trained by re-initializing the loss layers in a pre-trained <a href="http://www.cs.unc.edu/~wliu/papers/GoogLeNet.pdf">GoogLeNet</a> network and fine-tuning the entire network.
                     </p>
                     
+                    <p>
+                    The network trained just on the subset of expert labeled data reached an accuracy of <b> 41.8% </b>, whereas the network trained with the additional 47,706 non-expert labeled images reached an accuracy of <b> 47.9% </b>. Training with all 52,701 expert labeled images resulted in an accuracy of <b> 69.1% </b>. All accuracies are measured at the fine-grained level of the taxonomy. We see that, while we cannot entirely make up for a lack of expert labels, supplementing a small set of expert labeled data with a much larger set of non-expert labeled data can result in a substantial improvement in performance.
+                    </p>
                     
+                    <center>
+                        <img src="images/dogs_non_expert.pdf">
+                            <p>
+                            <em>Performance improvements from training with non-expert data. Total number of images held constant.</em>
+                            </p>
+                    </center>
+                    
+                    <p>
+                    With the Stanford Dogs dataset, we selected subsets of 5, 10, and 50 images from the 100 images for each class. These subsets are our expert labeled training sets, with labels at level 3 of the taxonomy. We trained models using all 100 images with non-expert labels at either the first or second level of the taxonomy in combination with each of the subsets. For comparison, we also trained models using only the expert labeled subsets. The fine-grained accuracy of these models is plotted in the following figure. Increasing the ratio of non-expert labels to expert labels leads to a larger gain in performance. The plot also portrays the relative information contained in the labels at each level. For a fixed number of expert labeled examples, training with non-expert labels at level 2 is better than training with the same amount of non-expert labels at level 1, as should be expected.  However, training with only 10 expert labels per class outperforms training with 5 expert labels and 95 level 2 non-expert labels per class.
+                    </p>
+                    
+                    <p>
+                    With the domains that we analyzed, we found that for a given amount of additional expert labeled data, one typically requires an order of magnitude more non-expert labeled data to achieve the same performance improvement. Of course, there may be a limit to this improvement.
+                    </p>
                     
 				</div>
 	         
