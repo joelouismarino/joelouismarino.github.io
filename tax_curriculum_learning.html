@@ -126,6 +126,9 @@
                             <em>Training methods.</em>
                             </p>
                     </center>
+                    <p>
+                    <b> Accuracy-Based Comparison</b>
+                    </p>
                     
                     <p>
                     We compare taxonomic curriculum learning with two baseline methods. The first is the standard approach of ignoring the taxonomy and training purely on labels at the fine-grained level. The second is multi-task learning, in which labels from all levels of the taxonomy are trained on simultaneously. We achieve this by adding multiple output layers to the network, one for each task, so that, given an input example, the network produces a prediction at each level of the taxonomy. If an example does not have a label at a particular level, then its gradient contribution for that level is zero. By comparing the performance of these two baselines with taxonomic curriculum learning, we can determine 1) whether or not the taxonomy assists in learning and 2) whether or not training on the levels of the taxonomy sequentially has any added benefit.
@@ -152,6 +155,25 @@
                             <em>Comparison of training methods by accuracy at each level of the taxonomy. Taxonomic curriculum learning outperforms the baseline methods when the class distribution is non-uniform.</em>
                             </p>
                     </center>
+                    
+                    <p>
+                    
+                    In the case of uniformly distributed labels at all levels of the taxonomy, taxonomic curriculum learning performs roughly as well as both baseline methods at all levels of the taxonomy. However, when the number of coarse-labeled examples is much greater than the number of examples with fine-grained labels, taxonomic curriculum learning surpasses the baselines. For fine-grained learning, the network simply has fewer training examples. With multi-task learning, there may be adverse competition between the levels of the taxonomy resulting from the difference in the number of data examples at each level.
+                    </p>
+                    
+                    <p>
+                    <b> Taxonomic Distance-Based Comparison</b>
+                    </p>
+                    
+                    <p>
+                    Another metric with which to evaluate the performance of taxonomic curriculum learning is through taxonomic distance. We define our taxonomic distance measure as follows:
+                    
+                    \begin{equation}
+                    D_{\text{tax}} = L - \max_\ell (\ell \cdot 1_{\hat{y}_\ell = y_\ell}).
+                    \end{equation}
+                    
+                    Thus, for a given example, the taxonomic distance is the number of levels above the leaf level at which the prediction first matches the label. A smaller taxonomic distance represents a more reasonable prediction, quantifying the fact that in a taxonomic setting, not all errors are equal.
+                    </p>
                     
 				</div>
                 
