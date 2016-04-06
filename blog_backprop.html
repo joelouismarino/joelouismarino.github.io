@@ -429,7 +429,23 @@
                         \frac{\partial \mathcal{L}}{\partial W^\ell} = \frac{\partial \mathcal{L}}{\partial x^L} \frac{\partial x^L}{\partial s^L}\frac{\partial s^L}{\partial x^{L-1}}\frac{\partial x^{L-1}}{\partial s^{L-1}} \dots \frac{\partial x^{\ell+1}}{\partial s^{\ell+1}}\frac{\partial s^{\ell+1}}{\partial x^{\ell}} \frac{\partial x^{\ell}}{\partial s^{\ell}}\frac{\partial s^{\ell}}{\partial W^{\ell}}.
                         \end{equation}
                         
-                        This looks like a lot to compute, especially if we are dealing with a deep network (i.e. many layers). The beauty of the backpropagation algorithm is that we actually don't need to recompute all of these terms.
+                        This looks like a lot to compute, especially if we are dealing with a deep network (i.e. many layers). The beauty of the backpropagation algorithm is that we actually don't need to recompute all of these terms. Once we have computed the derivative with respect to a particular layer, we can store the value of $\delta$ at that layer to compute the derivatives at the next layer. To see how this works, let's rewrite equation 26 as
+                        
+                        \begin{equation}
+                        \frac{\partial \mathcal{L}}{\partial W^\ell} = \frac{\partial \mathcal{L}}{\partial s^{\ell+1}}\frac{\partial s^{\ell+1}}{\partial x^{\ell}} \frac{\partial x^{\ell}}{\partial s^{\ell}}\frac{\partial s^{\ell}}{\partial W^{\ell}}.
+                        \end{equation}
+                        
+                        We are perfectly justified in combining the terms from $\frac{\partial \mathcal{L}}{\partial x^L}$ to $\frac{\partial x^{\ell+1}}{\partial s^{\ell+1}}$ into a single term, $\frac{\partial \mathcal{L}}{\partial s^{\ell+1}}$, which happens to be $\delta^{\ell+1}$. Thus, we see that we have greatly simplified the expression for the partial derivative at any given internal layer. Now let's examine the rest of the terms in equation 27. The next term is
+                        
+                        \begin{equation}
+                        \frac{\partial s^{\ell+1}}{\partial x^{\ell}} = \frac{\partial}{\partial x^{\ell}} \left( W^{\ell+1} \begin{pmatrix} 1 \\ x^\ell \end{pmatrix} \right).
+                        \end{equation}
+                        
+                        Remember that the first column of $W^{\ell+1}$ contains the biases at layer $\ell+1$. These weights are not multiplied by $x^\ell$, and therefore have no effect on the derivative $\frac{\partial s^{\ell+1}}{\partial x^{\ell}}$. Let's define $W^{\ell+1}_*$ to be the matrix of weights at layer $\ell+1$ with the biases removed. Equation 28 then becomes
+                        
+                        \begin{equation}
+                        \frac{\partial s^{\ell+1}}{\partial x^{\ell}} = W^{\ell+1}_*.
+                        \end{equation}
                         </p>
 
 					</div>
