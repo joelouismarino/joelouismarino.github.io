@@ -385,6 +385,51 @@
                         \delta^L = \frac{\partial \mathcal{L}}{\partial \hat{y}} \frac{\partial \hat{y}}{\partial s^L} = \frac{\partial}{\partial x^L}\left(||x^L - y||_F^2\right) \frac{\partial}{\partial s^L}g(s^L) = 2(x^L - y) \otimes x^L \otimes (1 - x^L).
                         \end{equation}
                         
+                        Here, $\otimes$ represents the elementwise multiplication of two matrices (or vectors), and the 1 is the matrix of 1s with the same dimensions as $x^L$: $N^L \times N_{examples}$. The term $x^L \otimes (1 - x^L)$ comes from the derivative of the logistic sigmoid non-linearity. From equation 4, this is calculated as follows:
+                        
+                        \begin{equation}
+                        \frac{d}{ds} g(s) = \frac{d}{ds} \frac{1}{1+e^{-s}} = \frac{e^{-s}}{(1+e^{-s})^2} =  \frac{1}{1+e^{-s}} \frac{e^{-s}}{1+e^{-s}} = \frac{1}{1+e^{-s}} \frac{1 + e^{-s} - 1}{1+e^{-s}}
+                        \end{equation}
+                        
+                        \begin{equation}
+                        \frac{d}{ds} g(s) = g(s)(1 - g(s)) = x(1 - x).
+                        \end{equation}
+                        
+                        From equation 17, we still need to calculate $\frac{\partial s^L}{\partial W^L}$:
+                        
+                        \begin{equation}
+                        \frac{\partial s^L}{\partial W^L} = \frac{\partial}{\partial W^L} \left( W^L \begin{pmatrix} 1 \\ x^{L-1} \end{pmatrix} \right) = \begin{pmatrix} 1 \\ x^{L-1} \end{pmatrix}^\intercal,
+                        \end{equation}
+                        
+                        where $a^\intercal$ is the <a href="https://en.wikipedia.org/wiki/Transpose">transpose</a> of $a$.
+                        
+                        </p>
+                        
+                        <p>
+                        Before moving on, let's briefly double check our matrix dimensions to make sure everything looks alright. Equation 17 has become
+                        
+                        \begin{equation}
+                        \frac{\partial \mathcal{L}}{\partial W^L} = \left(2(x^L - y) \otimes x^L \otimes (1 - x^L)\right)\begin{pmatrix} 1 \\ x^{L-1} \end{pmatrix}^\intercal.
+                        \end{equation}
+                        
+                        $\frac{\partial \mathcal{L}}{\partial W^L}$ should have the same dimensions as $W^L$, as seen from equation 14. Thus, it should have dimensions $N^L \times (N^{L-1}+1)$. On the right side of the equation, $x^L$ and $y$ both have dimensions of $N^L \times N_{examples}$, thus the entire term $2(x^L - y) \otimes x^L \otimes (1 - x^L)$ has dimensions of $N^L \times N_{examples}$. Finally,$\begin{pmatrix} 1 \\ x^{L-1} \end{pmatrix}$ has dimensions of $ (N^{L-1} + 1) \times N_{examples}$, which, when transposed, yields $N_{examples} \times (N^{L-1} + 1)$. Putting these all together, we see that
+                        
+                        \begin{equation}
+                        N^L \times (N^{L-1}+1) = ((N^L \times N_{examples}) (N_{examples} \times (N^{L-1} + 1)) = N^L \times (N^{L-1}+1).
+                        \end{equation}
+                        
+                        Thus, the dimensions are consistent.
+                        
+                        </p>
+                        
+                        <p>
+                        Now that we have derived the equation for the partial derivative of the loss with respect to the final layer of weights, if we want derive this expression for an arbitrary layer $\ell$ in the network, we simply continue using the chain rule:
+                        
+                        \begin{equation}
+                        \frac{\partial \mathcal{L}}{\partial W^\ell} = \frac{\partial \mathcal{L}}{\partial x^L} \frac{\partial x^L}{\partial s^L}\frac{\partial s^L}{\partial x^{L-1}}\frac{\partial x^{L-1}}{\partial s^{L-1}} \dots \frac{\partial x^{\ell+1}}{\partial s^{\ell+1}}\frac{\partial s^{\ell+1}}{\partial x^{\ell}} \frac{\partial x^{\ell}}{\partial s^{\ell}}\frac{\partial s^{\ell}}{\partial W^{\ell}}.
+                        \end{equation}
+                        
+                        This looks like a lot to compute, especially if we are dealing with a deep network (i.e. many layers). The beauty of the backpropagation algorithm is that we actually don't need to recompute all of these terms.
                         </p>
 
 					</div>
