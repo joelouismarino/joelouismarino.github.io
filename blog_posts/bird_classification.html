@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js ie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+
+   <!--- Basic Page Needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>Blog - Bird Classification</title>
+	<meta name="description" content="">  
+	<meta name="author" content="">
+        
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});
+    </script>
+    <script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+   <!-- Mobile Specific Metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+    ================================================== -->
+   <link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/main.css">
+   <link rel="stylesheet" href="../css/media-queries.css">
+
+   <!-- Script
+   =================================================== -->
+	<script src="../js/modernizr.js"></script>
+
+   <!-- Favicons
+	=================================================== -->
+	<link rel="shortcut icon" href="../favicon.png" >
+        
+    <!-- ConvNet
+    =================================================== -->
+    
+    <script src="../convnetjs-master/build/vis.js"></script>
+    <script src="../convnetjs-master/build/util.js"></script>
+    <script src="../convnetjs-master/build/convnet.js"></script>
+        
+    <script src="../convnetjs-master/demo/js/image-helpers.js"></script>
+    <script src="../convnetjs-master//demo/js/pica.js"></script>
+    
+    <script type="text/javascript">
+    // ------------------------
+    // BEGIN CIFAR-10 SPECIFIC STUFF
+    // ------------------------
+    var classes_txt = ['airplane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck'];
+    var dataset_name = "Birds";
+    var num_batches = 51; // 20 training batches, 1 test
+    var test_batch = 50;
+    var num_samples_per_batch = 1000;
+    var image_dimension = 32;
+    var image_channels = 3;
+    var use_validation_data = true;
+    var random_flip = true;
+    var random_position = true;
+    
+    var layer_defs, net, trainer;
+    var t = "layer_defs = [];\n\
+    layer_defs.push({type:'input', out_sx:32, out_sy:32, out_depth:3});\n\
+    layer_defs.push({type:'conv', sx:11, filters:96, stride:4, pad:2, activation:'relu'});\n\
+    layer_defs.push({type:'pool', sx:2, stride:2});\n\
+    layer_defs.push({type:'conv', sx:5, filters:20, stride:1, pad:2, activation:'relu'});\n\
+    layer_defs.push({type:'pool', sx:2, stride:2});\n\
+    layer_defs.push({type:'conv', sx:5, filters:20, stride:1, pad:2, activation:'relu'});\n\
+    layer_defs.push({type:'pool', sx:2, stride:2});\n\
+    layer_defs.push({type:'softmax', num_classes:555});\n\
+    \n\
+    net = new convnetjs.Net();\n\
+    net.makeLayers(layer_defs);\n\
+    \n\
+    trainer = new convnetjs.SGDTrainer(net, {method:'adadelta', batch_size:4, l2_decay:0.0001});\n\
+    ";
+    // ------------------------
+    // END CIFAR-10 SPECIFIC STUFF
+    // ------------------------
+    </script>
+    <script src="../convnetjs/demo/js/images-demo.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+	<div id="top"></div>
+   <div id="preloader">
+	   <div id="status">
+         <img src="../images/loader.gif" height="60" width="60" alt="">
+         <div class="loader">Loading...</div>
+      </div>
+   </div>
+
+   <!-- Header
+   =================================================== -->
+   <header id="main-header">
+
+   	<div class="row header-inner">
+
+	      <div class="logo">
+	         <a class="smoothscroll" </a>
+	      </div>
+
+	      <nav id="nav-wrap">         
+	         
+	         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">
+	         	<span class='menu-text'>Show Menu</span>
+	         	<span class="menu-icon"></span>
+	         </a>
+         	<a class="mobile-btn" href="#" title="Hide navigation">
+         		<span class='menu-text'>Hide Menu</span>
+         		<span class="menu-icon"></span>
+         	</a>         
+
+	         <ul id="nav" class="nav">
+                 <li><a href="../index.html#about">About</a></li>
+		         <li><a href="../index.html#portfolio">Research</a></li>
+	            <li class="current"><a href="../index.html#journal">Blog</a></li>
+	            <li><a href="../index.html#contact">Contact</a></li>
+	         </ul> 
+
+	      </nav> <!-- /nav-wrap -->	      
+
+	   </div> <!-- /header-inner -->
+
+   </header>
+
+
+   <!-- Content
+   ================================================== -->
+   <section id="content">
+
+   	<div class="row portfolio-content">
+
+	   	<div id="main" class="tab-whole nine columns centered">
+
+	         <article class="entry">
+
+					<header class="entry-header">
+
+						<h1 class="entry-title">
+							Bird Classification
+						</h1> 				 
+						
+						<div class="entry-meta">
+							<ul>
+								<li>April 2016</li>
+								<span class="meta-sep">•</span>
+								<li>Joe Marino</li>
+							</ul>
+						</div> 
+						 
+					</header>
+
+					<div class="entry-content-media">
+						<div class="post-thumb">
+							<img src="../images/blog_images/blog_backprop/neural_net.jpg">
+						</div> 
+					</div> 
+						
+					<div class="entry-content">
+                        <p class="lead">Classification of North American birds using GoogLeNet and ConvNet.js.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        
+
+					</div>
+                    
+                    <div id="disqus_thread"></div>
+                    <script>
+                        /**
+                         * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+                         */
+                    
+                    var disqus_config = function () {
+                        this.page.url = 'http://joelouismarino.github.io/blog_posts/bird_classification.html'; // Replace PAGE_URL with your page's canonical URL variable
+                        this.page.identifier = bird_classification; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                     var d = document, s = d.createElement('script');
+                     
+                     s.src = '//marinoblog.disqus.com/embed.js';
+                     
+                     s.setAttribute('data-timestamp', +new Date());
+                     (d.head || d.body).appendChild(s);
+                     })();
+                        </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+				</article> <!-- /entry -->
+						   
+	         
+	   	</div> <!-- /main -->
+
+	   </div> <!-- /row -->      
+
+   </section> <!-- /content -->  
+
+
+<!-- Footer
+ ================================================== -->
+<footer>
+    
+    <div class="row">
+        
+        <div class="twelve columns tab-whole right-cols">
+            
+            <div class="row">
+                
+                <div class="columns">
+                    <h3 class="address">Contact</h3>
+                    <p>
+                    jmarino [at] caltech.edu
+                    </p>
+                    <p>
+                    1200 E. California Blvd.<br>
+                    MC 136-93<br>
+                    Pasadena, 91125 CA<br>
+                    </p>
+                </div> <!-- /columns -->
+                
+                <div class="columns">
+                    <h3 class="contact">Connect</h3>
+                    
+                    <ul>
+                        <li><a href="https://www.linkedin.com/pub/joe-marino/37/bb0/73"><span></span><i class="fa fa-linkedin"></i></a>
+                            <a href="https://github.com/joelouismarino"><span></span><i class="fa fa-github"></i></a>
+                            <a href="https://www.facebook.com/joe.marino.9022"><span></span><i class="fa fa-facebook"></i></a>
+                        </li>
+                    </ul>
+                    
+                </div> <!-- /Row(nested) -->
+                
+            </div>
+            
+            <p class="copyright">&copy; Copyright 2016 Joseph Marino.</a></p>
+            
+            <div id="go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top"><span>Top</span><i class="fa fa-long-arrow-up"></i></a>
+            </div>
+            
+        </div> <!-- /row -->
+        
+        </footer> <!-- /footer -->
+
+
+   <!-- Java Script
+   ================================================== -->
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="../js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script type="text/javascript" src="../js/jquery-migrate-1.2.1.min.js"></script>
+   <script src="../js/jquery.flexslider.js"></script>
+   <script src="../js/jquery.fittext.js"></script>
+   <script src="../js/backstretch.js"></script>
+   <script src="../js/waypoints.js"></script>
+   <script src="../js/main.js"></script>
+   <script id="dsq-count-scr" src="//marinoblog.disqus.com/count.js" async></script>
+
+</body>
+
+</html>

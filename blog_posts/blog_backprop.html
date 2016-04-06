@@ -475,7 +475,7 @@
                             <li>Feed the dataset (or a batch) into the network, running the network forward to compute $x^L$</li>
                             <li>Compute the loss $\mathcal{L}$</li>
                             <li>Compute $\frac{\partial \mathcal{L}}{\partial W^L}$ and store $\delta^L$</li>
-                            <li>For layer $\ell$ = $L-2$ through 1:
+                            <li>For layer $\ell$ = $L-1$ through 1:
                                 <ul>
                                     <li>Use $\delta^{\ell + 1}$ to compute $\frac{\partial \mathcal{L}}{\partial W^\ell}$ and store $\delta^\ell$</li>
                                 </ul>
@@ -501,7 +501,7 @@ Code line 2</code>
                          */
                     
                     var disqus_config = function () {
-                        this.page.url = 'http://joelouismarino.github.io/blog_backprop.html'; // Replace PAGE_URL with your page's canonical URL variable
+                        this.page.url = 'http://joelouismarino.github.io/blog_posts/blog_backprop.html'; // Replace PAGE_URL with your page's canonical URL variable
                         this.page.identifier = implementing_backprop; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
                     };
                     
