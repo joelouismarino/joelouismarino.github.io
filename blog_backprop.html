@@ -87,30 +87,13 @@
    </header>
 
 
-   <!-- Page Title
-   ================================================== -->
-   <section id="page-title">	
-   	  
-		<div class="row">
-
-			<div class="twelve columns">
-
-				<h1>Blog<span>.</span></h1>
-
-			</div>			    
-
-		</div> <!-- /row -->	   
-
-   </section> <!-- /page-title -->
-
-
    <!-- Content
    ================================================== -->
    <section id="content">
 
-   	<div class="row">
+   	<div class="row portfolio-content">
 
-	   	<div id="main" class="tab-whole eight columns">
+	   	<div id="main" class="tab-whole nine columns centered">
 
 	         <article class="entry">
 
@@ -122,7 +105,7 @@
 						
 						<div class="entry-meta">
 							<ul>
-								<li>March 29, 2016</li>
+								<li>March 2016</li>
 								<span class="meta-sep">•</span>
 								<li>Joe Marino</li>
 							</ul>
@@ -325,7 +308,7 @@
                         We proceed in this fashion until we reach the outputs of the final layer, $x^L$. This series of operations, as simple as they are, may still seem abstract or unintuitive. But remember, what we have constructed is all just one big function, albeit with many layers:
                         
                         \begin{equation}
-                        x^L = f(x^0) = g\left(W^L \begin{pmatrix} 1 \\ g\left(W^{L-1} \begin{pmatrix} 1 \\ g\left(W^{L-2} \begin{pmatrix} 1 \\ \dots \end{pmatrix}\right) \end{pmatrix}\right) \end{pmatrix}\right).
+                        \hat{y} = x^L = f(x^0) = g\left(W^L \begin{pmatrix} 1 \\ g\left(W^{L-1} \begin{pmatrix} 1 \\ g\left(W^{L-2} \begin{pmatrix} 1 \\ \dots \end{pmatrix}\right) \end{pmatrix}\right) \end{pmatrix}\right).
                         \end{equation}
                         
                         </p>
@@ -339,6 +322,70 @@
                         So we have defined the method of passing data forward through the network, however without learning the weights of the network (the parameters of the function), the output will be useless. The network will be guessing at random. In this section, we will walk through the backpropagation algorithm, allowing us to learn these weights from the data.
                         
 						</p>
+                        
+                        <p>
+                        In order to learn the weights, we need to define some measure of the performance of the network. In other words, how well do our predictions $\hat{y}$ match the ground truth $y$? In the machine learning and optimization literature, this measure of goodness is referred to as a <a href="https://en.wikipedia.org/wiki/Loss_function">loss function</a>, which we will refer to as $\mathcal{L}(\hat{y},y)$. Once we have a loss function, we can use <a href="https://en.wikipedia.org/wiki/Gradient_descent">gradient descent</a> to change the weights of our network to improve the loss, i.e. make better predictions. We do so by updating the weights as follows:
+                        
+                        \begin{equation}
+                        W^\ell \leftarrow W^\ell - \eta \frac{\partial \mathcal{L}}{\partial W^\ell}.
+                        \end{equation}
+                        
+                        </p>
+                        <p>
+                        For anyone unfamiliar with gradient descent, let's briefly explain equation 14. The loss $\mathcal{L}$ is a function of our prediction $\hat{y}$, which, in turn, is a function of our network's weights $W^1, W^2, \dots , W^L$. This means that the loss is, in fact, a function of the weights. Our goal is to find weights that give us a smaller loss, which will thereby give us better predictions. We do so by optimizing the loss with respect to each of the weights. That is, we update $W^\ell$ to be itself plus a step that will bring us down the slope of the loss function in the direction of $W^\ell$ (the minus sign represents the fact that we are stepping down the slope). The size of this step is quantified by $\eta$, the learning rate.
+                        </p>
+                        <p>
+                        
+                        The most basic loss function is what is called 0-1 loss, in which we incur a penalty if the prediction doesn't exactly match the ground truth:
+                        
+                        \begin{equation}
+                        \mathcal{L}(\hat{y}_i,y_i) = 1_{[\hat{y}_i \neq y_i]}.
+                        \end{equation}
+                        
+                        If we take this loss over our entire dataset, we simply count up the number of mistakes. <em>One quick note: in the last section, we eventually let $\hat{y}$, and therefore $y$, be matrices, however, in equation 15, they each define a matrix containing the results of the $i^{\text{th}}$ example, yielding a vector. We have omitted the vector arrows for simplicity.</em> Alright, so we have defined a loss function; we know the number of mistakes the network is making. Now it's just a matter of doing some optimization over the weights to decrease the number of mistakes!
+                        </p>
+                        
+                        <p>
+                        Not so fast! There are a number of reasons why 0-1 loss is not a good choice of loss function, but chief among them is the fact that it is either zero or not differentiable everywhere. If we make an incorrect prediction, $\frac{\partial \mathcal{L}}{\partial W^\ell}$ will be zero. You can intuitively think of it using this simplified example: let's say I'm thinking of a number, any number, and you want to guess what it is. If, after every guess, I only give you a simple 'yes' or 'no', you have almost zero chance of ever correctly guessing it. However, if I tell you 'bigger' or 'smaller', you now have a method of modifying your guess toward the correct number. So what is a better choice of loss function? The loss function that we use in CNS 187 is called squared loss, and is defined as follows:
+                        
+                        \begin{equation}
+                        \mathcal{L}(\hat{y}_i,y_i) = ||\hat{y}_i - y_i||^2.
+                        \end{equation}
+                        
+                        This gives us a differentiable distance measure between our prediction and the ground truth. Later on, we will define the softmax loss function, which is more commonly used with neural networks.
+                        
+                        </p>
+                        
+                        <p>
+                        Now that we have defined the loss $\mathcal{L}$, it's a matter of calculating $\frac{\partial \mathcal{L}}{\partial W^\ell}$ for each set of weights $W^\ell$ in the network. From equation 13, we see that we will need to use the <a href="https://en.wikipedia.org/wiki/Chain_rule">chain rule</a> to calculate these partial derivatives. This is where backpropagation begins...
+                        </p>
+                        
+                        <p>
+                        Let's start by calculating the partial derivatives of the loss with respect to the final layer of weights, $\frac{\partial \mathcal{L}}{\partial W^L}$. Using the chain rule, we can write out
+                        
+                        \begin{equation}
+                        \frac{\partial \mathcal{L}}{\partial W^L} = \frac{\partial \mathcal{L}}{\partial \hat{y}} \frac{\partial \hat{y}}{\partial s^L}\frac{\partial s^L}{\partial W^L}.
+                        \end{equation}
+                        
+                        To simplify the notation, let's define a term $\delta$ to be
+                        
+                        \begin{equation}
+                        \delta^\ell \triangleq \frac{\partial \mathcal{L}}{\partial s^\ell}.
+                        \end{equation}
+                        
+                        Thus, the partial derivative at the final layer becomes
+                        
+                        \begin{equation}
+                        \frac{\partial \mathcal{L}}{\partial W^L} = \delta^L \frac{\partial s^L}{\partial W^L}.
+                        \end{equation}
+                        
+                        Remembering that $\hat{y} = x^L$, we calculate $\delta^L$ as follows:
+                        
+                        \begin{equation}
+                        \delta^L = \frac{\partial \mathcal{L}}{\partial \hat{y}} \frac{\partial \hat{y}}{\partial s^L} = \frac{\partial}{\partial x^L}\left(||x^L - y||_F^2\right) \frac{\partial}{\partial s^L}g(s^L) = 2(x^L - y) \otimes x^L \otimes (1 - x^L).
+                        \end{equation}
+                        
+                        </p>
 
 					</div>
                     
