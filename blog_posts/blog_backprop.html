@@ -115,7 +115,7 @@
 
 					<div class="entry-content-media">
 						<div class="post-thumb">
-							<img src="images/neural_net.jpg">
+							<img src="../images/blog_images/blog_backprop/neural_net.jpg">
 						</div> 
 					</div> 
 						
@@ -163,7 +163,7 @@
                         Plotting this out, we get the following curve:
                         
                         <center>
-                            <img src="images/sigmoid_labels.png">
+                            <img src="../images/blog_images/blog_backprop/sigmoid_labels.png">
                         </center>
                         
                         For large negative inputs, the exponential blows up and the function approaches 0, whereas for large positive inputs, the exponential goes to zero and the function approaches 1. For inputs that lie between these two extremes, we fall into an approximately linear region.
@@ -178,7 +178,7 @@
                         When plotted out, we have this curve:
                         
                         <center>
-                            <img src="images/relu_labels.png">
+                            <img src="../images/blog_images/blog_backprop/relu_labels.png">
                         </center>
                         
                         Anything less than zero gets mapped to zero, while anything greater than zero is passed through as the identity.
@@ -189,7 +189,7 @@
                         </p>
                         
                         <center>
-                            <img src="images/connected-neurons.jpg">
+                            <img src="../images/blog_images/blog_backprop/connected-neurons.jpg">
                         </center>
                         
                         <p>
@@ -202,7 +202,7 @@
                         Up to this point, our focus has been on the workings of an individual unit in the network. However, computation in neural networks depends heavily on the cooperation of many of these units, representing aspects of the input in a distributed fashion. In a feedforward network architecture, we have two ways of adding units to our network, either in <em>parallel</em> or <em>serial</em>. The following figure illustrates each of these approaches.
                         
                         <center>
-                            <img src="images/parallel_serial.png">
+                            <img src="../images/blog_images/blog_backprop/parallel_serial.png">
                         </center>
                         
                         Circles represent units within the network, and lines represent connection weights between these units. Feedforward neural networks are composed of layers of units, with connections between these layers. In a standard neural network, these connections map all of the units in one layer to all of the units in the adjacent layer. However, it is possible to construct networks with more limited connections or connections between non-adjacent layers.
@@ -212,7 +212,7 @@
                         We see that adding units in parallel is equivalent to increasing the number of units in a particular layer or layers, whereas adding units serially is equivalent to adding an additional layer to the network. Both approaches are essential for constructing a neural network that is capable of performing useful computations; we need the network to be sufficiently wide and deep.
                         
                         <center>
-                            <img src="images/depth_width.png">
+                            <img src="../images/blog_images/blog_backprop/depth_width.png">
                         </center>
                         
                         </p>
@@ -221,7 +221,7 @@
                         Part of the inspiration for this hierarchical, layered network architecture comes from biological neural networks, in particular, the neocortex. This brain structure is composed of many repeated basic circuits, grouped into regions, which are arranged hierarchically. For instance, when a visual signal first reaches the neocortex, it is represented by the primary visual cortex as a set of simple visual features, such as oriented lines, color patches, and motion vectors. As the signal propagates down the ventral visual pathway, downstream areas combine the visual features from previous areas into more complicated, abstract features, such as simple shapes, patterns, and eventually objects. There is obviously more to the neocortex than this simple description, but the general principle of hierarchical design is nevertheless valid.
                         
                         <center>
-                            <img src="images/visual_features3.png">
+                            <img src="../images/blog_images/blog_backprop/visual_features3.png">
                                 <p>
                                     <em>Sources: Left: Serre &amp; Poggio, 2010, Right: Kandel et al., 2012</em>
                                 </p>
@@ -263,7 +263,7 @@
                         In working with these vectorized equations, it's important to step back and look at the dimensions of the matrix multiplications. Let's say that there are $N^\ell$ units in layer $\ell$. If we draw out equation 9, then we have:
                         
                         <center>
-                            <img src="images/matrix1.png">
+                            <img src="../images/blog_images/blog_backprop/matrix1.png">
                         </center>
                         
                         We see that $W^\ell$ is a matrix of size $N^\ell \times N^{\ell-1}$. For simplicity, let's make the following change: let's redefine our weight matrix by absorbing the bias vector. We append $\vec{b}^{\,\ell}$ to $W^\ell$, making it the first column of the weight matrix. To properly account for this change, we append a 1 to the top of our input vector, $\vec{x}^{\,\ell-1}$. The math works out exactly the same, except now instead of a matrix multiplication followed by a vector addition, we simply have a matrix multiplication. With the redefined $W^\ell$, the new operation is
@@ -275,13 +275,13 @@
                         Note that we have implicitly redefined $W^\ell$ to contain the bias terms, whereas we have explicitly rewritten $\vec{x}^{\,\ell-1}$ with an appended 1. This can be drawn as
                         
                         <center>
-                            <img src="images/matrix2.png">
+                            <img src="../images/blog_images/blog_backprop/matrix2.png">
                         </center>
                         
                         Finally, we make one more modification to vectorize our network even further. We would like to be able to feed multiple examples into the network at the same time. We can accomplish this be appending multiple example vectors together to form a matrix, with each example being a column of the matrix. Thus, $x$ and $s$ are now matrices. If each batch has $N_{examples}$ examples, then we can re-draw the linear operation as
                         
                         <center>
-                            <img src="images/matrix3.png">
+                            <img src="../images/blog_images/blog_backprop/matrix3.png">
                         </center>
                         
                         </p>
@@ -290,7 +290,7 @@
                         We have now defined a layer of the network. If we stack many of these layers together, we will have defined the entire network architecture. The following figure provides an illustration of a general network architecture. $x^0$ is the input to the network, and $x^L$ is the output. The dotted circles containing 1s represent the appended 1s to each $x^\ell$. Note that we do not append 1s to $x^L$, since there is no further forward computation to be done.
                         
                         <center>
-                            <img src="images/neural_net.png">
+                            <img src="../images/blog_images/blog_backprop/neural_net.png">
                         </center>
                         
                         Let's review by briefly summarizing a forward pass through the network. We are given a set of data examples, each of which we assume to be a vector of real numbers. We string together some number of examples, and pass them into our network as the matrix $x^0$. We append a vector of 1s to the top of this matrix and multiply by the first set of weights and biases, wrapped together as $W^1$ to get the first set of summations:
@@ -486,6 +486,10 @@
                         This process is repeated until the weights converge and the network's performance ceases to improve.
                         
                         </p>
+                        
+                        
+                        <code style=display:block;white-space:pre-wrap>Code line 1
+Code line 2</code>
 
 					</div>
                     

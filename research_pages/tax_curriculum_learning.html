@@ -131,7 +131,7 @@
                     </p>
                     
                     <center>
-                        <img src="images/training.png">
+                        <img src="../images/research_images/tax_curriculum_learning/training.png">
                             <p>
                             <em>Training methods.</em>
                             </p>
@@ -161,7 +161,7 @@
                     </p>
                     
                     <center>
-                        <img src="images/results_dogs_birds.png">
+                        <img src="../images/research_images/tax_curriculum_learning/results_dogs_birds.png">
                             <p>
                             <em>Comparison of training methods by accuracy at each level of the taxonomy. Taxonomic curriculum learning outperforms the baseline methods when the class distribution is non-uniform.</em>
                             </p>
@@ -190,7 +190,7 @@
                     We trained all three learning methods on the birds dataset by again re-initializing the final loss layer and training with the subset of 9 images per class. Comparing the methods first on the basis of test accuracy, the following figure shows that the results are farily consistent with those from the full dataset. The average taxonomic distances for each method, evaluated on the test set, are shown in the following table. Taxonomic curriculum learning outperforms both baseline methods slightly, despite having lower accuracy at the fine-grained level. This suggests that taxonomic curriculum learning results in more reasonable predictions.
                     
                     <center>
-                        <img src="images/dist_9_im.png">
+                        <img src="../images/research_images/tax_curriculum_learning/dist_9_im.png">
                             <p>
                             <em>Training with 9 images per class. Left: Accuracy by level. Right: Average taxonomic distance on the test set.</em>
                             </p>
@@ -202,7 +202,7 @@
                     Since we expect that taxonomic curriculum learning may help during training as a non-convex optimization technique, we increased the difficulty of the optimization problem by re-initializing the network further back by three inception modules and training with the same subset of images. This is shown in the following figure.
                     
                     <center>
-                        <img src="images/reinit.png">
+                        <img src="../images/research_images/tax_curriculum_learning/reinit.png">
                             <p>
                             <em>Re-initialization in the GoogLeNet network architecture.</em>
                             </p>
@@ -214,7 +214,7 @@
                     Again, taxonomic curriculum learning does not result in a substantial improvement in accuracy over multi-task learning. However, we see that with a deeper re-initialization, taxonomic curriculum learning results in a noticeably lower average taxonomic distance:
                     
                     <center>
-                        <img src="images/dist_9_im_deeper.png">
+                        <img src="../images/research_images/tax_curriculum_learning/dist_9_im_deeper.png">
                             <p>
                             <em>Training with 9 images per class and deeper network re-initialization. Left: Accuracy by level. Right: Average taxonomic distance on the test set.</em>
                             </p>
