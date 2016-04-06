@@ -446,6 +446,27 @@
                         \begin{equation}
                         \frac{\partial s^{\ell+1}}{\partial x^{\ell}} = W^{\ell+1}_*.
                         \end{equation}
+                        
+                        On to the next term of equation 27. As we saw in equation 22,
+                        
+                        \begin{equation}
+                        \frac{\partial x^{\ell}}{\partial s^{\ell}} = \frac{\partial}{\partial s^{\ell}} (g(s^\ell)) = x^{\ell} \otimes (1 - x^{\ell}).
+                        \end{equation}
+                        
+                        Finally, as we saw in equation 23, the final term in equation 27 evaluates to
+                        
+                        \begin{equation}
+                        \frac{\partial s^{\ell}}{\partial W^{\ell}} = \frac{\partial}{\partial W^\ell} \left( W^\ell \begin{pmatrix} 1 \\ x^{\ell-1} \end{pmatrix} \right) = \begin{pmatrix} 1 \\ x^{\ell-1} \end{pmatrix}^\intercal.
+                        \end{equation}
+                        
+                        Putting all of this together, equation 27 becomes
+                        
+                        \begin{equation}
+                        \frac{\partial \mathcal{L}}{\partial W^\ell} = \left(\delta^{\ell+1} W^{\ell+1}_* \otimes x^{\ell} \otimes (1 - x^{\ell})\right) \begin{pmatrix} 1 \\ x^{\ell-1} \end{pmatrix}^\intercal.
+                        \end{equation}
+                        
+                        
+                        
                         </p>
 
 					</div>
