@@ -459,13 +459,31 @@
                         \frac{\partial s^{\ell}}{\partial W^{\ell}} = \frac{\partial}{\partial W^\ell} \left( W^\ell \begin{pmatrix} 1 \\ x^{\ell-1} \end{pmatrix} \right) = \begin{pmatrix} 1 \\ x^{\ell-1} \end{pmatrix}^\intercal.
                         \end{equation}
                         
-                        Putting all of this together, equation 27 becomes
+                        Putting all of this together, and enforcing consistency in matrix dimensions, equation 27 becomes
                         
                         \begin{equation}
-                        \frac{\partial \mathcal{L}}{\partial W^\ell} = \left(\delta^{\ell+1} W^{\ell+1}_* \otimes x^{\ell} \otimes (1 - x^{\ell})\right) \begin{pmatrix} 1 \\ x^{\ell-1} \end{pmatrix}^\intercal.
+                        \frac{\partial \mathcal{L}}{\partial W^\ell} = \left(((W^{\ell+1}_*)^\intercal \delta^{\ell+1})  \otimes x^{\ell} \otimes (1 - x^{\ell})\right) \begin{pmatrix} 1 \\ x^{\ell-1} \end{pmatrix}^\intercal = \delta^\ell \begin{pmatrix} 1 \\ x^{\ell-1} \end{pmatrix}^\intercal.
                         \end{equation}
                         
+                        When evaluated, both sides have dimensions of $N^\ell \times (N^{\ell-1}+1)$.
+                        </p>
                         
+                        <p>
+                        Now that we have expressions for $\frac{\partial \mathcal{L}}{\partial W^\ell}$ for $\ell = 1, \dots, L$, we can run the entire backpropagation algorithm. Recapping, the steps are
+                        
+                        <ol>
+                            <li>Feed the dataset (or a batch) into the network, running the network forward to compute $x^L$</li>
+                            <li>Compute the loss $\mathcal{L}$</li>
+                            <li>Compute $\frac{\partial \mathcal{L}}{\partial W^L}$ and store $\delta^L$</li>
+                            <li>For layer $\ell$ = $L-2$ through 1:
+                                <ul>
+                                    <li>Use $\delta^{\ell + 1}$ to compute $\frac{\partial \mathcal{L}}{\partial W^\ell}$ and store $\delta^\ell$</li>
+                                </ul>
+                            </li>
+                            <li>Use $\frac{\partial \mathcal{L}}{\partial W^\ell}$ to update each $W^\ell$</li>
+                        </ol>
+                        
+                        This process is repeated until the weights converge and the network's performance ceases to improve.
                         
                         </p>
 
