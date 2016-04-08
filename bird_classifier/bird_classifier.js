@@ -5,8 +5,8 @@
 
 // set constants
 
-var IMAGE_DIMENSION = 227;
-var IMAGE_CHANNELS = 3;
+var image_dimension = 227;
+var image_channels = 3;
 
 
 
@@ -14,7 +14,7 @@ var IMAGE_CHANNELS = 3;
 
 layer_defs = [];
 
-layer_defs.push({type:'input', out_sx:227, out_sy:227, out_depth:3});
+layer_defs.push({type:'input', out_sx:image_dimension, out_sy:image_dimension, out_depth:image_channels});
 layer_defs.push({type:'conv', sx:11, filters:96, stride:4, pad:0, activation:'relu'});
 layer_defs.push({type:'lrn', k:0, n:5, alpha:0.0001, beta:0.75});
 layer_defs.push({type:'pool', sx:3, stride:2});
