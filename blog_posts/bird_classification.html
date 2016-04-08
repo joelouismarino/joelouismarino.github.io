@@ -48,47 +48,8 @@
     <script src="../convnetjs-master/build/convnet.js"></script>
         
     <script src="../convnetjs-master/demo/js/image-helpers.js"></script>
-    <script src="../convnetjs-master//demo/js/pica.js"></script>
-    
-    <script type="text/javascript">
-    // ------------------------
-    // BEGIN CIFAR-10 SPECIFIC STUFF
-    // ------------------------
-    var classes_txt = ['airplane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck'];
-    var dataset_name = "Birds";
-    var num_batches = 51; // 20 training batches, 1 test
-    var test_batch = 50;
-    var num_samples_per_batch = 1000;
-    var image_dimension = 32;
-    var image_channels = 3;
-    var use_validation_data = true;
-    var random_flip = true;
-    var random_position = true;
-    
-    var layer_defs, net, trainer;
-    var t = "layer_defs = [];\n\
-    layer_defs.push({type:'input', out_sx:32, out_sy:32, out_depth:3});\n\
-    layer_defs.push({type:'conv', sx:11, filters:96, stride:4, pad:2, activation:'relu'});\n\
-    layer_defs.push({type:'pool', sx:2, stride:2});\n\
-    layer_defs.push({type:'conv', sx:5, filters:20, stride:1, pad:2, activation:'relu'});\n\
-    layer_defs.push({type:'pool', sx:2, stride:2});\n\
-    layer_defs.push({type:'conv', sx:5, filters:20, stride:1, pad:2, activation:'relu'});\n\
-    layer_defs.push({type:'pool', sx:2, stride:2});\n\
-    layer_defs.push({type:'softmax', num_classes:555});\n\
-    \n\
-    net = new convnetjs.Net();\n\
-    net.makeLayers(layer_defs);\n\
-    \n\
-    trainer = new convnetjs.SGDTrainer(net, {method:'adadelta', batch_size:4, l2_decay:0.0001});\n\
-    ";
-    // ------------------------
-    // END CIFAR-10 SPECIFIC STUFF
-    // ------------------------
-    </script>
-    <script src="../convnetjs/demo/js/images-demo.js"></script>
-
-
-
+    <script src="../convnetjs-master/demo/js/pica.js"></script>
+    <script src="../bird_classifier/bird_classifier.js"></script>
 
 </head>
 
@@ -162,18 +123,24 @@
 						</div> 
 						 
 					</header>
-
-					<div class="entry-content-media">
-						<div class="post-thumb">
-							<img src="../images/blog_images/blog_backprop/neural_net.jpg">
-						</div> 
-					</div> 
 						
 					<div class="entry-content">
                         <p class="lead">Classification of North American birds using GoogLeNet and ConvNet.js.</p>
 
 
-
+<div class="divsec" style="270px;">
+    <div class="secpart">
+        <div id="upload_box">
+            Upload an Image:
+            <div id="img_div">
+                <img id="preview_img"/>
+            </div>
+            <input name="image" type="file" accept="image/*" onchange="loadFile(event)">
+            <input type="submit" value="Classify" onclick="testImage(document.getElementById('preview_img'))">
+        </div>
+    </div>
+    <div style="clear:both;"></div>
+</div>
 
 
 
