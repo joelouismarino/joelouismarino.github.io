@@ -29,19 +29,20 @@
 	<!-- CSS
     ================================================== -->
    <link rel="stylesheet" href="../css/base.css">
-	<link rel="stylesheet" href="../css/main.css">
+   <link rel="stylesheet" href="../css/main.css">
    <link rel="stylesheet" href="../css/media-queries.css">
+   <link rel="stylesheet" href="../convnetjs-master/css/style.css">
 
    <!-- Script
    =================================================== -->
 	<script src="../js/modernizr.js"></script>
 
    <!-- Favicons
-	=================================================== -->
+   =================================================== -->
 	<link rel="shortcut icon" href="../favicon.png" >
         
-    <!-- ConvNet
-    =================================================== -->
+   <!-- ConvNet
+   =================================================== -->
     
     <script src="../convnetjs-master/build/vis.js"></script>
     <script src="../convnetjs-master/build/util.js"></script>
@@ -54,7 +55,7 @@
 </head>
 
 <body>
-
+    
 	<div id="top"></div>
    <div id="preloader">
 	   <div id="status">
@@ -126,35 +127,21 @@
 						
 					<div class="entry-content">
                         <p class="lead">Classification of North American birds using GoogLeNet and ConvNet.js.</p>
+                    </div>
 
-
-<div class="divsec" style="270px;">
-    <div class="secpart">
-        <div id="upload_box">
-            Upload an Image:
-            <div id="img_div">
-                <img id="preview_img"/>
-            </div>
-            <input name="image" type="file" accept="image/*" onchange="loadFile(event)">
-            <input type="submit" value="Classify" onclick="testImage(document.getElementById('preview_img'))">
-        </div>
-    </div>
-    <div style="clear:both;"></div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-                        
-
-					</div>
+                    <div class="divsec">
+                        <div class="secpart">
+                            <div id="upload_box">
+                                Upload an Image:
+                                <div id="img_div">
+                                    <img id="preview_img"/>
+                                </div>
+                                <input name="image" type="file" accept="image/*" onchange="loadFile(event)"/>
+                                <input type="submit" value="Classify" onclick="testImage(document.getElementById('preview_img'))"/>
+                            </div>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
                     
                     <div id="disqus_thread"></div>
                     <script>
