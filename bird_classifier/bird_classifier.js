@@ -59,7 +59,7 @@ var testImage = function(img){
     // get predictions and sort to get top predictions
     var preds =[]
     for(var k=0;k<output_prob.w.length;k++) {preds.push({k:k,p:output_prob.w[k]});}
-    //preds.sort(function(a,b){return a.p<b.p ? 1:-1;});
+    preds.sort(function(a,b){return a.p<b.p ? 1:-1;});
     
     // create predictions plot
     var plot_div = document.createElement('div');
@@ -68,12 +68,10 @@ var testImage = function(img){
     var probs_div = document.createElement('div');
     probs_div.className = 'probsdiv';
     
-    
-    
     var bars = ''; // contains html for each bar in the predictions plot
     var bar_color = 'rgb(187,85,85)';
     for(var k=0;k<10;k++) {
-        bars += '<div class=\"pp\" style=\"height:' + Math.floor(preds[k].p/1*100) + 'px; background-color:' + bar_color + ';\"> </div>'
+        bars += '<div class=\"pp\" style=\"width:' + Math.floor(preds[k].p/1*300) + 'px; background-color:' + bar_color + ';\"> </div>'
     }
     
     probs_div.innerHTML = bars;
