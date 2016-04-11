@@ -128,7 +128,32 @@
 					<div class="entry-content">
                         <p class="lead">Classification of North American birds using GoogLeNet and ConvNet.js.</p>
                     </div>
-
+                    
+                    <div class="row add-bottom">
+                        
+                        
+                        <div class="tab-whole four columns">
+                            <div id="upload_box">
+                                Upload an Image:
+                                <div id="img_div">
+                                    <img id="preview_img"/>
+                                </div>
+                                <input name="image" type="file" accept="image/*" onchange="loadFile(event)"/>
+                            </div>
+                            <input type="submit" value="Classify" onclick="testImage(document.getElementById('preview_img'))"/>
+                        </div>
+                        
+                        
+                        
+                        <div class="tab-whole eight columns">
+                            <p>Cras aliquet. Integer faucibus, eros ac molestie placerat, enim tellus varius lacus,
+                            nec dictum nunc tortor id urna. Suspendisse dapibus ullamcorper pede. Vivamus ligula ipsum,
+                            faucibus at, tincidunt eget, porttitor non, dolor. </p>
+                        </div>
+                        
+                        
+                    </div>
+                    
                     <div class="divsec">
                         <div class="secpart">
                             <div id="upload_box">
