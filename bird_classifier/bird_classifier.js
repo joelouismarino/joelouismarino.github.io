@@ -29,7 +29,7 @@ layer_defs.push({type:'fc', num_neurons:4096, activation: 'relu'});
 layer_defs.push({type:'dropout', drop_prob:0.5});
 layer_defs.push({type:'fc', num_neurons:4096, activation: 'relu'});
 layer_defs.push({type:'dropout', drop_prob:0.5});
-layer_defs.push({type:'softmax', num_classes:555});
+layer_defs.push({type:'softmax', num_classes:1000});
 
 net = new convnetjs.Net();
 net.makeLayers(layer_defs);
@@ -59,11 +59,10 @@ var testImage = function(img){
         preds.push({k:k,p:output_prob.w[k]});
     }
     
-    
     preds.sort(function(a,b){return a.p<b.p ? 1:-1;});
     
     // add predictions
-    var div = document.getElementById('predictions_plot');
+    var div = document.createElement('div');
     div.className = 'testdiv';
     
     var probsdiv = document.createElement('div');
