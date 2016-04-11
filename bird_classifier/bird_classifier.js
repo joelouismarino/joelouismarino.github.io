@@ -48,35 +48,40 @@ net.makeLayers(layer_defs);
 
 var testImage = function(img){
     
+    // clear out the most recent prediction
+    document.getElementById('predictions_plot').innerHTML = '';
+    document.getElementById('top_predictions').innerHTML = '';
+    
     // load the image and pass it through the network
     var x = convnetjs.img_to_vol(img)
     var output_prob = net.forward(x)
     
-    // get predictions
+    // get predictions and sort to get top predictions
     var preds =[]
-    for(var k=0;k<output_prob.w.length;k++) {
-        preds.push({k:k,p:output_prob.w[k]});
-    }
-    
+    for(var k=0;k<output_prob.w.length;k++) {preds.push({k:k,p:output_prob.w[k]});}
     preds.sort(function(a,b){return a.p<b.p ? 1:-1;});
     
-    // add predictions
-    var div = document.createElement('div');
-    div.className = 'testdiv';
+    // create predictions plot
+    var plot_div = document.createElement('div');
+    plot_div.className = 'testdiv';
     
-    var probsdiv = document.createElement('div');
+    var probs_div = document.createElement('div');
+    probs_div.className = 'probsdiv';
     
-    var bars = '';
+    /*
+    var bars = ''; // contains html for each bar in the predictions plot
+    var bar_color = 'rgb(187,85,85)';
     for(var k=0;k<10;k++) {
-        var bar_color = 'rgb(187,85,85)';
         bars += '<div class=\"pp\" style=\"width:' + Math.floor(preds[k].p/1*100) + 'px; background-color:' + bar_color + ';\"></div>'
     }
+    */
     
-    probsdiv.innerHTML = bars;
-    probsdiv.className = 'probsdiv';
-    div.appendChild(probsdiv);
+    var bars = '<p> Test </p>'
     
-    $(div).prependTo($("#predictions_plot")).hide().fadeIn('slow').slideDown('slow');
+    probs_div.innerHTML = bars;
+    plot_div.appendChild(probs_div);
+    
+    $(plot_div).prependTo($("#predictions_plot")).hide().fadeIn('slow').slideDown('slow');
     $("#top_predictions").text('Top Predictions: ' + preds[0].p);
     
 }
