@@ -85,6 +85,7 @@ h2 {
 .probsdiv {
   float: left;
   height: 100px;
+  display: inline-block
   width: auto
   margin-left: 1px;
 }
