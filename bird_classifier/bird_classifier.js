@@ -77,8 +77,6 @@ var testImage = function(img){
     }
     
     
-    var bars = '<p> Test </p>'
-    
     probs_div.innerHTML = bars;
     plot_div.appendChild(probs_div);
     
