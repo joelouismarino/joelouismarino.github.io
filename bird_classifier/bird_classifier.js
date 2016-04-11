@@ -86,7 +86,7 @@ var testImage = function(img){
     div.appendChild(probsdiv);
     
     $(div).prependTo($("#predictions_plot")).hide().fadeIn('slow').slideDown('slow');
-    $("#top_predictions").text('Top Predictions: ');
+    $("#top_predictions").text('Top Predictions: ' preds[0].p);
     
 }
 
