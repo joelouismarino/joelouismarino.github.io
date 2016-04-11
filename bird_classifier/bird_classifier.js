@@ -5,7 +5,7 @@
 
 // set constants
 
-var image_dimension = 32;
+var image_dimension = 227;
 var image_channels = 3;
 
 
@@ -13,7 +13,7 @@ var image_channels = 3;
 // define the network architecture (AlexNet)
 
 layer_defs = [];
-/*
+
 layer_defs.push({type:'input', out_sx:image_dimension, out_sy:image_dimension, out_depth:image_channels});
 layer_defs.push({type:'conv', sx:11, filters:96, stride:4, pad:0, activation:'relu'});
 layer_defs.push({type:'lrn', k:0, n:5, alpha:0.0001, beta:0.75});
@@ -30,16 +30,7 @@ layer_defs.push({type:'dropout', drop_prob:0.5});
 layer_defs.push({type:'fc', num_neurons:4096, activation: 'relu'});
 layer_defs.push({type:'dropout', drop_prob:0.5});
 layer_defs.push({type:'softmax', num_classes:1000});
-*/
 
-layer_defs.push({type:'input', out_sx:32, out_sy:32, out_depth:3});
-layer_defs.push({type:'conv', sx:5, filters:16, stride:1, pad:2, activation:'relu'});
-layer_defs.push({type:'pool', sx:2, stride:2});
-layer_defs.push({type:'conv', sx:5, filters:20, stride:1, pad:2, activation:'relu'});
-layer_defs.push({type:'pool', sx:2, stride:2});
-layer_defs.push({type:'conv', sx:5, filters:20, stride:1, pad:2, activation:'relu'});
-layer_defs.push({type:'pool', sx:2, stride:2});
-layer_defs.push({type:'softmax', num_classes:10});
 
 net = new convnetjs.Net();
 net.makeLayers(layer_defs);
