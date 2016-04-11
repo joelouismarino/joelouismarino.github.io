@@ -135,16 +135,15 @@
                         
                             <div class="tab-whole four columns">
                                 <h4>Upload an Image</h4>
-                                <div id="upload_box" class="im_div">
-                                    <div id="img_div">
+                                <div id="upload_box">
+                                    <div id="img_div" class="im_div">
                                         <img id="preview_img"/>
                                     </div>
                                     <input name="image" type="file" accept="image/*" onchange="loadFile(event)"/>
                                 </div>
                                 <input type="submit" value="Classify" onclick="testImage(document.getElementById('preview_img'))"/>
                             </div>
-                        
-                        
+                            
                         
                             <div class="tab-whole eight columns">
                                 <h4>Top Predictions</h4>
