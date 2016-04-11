@@ -45,9 +45,10 @@ net.makeLayers(layer_defs);
 
 // test the image
 
-var testImage = function(){
+var testImage = function(img){
+    
     // load the image
-    var x = convnetjs.img_to_vol(document.getElementById('input_image'))
+    var x = convnetjs.img_to_vol(img)
     
     // pass it through the network
     var output_probabilities_vol = net.forward(x)
