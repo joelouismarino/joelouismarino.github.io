@@ -79,7 +79,7 @@ var testImage = function(img){
     }
     
     var bars = ''; // contains html for each bar in the predictions plot
-    var bar_color = 'rgb(0,128,255)';
+    var bar_color = 'rgb(242,101,34)';
     for(var k=0;k<5;k++) {
         bars += '<div class=\"pp\" style=\"width:' + Math.floor(preds[k].p/1*300) + 'px; background-color:' + bar_color + ';\"> &nbsp; </div>'
     }
