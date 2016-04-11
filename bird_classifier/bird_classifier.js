@@ -78,6 +78,8 @@ var testImage = function(img){
     probsdiv.className = 'probsdiv';
     div.appendChild(probsdiv);
     
+    $(div).prependTo($("#predictions_plot")).hide().fadeIn('slow').slideDown('slow');
+    
 }
 
 
