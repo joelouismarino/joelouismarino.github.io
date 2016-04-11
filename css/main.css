@@ -43,7 +43,7 @@
 ---------------------------------------------------------------------- */
 body {
 	background: #0e1015;
-	font: 15px/30px "merriweather-regular", serif;
+	font: 15px/30px "helvetica", serif;
 	font-weight: normal;
 	color: #575859;
 }
@@ -2009,10 +2009,4 @@ hr {
 }
 .more-projects .portfolio-wrapper {
 	text-align: left;
-}
-
-#im_div {
-    height: 250px;
-    width: 250px;
-    margin: 3px;
 }
