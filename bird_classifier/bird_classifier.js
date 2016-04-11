@@ -61,22 +61,22 @@ var testImage = function(img){
     preds.sort(function(a,b){return a.p<b.p ? 1:-1;});
     
     // add predictions
-    var div = document.createElement('div');
-    div.className = 'testdiv';
+    var div = document.document.getElementById('predictions_plot');
+    //div.className = 'testdiv';
     
     var probsdiv = document.createElement('div');
     
-    var t = '';
+    var bars = '';
     for(var k=0;k<10;k++) {
-        var col = 'rgb(187,85,85)';
-        t += '<div class=\"pp\" style=\"width:' + Math.floor(preds[k].p/1*100) + 'px; background-color:' + col + ';\"></div>'
+        var bar_color = 'rgb(187,85,85)';
+        bars += '<div class=\"pp\" style=\"width:' + Math.floor(preds[k].p/1*100) + 'px; background-color:' + bar_color + ';\"></div>'
     }
     
-    probsdiv.innerHTML = t;
+    probsdiv.innerHTML = bars;
     probsdiv.className = 'probsdiv';
     div.appendChild(probsdiv);
     
-    $(div).prependTo($("#predictions_plot")).hide().fadeIn('slow').slideDown('slow');
+    //$(div).prependTo($("#predictions_plot")).hide().fadeIn('slow').slideDown('slow');
     $("#top_predictions").text('Top Predictions: ' + preds[0].p);
     
 }
