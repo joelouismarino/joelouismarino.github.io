@@ -2010,3 +2010,9 @@ hr {
 .more-projects .portfolio-wrapper {
 	text-align: left;
 }
+
+im_div {
+    height: 250px;
+    width: 250px;
+    margin: 3px;
+}
