@@ -79,7 +79,7 @@ var testImage = function(img){
     
     //$(plot_div).prependTo($("#predictions_plot")).hide().fadeIn('slow').slideDown('slow');
     $(plot_div).prependTo($("#predictions_plot"));
-    $("#top_predictions").text('Top Predictions: ' + preds[0].p);
+    //$("#top_predictions").text('Top Predictions: ' + preds[0].p);
     
 }
 
