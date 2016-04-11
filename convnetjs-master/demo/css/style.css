@@ -92,6 +92,11 @@ h2 {
   margin: 1px;
   padding: 1px;
 }
+#im_div {
+    height: 250px;
+    width: 250px;
+    margin: 3px;
+}
 #testset_acc {
   /* margin-bottom: 200px; */
 }
