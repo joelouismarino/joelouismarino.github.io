@@ -90,6 +90,7 @@ h2 {
   margin-left: 1px;
 }
 .pp {
+  float: left;
   margin: 1px;
   padding: 1px;
 }
