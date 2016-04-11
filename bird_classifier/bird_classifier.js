@@ -49,7 +49,7 @@ net.makeLayers(layer_defs);
 var testImage = function(img){
     
     // clear out the most recent prediction
-    //document.getElementById('predictions_plot').innerHTML = '';
+    document.getElementById('predictions_plot').innerHTML = '';
     document.getElementById('top_predictions').innerHTML = '';
     
     // load the image and pass it through the network
