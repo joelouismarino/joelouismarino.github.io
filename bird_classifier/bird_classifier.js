@@ -47,10 +47,8 @@ net.makeLayers(layer_defs);
 
 var testImage = function(img){
     
-    // load the image
+    // load the image and pass it through the network
     var x = convnetjs.img_to_vol(img)
-    
-    // pass it through the network
     var output_prob = net.forward(x)
     
     // get predictions
@@ -59,7 +57,7 @@ var testImage = function(img){
         preds.push({k:k,p:output_prob.w[k]});
     }
     
-    preds.sort(function(a,b){return a.p<b.p ? 1:-1;});
+    //preds.sort(function(a,b){return a.p<b.p ? 1:-1;});
     
     // add predictions
     var div = document.createElement('div');
@@ -68,7 +66,7 @@ var testImage = function(img){
     var probsdiv = document.createElement('div');
     
     var t = '';
-    for(var k=0;k<10;k++) {
+    for(var k=0;k<100;k++) {
         var col = 'rgb(187,85,85)';
         t += '<div class=\"pp\" style=\"width:' + Math.floor(preds[k].p/1*100) + 'px; background-color:' + col + ';\"></div>'
     }
