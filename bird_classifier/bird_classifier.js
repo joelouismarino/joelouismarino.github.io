@@ -69,13 +69,13 @@ var testImage = function(img){
     probs_div.className = 'probsdiv';
     
     
-    /*
+    
     var bars = ''; // contains html for each bar in the predictions plot
     var bar_color = 'rgb(187,85,85)';
     for(var k=0;k<10;k++) {
-        bars += '<div class=\"pp\" style=\"width:' + Math.floor(preds[k].p/1*100) + 'px; background-color:' + bar_color + ';\"></div>'
+        bars += '<div class=\"pp\" style=\"width:' + Math.floor(preds[k].p/1*100) + 'px; background-color:' + bar_color + ';\"> </div>'
     }
-    */
+    
     
     var bars = '<p> Test </p>'
     
