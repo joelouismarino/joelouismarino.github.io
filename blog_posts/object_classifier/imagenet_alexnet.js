@@ -73,7 +73,7 @@ var testImage = function(img){
     var bars = ''; // contains html for each bar in the predictions plot
     var bar_color = 'rgb(187,85,85)';
     for(var k=0;k<10;k++) {
-        bars += '<div class=\"pp\" style=\"width:' + Math.floor(preds[k].p/1*300) + 'px; background-color:' + bar_color + ';\">' + classes_txt[preds[k].k] + '</div>'
+        bars += '<div class=\"pp\" style=\"width:' + Math.floor(preds[k].p/1*300) + 'px; background-color:' + bar_color + ';\"><p>' + classes_txt[preds[k].k] + '</p></div>'
     }
     
     probs_div.innerHTML = bars;
