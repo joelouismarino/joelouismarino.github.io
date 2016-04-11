@@ -74,14 +74,14 @@ var testImage = function(img){
     names_div.className = 'namesdiv';
     
     var names = ''
-    for(var k=0;k<10;k++) {
+    for(var k=0;k<5;k++) {
         names += '<div class=\"pp\" style=\"width:auto; background-color:' + bar_color + ';\">' + classes_txt[preds[k].k] +'</div>'
     }
     
     var bars = ''; // contains html for each bar in the predictions plot
     var bar_color = 'rgb(187,85,85)';
-    for(var k=0;k<10;k++) {
-        bars += '<div class=\"pp\" style=\"width:' + Math.floor(preds[k].p/1*300) + 'px; background-color:' + bar_color + ';\"> </div>'
+    for(var k=0;k<5;k++) {
+        bars += '<div class=\"pp\" style=\"width:' + Math.floor(preds[k].p/1*300) + 'px; background-color:' + bar_color + ';\"> &nbsp; </div>'
     }
     
     names_div.innerHTML = names;
