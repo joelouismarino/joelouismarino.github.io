@@ -68,6 +68,8 @@ var testImage = function(img){
     var probs_div = document.createElement('div');
     probs_div.className = 'probsdiv';
     
+    
+    
     /*
     var bars = ''; // contains html for each bar in the predictions plot
     var bar_color = 'rgb(187,85,85)';
@@ -81,8 +83,13 @@ var testImage = function(img){
     probs_div.innerHTML = bars;
     plot_div.appendChild(probs_div);
     
+    var top_pred = document.createElement('div');
+    top_pred.className = 'top_pred'
+    
+    top_pred.innerHTML = '<p> Top Predictions:  + preds[0].p </p>
+    
     $(plot_div).prependTo($("#predictions_plot")).hide().fadeIn('slow').slideDown('slow');
-    $("#top_predictions").text('Top Predictions: ' + preds[0].p);
+    $(top_pred).prependTo($("#top_predictions")).hide().fadeIn('slow').slideDown('slow');
     
 }
 
