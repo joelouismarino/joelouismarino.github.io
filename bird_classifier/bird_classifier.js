@@ -51,11 +51,32 @@ var testImage = function(img){
     var x = convnetjs.img_to_vol(img)
     
     // pass it through the network
-    var output_probabilities_vol = net.forward(x)
+    var output_prob = net.forward(x)
     
-    // display output
+    // get predictions
+    var preds =[]
+    for(var k=0;k<output_prob.w.length;k++) {
+        preds.push({k:k,p:output_prob.w[k]});
+    }
     
     
+    preds.sort(function(a,b){return a.p<b.p ? 1:-1;});
+    
+    // add predictions
+    var div = document.getElementById('predictions_plot');
+    div.className = 'testdiv';
+    
+    var probsdiv = document.createElement('div');
+    
+    var t = '';
+    for(var k=0;k<10;k++) {
+        var col = 'rgb(187,85,85)';
+        t += '<div class=\"pp\" style=\"width:' + Math.floor(preds[k].p/1*100) + 'px; background-color:' + col + ';\"></div>'
+    }
+    
+    probsdiv.innerHTML = t;
+    probsdiv.className = 'probsdiv';
+    div.appendChild(probsdiv);
     
 }
 
