@@ -190,6 +190,11 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, t
 	margin: 0;
 	padding: 0;
 }
+im_div {
+    height: 250px;
+    width: 250px;
+    margin: 3px;
+}
 h1, h2, h3, h4, h5, h6 {
 	text-rendering: optimizeLegibility;
 	line-height: 1.2;
