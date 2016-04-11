@@ -1,6 +1,6 @@
-// BIRD CLASSIFIER
-// Defines and runs a pre-trained deep convolutional network to perform bird classification.
-// Called from bird_classification.html
+// IMAGENET CLASSIFIER
+// Defines and runs a pre-trained deep convolutional network to perform classification.
+// Called from object_classification.html
 
 
 // set constants
