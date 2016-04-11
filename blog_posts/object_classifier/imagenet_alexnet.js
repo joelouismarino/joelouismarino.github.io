@@ -70,13 +70,23 @@ var testImage = function(img){
     var probs_div = document.createElement('div');
     probs_div.className = 'probsdiv';
     
+    var names_div = document.createElement('div');
+    names_div.className = 'namesdiv';
+    
+    var names = ''
+    for(var k=0;k<10;k++) {
+        names += '<div class=\"pp\" style=\"width:auto; background-color:' + bar_color + ';\">' + classes_txt[preds[k].k] +'</div>'
+    }
+    
     var bars = ''; // contains html for each bar in the predictions plot
     var bar_color = 'rgb(187,85,85)';
     for(var k=0;k<10;k++) {
-        bars += '<div class=\"pp\" style=\"width:' + Math.floor(preds[k].p/1*300) + 'px; background-color:' + bar_color + ';\"><p>' + classes_txt[preds[k].k] + '</p></div>'
+        bars += '<div class=\"pp\" style=\"width:' + Math.floor(preds[k].p/1*300) + 'px; background-color:' + bar_color + ';\"> </div>'
     }
     
+    names_div.innerHTML = names;
     probs_div.innerHTML = bars;
+    plot_div.appendChild(names_div);
     plot_div.appendChild(probs_div);
     
     //$(plot_div).prependTo($("#predictions_plot")).hide().fadeIn('slow').slideDown('slow');

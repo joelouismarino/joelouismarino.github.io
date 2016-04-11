@@ -88,6 +88,13 @@ h2 {
   width: 300px;
   margin-left: 1px;
 }
+.probsdiv {
+    float: left;
+    height: auto;
+    display: inline-block;
+    width: auto;
+    margin-left: 1px;
+}
 .pp {
   margin: 1px;
   padding: 1px;
