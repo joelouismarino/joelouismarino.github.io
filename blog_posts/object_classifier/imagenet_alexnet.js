@@ -98,9 +98,5 @@ var testImage = function(img){
 
 
 
-var dump_json = function() {
-    document.getElementById("dumpjson").value = JSON.stringify(this.net.toJSON());
-}
-
 
 
