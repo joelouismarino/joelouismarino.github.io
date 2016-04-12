@@ -75,7 +75,7 @@ var testImage = function(img){
     
     var names = ''
     for(var k=0;k<5;k++) {
-        names += '<div class=\"pp\" style=\"width:auto; background-color:' + bar_color + ';\">' + classes_txt[preds[k].k] +'</div>'
+        names += '<div class=\"pp\" style=\"width:auto; background-color:' + bar_color + ';\"><p> <a href="https://www.google.com/?gws_rd=ssl#q=' + classes_txt[preds[k].k] + '"> ' + classes_txt[preds[k].k] + '</a></p></div>'
     }
     
     var bars = ''; // contains html for each bar in the predictions plot
