@@ -330,7 +330,7 @@ var convnetjs = convnetjs || { REVISION: 'ALPHA' };
     var p = img_data.data;
     var W = img.width;
     var H = img.height;
-    var pv = []
+    var pv = [];
     for(var i=0;i<p.length;i++) {
       pv.push(p[i]/255.0-0.5); // normalize image pixels to [-0.5, 0.5]
     }
@@ -350,9 +350,44 @@ var convnetjs = convnetjs || { REVISION: 'ALPHA' };
 
     return x;
   }
-  
+ 
+    // img is a DOM element that contains a loaded image
+    // returns a Vol of size (W, H, 3)
+    // creates image volume with correct ordering and scaling for AlexNet
+    var img_to_vol_alexnet = function(img) {
+ 
+        var canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+        var img_data = ctx.getImageData(0, 0, canvas.width, canvas.height);
+ 
+        // prepare the input: get pixels
+        var p = img_data.data;
+        var W = img.width;
+        var H = img.height;
+        var pv = [];
+        for(var i=0;i<p.length;i++) {
+            var pix = [];
+ 
+            // subtract mean pixel and swap channels
+            // AlexNet has channels in BGR order instead of RGB
+            pix.push(p[i][2] - 123);
+            pix.push(p[i][1] - 117);
+            pix.push(p[i][0] - 104);
+ 
+            pv.push(pix);
+        }
+        var x = new Vol(W, H, 3, 0.0); //input volume (image)
+        x.w = pv;
+ 
+        return x;
+    }
+ 
   global.augment = augment;
   global.img_to_vol = img_to_vol;
+  global.img_to_vol_alexnet = img_to_vol_alexnet;
 
 })(convnetjs);
 (function(global) {

@@ -13,7 +13,7 @@ var classes_txt = ['tench', 'goldfish', 'great white shark', 'tiger shark', 'ham
 
 
 // define the network architecture (AlexNet)
-
+/*
 layer_defs = [];
 
 layer_defs.push({type:'input', out_sx:image_dimension, out_sy:image_dimension, out_depth:image_channels});
@@ -32,12 +32,11 @@ layer_defs.push({type:'dropout', drop_prob:0.5});
 layer_defs.push({type:'fc', num_neurons:4096, activation: 'relu'});
 layer_defs.push({type:'dropout', drop_prob:0.5});
 layer_defs.push({type:'softmax', num_classes:1000});
-
+*/
 
 net = new convnetjs.Net();
-net.makeLayers(layer_defs);
-
-
+//net.makeLayers(layer_defs);
+net.fromJSON(json_file);
 
 // load the network weights
 
@@ -55,11 +54,11 @@ var testImage = function(img){
     document.getElementById('top_predictions').innerHTML = '';
     
     // load the image and pass it through the network
-    var x = convnetjs.img_to_vol(img)
-    var output_prob = net.forward(x)
+    var x = convnetjs.img_to_vol(img);
+    var output_prob = net.forward(x);
     
     // get predictions and sort to get top predictions
-    var preds =[]
+    var preds =[];
     for(var k=0;k<output_prob.w.length;k++) {preds.push({k:k,p:output_prob.w[k]});}
     preds.sort(function(a,b){return a.p<b.p ? 1:-1;});
     
@@ -73,7 +72,7 @@ var testImage = function(img){
     var names_div = document.createElement('div');
     names_div.className = 'namesdiv';
     
-    var names = ''
+    var names = '';
     for(var k=0;k<5;k++) {
         names += '<div class=\"p_text\" style=\"width:auto;\">' + classes_txt[preds[k].k] + '</div>'
     }
