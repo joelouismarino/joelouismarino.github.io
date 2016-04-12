@@ -75,13 +75,13 @@ var testImage = function(img){
     
     var names = ''
     for(var k=0;k<5;k++) {
-        names += '<div class=\"pp\" style=\"width:auto; background-color:' + bar_color + ';\"><p> <a href="https://www.google.com/?gws_rd=ssl#q=' + classes_txt[preds[k].k] + '"> ' + classes_txt[preds[k].k] + '</a></p></div>'
+        names += '<div class=\"pp\" style=\"width:auto; background-color:' + bar_color + ';\"><p> <a target="_blank" href="https://www.google.com/?gws_rd=ssl#q=' + classes_txt[preds[k].k] + '"> ' + classes_txt[preds[k].k] + '</a></p></div>'
     }
     
     var bars = ''; // contains html for each bar in the predictions plot
     var bar_color = 'rgb(242,101,34)';
     for(var k=0;k<5;k++) {
-        bars += '<div class=\"pp\" style=\"width:' + Math.floor(preds[k].p/1*300) + 'px; background-color:' + bar_color + ';\"> &nbsp; </div>'
+        bars += '<div class=\"pp\" style=\"width:' + Math.floor(preds[k].p/1*300) + 'px; background-color:' + bar_color + ';\"><p> </p>; </div>'
     }
     
     names_div.innerHTML = names;
