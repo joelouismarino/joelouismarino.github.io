@@ -93,10 +93,15 @@ h2 {
     width: auto;
     margin-left: 1px;
 }
-.pp {
-  margin: 1px;
-  padding: 0px;
+.p_prob {
+  margin-top: 2px;
+  padding: 1px;
   height: 20px;
+}
+.p_text {
+    margin: 1px;
+    padding: 1px;
+    height: 20px;
 }
 #testset_acc {
   /* margin-bottom: 200px; */
