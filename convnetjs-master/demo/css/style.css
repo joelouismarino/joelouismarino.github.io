@@ -94,8 +94,8 @@ h2 {
     margin-left: 1px;
 }
 .pp {
-  margin: 1px;
-  padding: 1px;
+  margin: 0px;
+  padding: 0px;
   height: 20px;
 }
 #testset_acc {
