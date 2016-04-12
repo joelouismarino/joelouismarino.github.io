@@ -83,14 +83,12 @@ h2 {
 }
 .probsdiv {
   float: left;
-  height: auto;
   display: inline-block;
   width: 300px;
   margin-left: 1px;
 }
 .namesdiv {
     float: left;
-    height: auto;
     display: inline-block;
     width: auto;
     margin-left: 1px;
@@ -98,6 +96,7 @@ h2 {
 .pp {
   margin: 1px;
   padding: 1px;
+  height: 20px;
 }
 #testset_acc {
   /* margin-bottom: 200px; */
