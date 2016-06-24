@@ -147,8 +147,9 @@
                         To load the model, simply run the following:
                         
                         
-                        <code style=display:block;white-space:pre-wrap>from keras.models import model_from_json
-model = model_from_json(open('googlenet_architecture.json').read())
+                        <code style=display:block;white-space:pre-wrap>from custom_layers import PoolHelper,LRN
+from keras.models import model_from_json
+model = model_from_json(open('googlenet_architecture.json').read(),custom_objects={"PoolHelper": PoolHelper,"LRN":LRN})
 model.load_weights('googlenet_weights.h5')</code>
                         
                         </p>
@@ -317,22 +318,24 @@ layer {
                         </p>
                         
                         <code style=display:block;white-space:pre-wrap>conv1_zero_pad = ZeroPadding2D(padding=(1, 1))(conv1_7x7_s2)
-pool1_helper = pool_helper()(conv1_zero_pad)
+pool1_helper = PoolHelper()(conv1_zero_pad)
 pool1_3x3_s2 = MaxPooling2D(pool_size=(3,3), strides=(2,2), border_mode='valid', name='pool1/3x3_s2')(pool1_helper)</code>
                         
                         <p>
                         where <code>pool_helper</code> is a custom layer, implemented as
                         </p>
                         
-                        <code style=display:block;white-space:pre-wrap>def pool_helper(**kwargs):
-    def f(X):
-        return X[:,:,1:,1:]
-                            
-    def f_output_shape(input_shape):
-        b,ch,h,w = list(input_shape)
-        return tuple([b,ch,h-1,w-1])
-                            
-    return Lambda(f,output_shape=f_output_shape)</code>
+                        <code style=display:block;white-space:pre-wrap>class PoolHelper(Layer):
+    def __init__(self, **kwargs):
+        super(PoolHelper, self).__init__(**kwargs)
+    
+    def call(self, x, mask=None):
+        return x[:,:,1:,1:]
+    
+    def get_config(self):
+        config = {}
+        base_config = super(PoolHelper, self).get_config()
+        return dict(list(base_config.items()) + list(config.items()))</code>
                         
                         <p>
                         Sure enough, this does the trick. Now on to normalization. In Caffe, the local response normalization layers are defined as
@@ -369,22 +372,35 @@ pool1_3x3_s2 = MaxPooling2D(pool_size=(3,3), strides=(2,2), border_mode='valid',
                         In the latest version of Keras, the only form of normalization is the <code>BatchNormalization</code> layer. And while this layer is useful and versatile, especially with the widespread adoption and nice theoretical motivations of batch normalization, it does not perform local response normalization in the same way as Caffe. <a href="https://github.com/fchollet/keras/blob/97174dd298cf4b5be459e79b0181a124650d9148/keras/layers/normalization.py#L66">Previous versions</a> of Keras included a <code>LRN2D</code> layer, which was adapted from pylearn2, however I had to make modifications to this code to obtain the identical operation performed by Caffe. The layer definition is below:
                         </p>
                         
-                        <code style=display:block;white-space:pre-wrap>def LRN(alpha=0.0001,k=1,beta=0.75,n=5,**kwargs):
-
-    def f(X):
-        b, ch, r, c = X.shape
-        half_n = n // 2 # half the local size
-        input_sqr = T.sqr(X) # square the input
-        extra_channels = T.alloc(0., b, ch + 2*half_n, r, c) # empty tensor with zero padded channel dimension
+                        <code style=display:block;white-space:pre-wrap>class LRN(Layer):
+    def __init__(self, alpha=0.0001,k=1,beta=0.75,n=5, **kwargs):
+        self.alpha = alpha
+        self.k = k
+        self.beta = beta
+        self.n = n
+        super(LRN, self).__init__(**kwargs)
+    
+    def call(self, x, mask=None):
+        b, ch, r, c = x.shape
+        half_n = self.n // 2 # half the local region
+        input_sqr = T.sqr(x) # square the input
+        extra_channels = T.alloc(0., b, ch + 2*half_n, r, c) # make an empty tensor with zero pads along channel dimension
         input_sqr = T.set_subtensor(extra_channels[:, half_n:half_n+ch, :, :],input_sqr) # set the center to be the squared input
-        scale = k # offset
-        norm_alpha = alpha / n # normalized alpha
-        for i in range(n): # sum
+        scale = self.k # offset for the scale
+        norm_alpha = self.alpha / self.n # normalized alpha
+        for i in range(self.n):
             scale += norm_alpha * input_sqr[:, i:i+ch, :, :]
-        scale = scale ** beta
-        return X / scale
-                            
-    return Lambda(f,output_shape=lambda input_shape:input_shape,**kwargs)</code>
+        scale = scale ** self.beta
+        x = x / scale
+        return x
+    
+    def get_config(self):
+        config = {"alpha": self.alpha,
+                  "k": self.k,
+                  "beta": self.beta,
+                  "n": self.n}
+        base_config = super(LRN, self).get_config()
+        return dict(list(base_config.items()) + list(config.items()))</code>
                         
                         
                         <p>
