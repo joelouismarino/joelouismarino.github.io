@@ -555,7 +555,7 @@ loss3_classifier_act = Activation('softmax', name='prob')(loss3_classifier)</cod
                         </p>
                         
                         <code style=display:block;white-space:pre-wrap>import caffe
-MODEL_DEF = 'path/to/deploy.prototxt'
+MODEL_DEF = 'path/to/deploy or train_val.prototxt'
 MODEL_WEIGHTS = 'path/to/bvlc_googlenet.caffemodel'
 net = caffe.Net(MODEL_DEF,MODEL_WEIGHTS,caffe.TEST)</code>
                         
