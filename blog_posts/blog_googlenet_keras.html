@@ -640,9 +640,9 @@ output = net.forward()</code>
                         
                         <code style=display:block;white-space:pre-wrap>import theano
 def get_activations(model, layer, X_batch):
-get_activations = theano.function([model.layers[0].input,K.learning_phase()], layer.output, allow_input_downcast=True)
-activations = get_activations(X_batch,0)
-return activations</code>
+    get_activations = theano.function([model.layers[0].input,K.learning_phase()], layer.output, allow_input_downcast=True)
+    activations = get_activations(X_batch,0)
+    return activations</code>
                         
                         <p>
                         We can now compare activations between the two networks at any layer. If we have a layer called <code>layer_name</code>, we can get the activations as:
