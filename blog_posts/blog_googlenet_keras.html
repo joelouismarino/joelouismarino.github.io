@@ -326,7 +326,7 @@ pool1_helper = PoolHelper()(conv1_zero_pad)
 pool1_3x3_s2 = MaxPooling2D(pool_size=(3,3), strides=(2,2), border_mode='valid', name='pool1/3x3_s2')(pool1_helper)</code>
                         
                         <p>
-                        where <code>pool_helper</code> is a custom layer, implemented as
+                        where <code>PoolHelper</code> is a custom layer, implemented as
                         </p>
                         
                         <code style=display:block;white-space:pre-wrap>class PoolHelper(Layer):
