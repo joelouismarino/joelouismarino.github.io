@@ -147,11 +147,15 @@
                         To load the model, simply run the following:
                         
                         
-                        <code style=display:block;white-space:pre-wrap>from custom_layers import PoolHelper,LRN
+                        <code style=display:block;white-space:pre-wrap>from googlenet_custom_layers import PoolHelper,LRN
 from keras.models import model_from_json
 model = model_from_json(open('googlenet_architecture.json').read(),custom_objects={"PoolHelper": PoolHelper,"LRN":LRN})
 model.load_weights('googlenet_weights.h5')</code>
                         
+                        </p>
+                        
+                        <p>
+                        I've also created a <a href="https://gist.github.com/joelouismarino/a2ede9ab3928f999575423b9887abd14">GitHub Gist</a> that contains a script with the entire model definition.
                         </p>
                         
                         <p>
@@ -619,10 +623,7 @@ img[:, :, 2] -= 103.939
 img[:,:,[0,1,2]] = img[:,:,[2,1,0]] # swap channels
 img = img.transpose((2, 0, 1)) # re-order dimensions
 img = img[:,(height-224)//2:(height+224)//2,(width-224)//2:(width+224)//2] #crop
-# add dimension for batch
-temp = np.zeros((1,3,224,224))
-temp[0,:,:,:] = img
-img = temp</code>
+img = np.expand_dims(img, axis=0) # add dimension for batch</code>
                         
                         <p>
                         
