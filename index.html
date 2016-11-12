@@ -1,335 +1,137 @@
-<!DOCTYPE html>
-<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="no-js ie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
-<head>
-
-   <!--- Basic Page Needs
-   ================================================== -->
-   <meta charset="utf-8">
-	<title>Joe Marino</title>
-	<meta name="description" content="Machine Learning Graduate Student">
-	<meta name="author" content="Joseph Marino">
-
-   <!-- Mobile Specific Metas
-   ================================================== -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-	<!-- CSS
-    ================================================== -->
-   <link rel="stylesheet" href="css/base.css">
-	<link rel="stylesheet" href="css/main.css">
-   <link rel="stylesheet" href="css/media-queries.css">         
-
-   <!-- Script
-   =================================================== -->
-	<script src="js/modernizr.js"></script>
-
-   <!-- Favicons
-	=================================================== -->
-	<link rel="shortcut icon" href="favicon.png" >
-
-</head>
-
-<body class="homepage">
-
-   <div id="preloader"> 
-	   <div id="status">
-         <img src="images/loader.gif" height="60" width="60" alt="">
-         <div class="loader">Loading...</div>
-      </div>
-   </div>
-   
-
-   <!-- Header
-   =================================================== -->
-   <header id="main-header">
-
-   	<div class="row header-inner">
-
-	      <div class="logo">
-	         <a class="smoothscroll" </a>
-	      </div>
-
-	      <nav id="nav-wrap">         
-	         
-	         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">
-	         	<span class='menu-text'>Show Menu</span>
-	         	<span class="menu-icon"></span>
-	         </a>
-         	<a class="mobile-btn" href="#" title="Hide navigation">
-         		<span class='menu-text'>Hide Menu</span>
-         		<span class="menu-icon"></span>
-         	</a>         
-
-	         <ul id="nav" class="nav">
-	            <li class="current"><a class="smoothscroll" href="#about">About</a></li>
-                <li><a class="smoothscroll" href="#portfolio">Research</a></li>
-	            <li><a class="smoothscroll" href="#journal">Blog</a></li>
-	            <li><a class="smoothscroll" href="#contact">Contact</a></li>
-	         </ul> 
-
-	      </nav> <!-- /nav-wrap -->	      
-
-	   </div> <!-- /header-inner -->
-
-   </header> 
-
-
-<!-- About Section
- ================================================== -->
-<section id="about">
-    
-   	<div class="row section-head">
-        
-        <div class="twelve columns">
-            
-            <h1>About<span>.</span></h1>
-            
-            <hr />
-            
-        </div>
-        
-    </div>
-    
-    <div class="row about-content">
-        
-        <div class="mob-whole three columns left">
-            
-            <img width="150" height="190" class="pull-center" src="images/me.png">
-            
-        </div> <!-- /left -->
-        
-        <div class="mob-whole nine columns right">
-            
-            <p>I am a second year Ph.D. student in the <a href="http://www.cns.caltech.edu">Computation and Neural Systems</a> program at the California Institute of Technology. I am co-advised by Professors <a href="http://www.vision.caltech.edu/pietroperona.htm">Pietro Perona</a> and <a href="http://www.yisongyue.com/about.php">Yisong Yue</a>. Before coming to Caltech, I received my B.S. in physics from the University of Minnesota, Twin Cities.
-            </p>
-            
-            <p>
-                <a href="marino_cv.pdf" class="button stroke orange"> <i class="fa fa-download" ></i> Download CV</a>
-            </p>
-            
-        </div> <!-- /right -->
-        
-    <div class="row section-head">
-        
-        <div class="twelve columns">
-                
-            <p>My academic interests are at the intersection of machine learning and neuroscience, with the end goal toward developing machine intelligence, while drawing inspiration from biology where appropriate. My current research is centered on deep learning in computer vision.
-            </p>
-                
-        </div>
-            
-    </div>
-    
-</section> <!-- /about -->
-
-   <!-- Research
-   ================================================== -->
-   <section id="portfolio">
-
-      <div class="row section-head">
-
-      	<div class="twelve columns">
-
-	         <h1>Research<span>.</span></h1>
-
-	         <hr />
-
-	      </div>
-
-      </div>
-
-      <div class="row items">
-
-      	<div class="twelve columns">
-
-            <div id="portfolio-wrapper" class="bgrid-fourth s-bgrid-third mob-bgrid-half group">
-
-          	   <div class="bgrid item">
-                  <div class="item-wrap">
-
-                     <a href="research_pages/non_expert_data.html">
-                        <img src="images/non_expert_bulldog.png" alt="">
-                        <div class="overlay"></div>                       
-                        <div class="portfolio-item-meta">
-          					      <h5>Non-expert Labels Improve Fine-Grained Object Recognition</h5>
-          					</div>                         
-                     </a>
-
-                  </div>
-                </div>
-                  
-                <div class="bgrid item">
-                      <div class="item-wrap">
-                          
-                          <a href="research_pages/tax_curriculum_learning.html">
-                              <img src="images/research_images/non_expert_data/taxonomic_curriculum_diagram.png" alt="">
-                                  <div class="overlay"></div>
-                                  <div class="portfolio-item-meta">
-                                      <h5>Taxonomic Curriculum Learning</h5>
-                                  </div>
-                                  </a>
-                          
-                      </div>
-                </div>
-
-            </div> <!-- /portfolio-wrapper -->
-
-         </div> <!-- /twelve -->
-
-      </div>  <!-- /row -->
-      
-   </section> <!-- /Portfolio -->
-
-
-
-
-   <!-- journal
-   =================================================== -->
-   <section id="journal">
-
-	   <div class="row section-head">
-
-	   	<div class="twelve columns">
-
-			   <h1>Blog<span>.</span></h1>
-               
-               <hr />
-
-		    </div>
-
-	   </div>
-
-      <div class="row">
-
-      	<div class="twelve columns">
-
-	         <div id="blog-wrapper" class="bgrid-third s-bgrid-half mob-bgrid-whole group">
-                 
-                 <article class="bgrid">
-                     
-                     <h5>October 2016.</h5>
-                     <h3><a href="blog_posts/blog_VAE.html">Thoughts on Generative Models</a></h3>
-                     
-                     <p>Generative deep neural networks, combined with probabilistic models, have been recently showing promising capabilities, hinting at the possiblilty of extracting meaningful abstract representations in unsupervised ways.
-                     </p>
-                     
-                 </article>
-                 
-                 <article class="bgrid">
-						
-						<h5>June 2016.</h5>
-	               <h3><a href="blog_posts/blog_googlenet_keras.html">GoogLeNet in Keras</a></h3>
-	                           
-	               <p>In this blog post, I'll show you how I implemented GoogLeNet in Keras and copied over the weights from Caffe. Then we'll classify some cats!
-	               </p>
-	                        
-	            </article>
-                
-                <article class="bgrid">
-                    
-                    <h5>March 2016.</h5>
-                    <h3><a href="blog_posts/blog_backprop.html">Implementing Backpropagation</a></h3>
-                    
-                    <p>Backpropagation is a method for computing derivatives in artificial neural networks, allowing us to use gradient descent to train these models. Here, I walk through implementing backpropagation.
-                    </p>
-                    
-                </article>
-                
-                
-
-	         </div> <!-- /blog-wrapper -->
-
-	      </div> <!-- /twelve -->
-
-      </div> <!-- /row -->
-
-   </section> <!-- /blog -->
-
-   
-   <!-- Contact Section
-   ================================================== -->
-   <section id="contact">
-
-   	<div class="row section-head">
-
-   		<div class="twelve columns">
-
-	         <h1>Contact<span>.</span></h1>
-
-	         <hr />
-
-	      </div>
-
-      </div>
-
-   </section>  <!-- /contact-->
-
-
-   <!-- Footer
-   ================================================== -->
-   <footer>
-
-      <div class="row">
-
-         <div class="twelve columns tab-whole right-cols">
-
-            <div class="row">
-
-               <div class="columns">
-                  <h3 class="address">Contact</h3>
-                  <p>
-                  jmarino [at] caltech.edu
-                  </p>
-                  <p>
-                  1200 E. California Blvd.<br>
-                  MC 136-93<br>
-                  Pasadena, 91125 CA<br>
-                  </p>
-               </div> <!-- /columns -->             
-
-               <div class="columns">
-                  <h3 class="contact">Connect</h3>
-
-                  <ul>
-                     <li><a href="https://www.linkedin.com/pub/joe-marino/37/bb0/73"><span></span><i class="fa fa-linkedin"></i></a>
-                         <a href="https://github.com/joelouismarino"><span></span><i class="fa fa-github"></i></a>
-                         <a href="https://www.facebook.com/joe.marino.9022"><span></span><i class="fa fa-facebook"></i></a>
-                     </li>
-
-                  </ul>
-
-            </div>
-               
-
-         </div>
-
-         <p class="copyright">&copy; Copyright 2016 Joseph Marino.</a></p>
-
-         <div id="go-top">
-            <a class="smoothscroll" title="Back to Top" href="#about"><span>Top</span><i class="fa fa-long-arrow-up"></i></a>
-         </div>
-         
-       </div>
-
-      </div> <!-- /row -->
-
-   </footer> <!-- /footer -->
-
-
-   <!-- Java Script
-   ================================================== -->
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-   <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
-   <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>   
-   <script src="js/jquery.flexslider.js"></script>
-   <script src="js/jquery.fittext.js"></script>
-   <script src="js/backstretch.js"></script> 
-   <script src="js/waypoints.js"></script>  
-   <script src="js/main.js"></script>
-
-</body>
-
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Joe Marino</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body id="top">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="images/me.jpg" class="image avatar"><img src="images/me.jpg" alt="" /></a>
+					<h1><strong>Joe Marino</h1>
+				</div>
+			</header>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- One -->
+					<section id="one">
+						<header class="major">
+							<h2>About Me</h2>
+						</header>
+						<p>I am a Ph.D. student in the <a href="http://www.cns.caltech.edu">Computation and Neural Systems</a> program at the California Institute of Technology. I am co-advised by Professors <a href="http://www.vision.caltech.edu/pietroperona.htm">Pietro Perona</a> and <a href="http://www.yisongyue.com/about.php">Yisong Yue</a>. My focus is on deep learning, with the goal of extracting structure from data in unsupervised or semi-supervised settings.</p>
+						<ul class="actions">
+								<li><a href="files/marino_cv.pdf" class="button icon fa-download">Download CV</a></li>
+						</ul>
+					</section>
+
+				<!-- Two -->
+					<section id="two">
+						<header class="major">
+							<h2>Research</h2>
+						</header>
+						<div class="row">
+							<article class="6u 12u$(xsmall) work-item">
+								<a href="research/taxonomic_curriculum_learning.pdf" class="image fit thumb"><img src="images/research/taxonomy.png" alt="" /></a>
+								<h3>Taxonomic Curriculum Learning</h3>
+								<p></p>
+							</article>
+							<article class="6u 12u$(xsmall) work-item">
+								<a href="research/non_expert_labels.pdf" class="image fit thumb"><img src="images/research/fine_grained.png" alt="" /></a>
+								<h3>Non-expert Labels Improve Fine-Grained Object Recognition</h3>
+								<p></p>
+							</article>
+						</div>
+					</section>
+
+				<!-- Four -->
+				
+					<section id="four">
+						<header class="major">
+							<h2>Blog</h2>
+						</header>
+
+						<section>
+							<header>
+								<h4><a href="blog_posts/blog_VAE.html">Thoughts on Generative Models</a></h4>
+								<p>October 2016</p>
+							</header>
+							<p>Generative deep neural networks, combined with probabilistic models, have been recently showing promising capabilities, hinting at the possiblilty of extracting meaningful abstract representations in unsupervised ways.</p>
+
+							<hr />
+
+							<header>
+								<h4><a href="blog_posts/blog_googlenet_keras.html">GoogLeNet in Keras</a></h4>
+								<p>June 2016</p>
+							</header>
+							<p>In this blog post, I'll show you how I implemented GoogLeNet in Keras and copied over the weights from Caffe. Then we'll classify some cats!</p>
+
+							<hr />
+
+							<header>
+								<h4><a href="blog_posts/blog_backprop.html">Implementing Backpropagation</a></h4>
+								<p>March 2016</p>
+							</header>
+							<p>Backpropagation is a method for computing derivatives in artificial neural networks, allowing us to use gradient descent to train these models. Here, I walk through implementing backpropagation.</p>
+
+							<hr />
+
+						</section>
+
+
+					<section id="four">
+						<header class="major">
+							<h2>Other Resources</h2>
+						</header>
+
+						<section>
+						<header>
+							<h4><a href="other_resources/ml_blogs.html">Machine Learning Blogs</a></h4>
+						</header>
+						<p><i>A collection of my favorite blogs and podcasts on machine learning and deep learning.</i></p>
+
+						<hr />
+
+						<header>
+							<h4><a href="other_resources/learning_deep_learning.html">Learning Deep Learning</a></h4>
+						</header>
+						<p><i>A brief guide on how to get started with deep learning.</i></p>
+
+						<hr />
+
+						</section>
+
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://twitter.com/jl_marino" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="https://github.com/joelouismarino" class="icon fa-github"><span class="label">Github</span></a></li>
+						<li><a href="https://www.linkedin.com/in/joe-marino-073bb037" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="mailto: jmarino [at] caltech.edu" class="icon fa-envelope-o"><span class="label">E-mail</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; 2016 Joe Marino</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>

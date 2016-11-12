@@ -1,132 +1,45 @@
-<!DOCTYPE html>
-<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="no-js ie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
-<head>
+<!DOCTYPE HTML>
 
-   <!--- Basic Page Needs
-   ================================================== -->
-   <meta charset="utf-8">
-	<title>Blog - Implementing Backpropagation</title>
-	<meta name="description" content="">  
-	<meta name="author" content="">
-        
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-    </script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});
-    </script>
-    <script type="text/javascript"
-        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-    </script>
+<html>
+	<head>
+		<title>Blog - Implementing Backpropagation</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../assets/css/blog.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 
-   <!-- Mobile Specific Metas
-   ================================================== -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	    <script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	    </script>
+	    <script type="text/x-mathjax-config">
+		MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});
+	    </script>
+	    <script type="text/javascript"
+		src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	    </script>
+	</head>
+	<body id="top">
 
-	<!-- CSS
-    ================================================== -->
-   <link rel="stylesheet" href="../css/base.css">
-	<link rel="stylesheet" href="../css/main.css">
-   <link rel="stylesheet" href="../css/media-queries.css">
-
-   <!-- Script
-   =================================================== -->
-	<script src="../js/modernizr.js"></script>
-
-   <!-- Favicons
-	=================================================== -->
-	<link rel="shortcut icon" href="../favicon.png" >
-
-</head>
-
-<body>
-
-	<div id="top"></div>
-   <div id="preloader"> 
-	   <div id="status">
-         <img src="../images/loader.gif" height="60" width="60" alt="">
-         <div class="loader">Loading...</div>
-      </div>
-   </div>
-
-   <!-- Header
-   =================================================== -->
-   <header id="main-header">
-
-   	<div class="row header-inner">
-
-	      <div class="logo">
-	         <a class="smoothscroll" </a>
-	      </div>
-
-	      <nav id="nav-wrap">         
-	         
-	         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">
-	         	<span class='menu-text'>Show Menu</span>
-	         	<span class="menu-icon"></span>
-	         </a>
-         	<a class="mobile-btn" href="#" title="Hide navigation">
-         		<span class='menu-text'>Hide Menu</span>
-         		<span class="menu-icon"></span>
-         	</a>         
-
-	         <ul id="nav" class="nav">
-                 <li><a href="../index.html#about">About</a></li>
-		         <li><a href="../index.html#portfolio">Research</a></li>
-	            <li class="current"><a href="../index.html#journal">Blog</a></li>
-	            <li><a href="../index.html#contact">Contact</a></li>
-	         </ul> 
-
-	      </nav> <!-- /nav-wrap -->	      
-
-	   </div> <!-- /header-inner -->
-
-   </header>
+			<header id="header">
+				<div class="inner">
+					<a href="../index.html" class="icon fa-long-arrow-left">  back</a>
+				</div>
+			</header>
 
 
-   <!-- Content
-   ================================================== -->
-   <section id="content">
 
-   	<div class="row portfolio-content">
+		<!-- Main -->
+			<div id="main">
 
-	   	<div id="main" class="tab-whole nine columns centered">
+					<section id="one">
+						<header class="major">
+							<h1>Implementing Backpropagation</h1>
+							<h4><i>Joe Marino - March 2016</i></h4>
+						</header>
+						<p>This past fall, I had the pleasure of TAing Caltech's course on neural computation, CNS 187. The course provides an overview of a number of biologically-inspired methods of computation, many of which are taken from the machine learning literature. The pinnacle of the class is the dreaded <a href="https://en.wikipedia.org/wiki/Multilayer_perceptron">multilayer perceptron</a>, a standard feedforward artificial neural network. Students are required to implement a general neural network, including the <a href="https://en.wikipedia.org/wiki/Backpropagation">backpropagation</a> algorithm, which is used to train the network. Having had to derive the algorithm a number of times for my students, the details are still relatively fresh in my mind, so I share them here for any future students who may be struggling with the material. By the end of this blog post, you will understand the basic workings of a feedforward neural network as well as how to implement the backpropagation algorithm.</p>
 
-	         <article class="entry">
-
-					<header class="entry-header">
-
-						<h1 class="entry-title">
-							Implementing Backpropagation
-						</h1> 				 
-						
-						<div class="entry-meta">
-							<ul>
-								<li>March 2016</li>
-								<span class="meta-sep">•</span>
-								<li>Joe Marino</li>
-							</ul>
-						</div> 
-						 
-					</header>
-
-					<div class="entry-content-media">
-						<div class="post-thumb">
-							<img src="../images/blog_images/blog_backprop/neural_net.jpg">
-						</div> 
-					</div> 
-						
-					<div class="entry-content">
-                        <p class="lead">Or, how to train your neural network.</p>
-
-                        <p>
-                        This past fall, I had the pleasure of TAing Caltech's course on neural computation, CNS 187. The course provides an overview of a number of biologically-inspired methods of computation, many of which are taken from the machine learning literature. The pinnacle of the class is the dreaded <a href="https://en.wikipedia.org/wiki/Multilayer_perceptron">multilayer perceptron</a>, a standard feedforward artificial neural network. Students are required to implement a general neural network, including the <a href="https://en.wikipedia.org/wiki/Backpropagation">backpropagation</a> algorithm, which is used to train the network. Having had to derive the algorithm a number of times for my students, the details are still relatively fresh in my mind, so I share them here for any future students who may be struggling with the material. By the end of this blog post, you will understand the basic workings of a feedforward neural network as well as how to implement the backpropagation algorithm.
-                        </p>
-                        
-                        <p>
+						<p>
                         Before we get into things, relax, take a deep breath, and remember the following: at the end of the day, <b>feedforward neural networks are just functions</b>, mapping inputs $x$ to output predictions $\hat{y}$:
                         
                         \begin{equation}
@@ -134,456 +47,429 @@
                         \end{equation}
                         
                         This function could be something simple, such as the identity function $f(x) = x$, or it could be incredibly intricate, like mapping pixel intensities to an object. The required complexity of the function depends on the complexity of the mapping between $x$ and the ground truth label $y$, our desired output; if we want to solve a difficult problem, we need a function that is well-suited (i.e. with enough parameters) to handle it. Behind all of the notation and equations, <b>backpropagation is simply an algorithm for learning the function $f$ from a set of data examples of the form $(x,y)$.</b>
-                        </p>
-                        
-                        <h3>The Basic Unit: Linear Summation + Non-Linear Transformation</h3>
-                        
-                        <p>
-                        Feedforward neural networks are functions of a very specific form. They contain many units, analogous to biological neurons, each performing the same set of operations: a linear summation and a non-linear transformation. Let's break each of these down. What is a linear summation? Say we have a vector of inputs, $\vec{x}$, and say we have a corresponding vector of weights, $\vec{w}$, with the same number of entries as $\vec{x}$. A linear summation has the form
-                        
-                        \begin{equation}
-                            s = \sum_i w_i x_i,
-                        \end{equation}
-                            
-                            where $i$ indexes over the entries in $w$ and $x$. The result of this operation, $s$, is a scalar. If you are familiar with basic linear algebra, this can be equivalently written as the <a href="https://en.wikipedia.org/wiki/Dot_product">dot product</a> of these two vectors:
-                            
-                        \begin{equation}
-                            s = \vec{w} \cdot \vec{x}.
-                        \end{equation}
-                        
-                            The <em>linear</em> part comes from the fact that we are multiplying each weight by a linear version of the input. That is to say, in equation 2, we multiply each $w_i$ by $x_i$, not by $x_i^2$ or $\log x_i$ or something else. The <em>summation</em> part is straightfoward: we sum up the results from each of these multiplications.
-                        </p>
-                        <p>
-                        Now on to the non-linear transformation. After taking a linear summation of the inputs, we pass the resulting scalar through a non-linear function. While there are many options that will work, the non-linearity traditionally employed in the neural network literature is the logistic <a href="https://en.wikipedia.org/wiki/Sigmoid_function">sigmoid function</a>, which has the form
-                        
-                        \begin{equation}
-                            g(s) = \frac{1}{1+e^{-s}}.
-                        \end{equation}
-                        
-                        Plotting this out, we get the following curve:
-                        
-                        <center>
-                            <img src="../images/blog_images/blog_backprop/sigmoid_labels.png">
-                        </center>
-                        
-                        For large negative inputs, the exponential blows up and the function approaches 0, whereas for large positive inputs, the exponential goes to zero and the function approaches 1. For inputs that lie between these two extremes, we fall into an approximately linear region.
-                        </p>
-                        <p>
-                        Let's look at another non-linearity, the <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">rectified linear unit (ReLU)</a>. This function has the form
-                        
-                        \begin{equation}
-                            g(s) = \text{max}(0,s).
-                        \end{equation}
-                        
-                        When plotted out, we have this curve:
-                        
-                        <center>
-                            <img src="../images/blog_images/blog_backprop/relu_labels.png">
-                        </center>
-                        
-                        Anything less than zero gets mapped to zero, while anything greater than zero is passed through as the identity.
-                        
-                        </p>
-                        <p>
-                        There are arguments in favor of using each of these non-linearities, as well as others. However, in practice, with the right training techniques, it may not make a substantial difference which non-linear function we choose. We are also not constrained to use the same non-linearity for every unit in the network. We only require that the non-linear function(s) we choose be 1) <a href="https://en.wikipedia.org/wiki/Monotonic_function">monotonic</a>, 2) differentiable, and 3) defined everywhere. The second point is actually not entirely strict, since we can get by with using the ReLU function, even though it has a (non-differentiable) cusp at 0.
-                        </p>
-                        
-                        <center>
-                            <img src="../images/blog_images/blog_backprop/connected-neurons.jpg">
-                        </center>
-                        
-                        <p>
-                        Stepping back, let's ask ourselves: why a linear summation followed by a non-linear transformation? The motivation is rooted in biological neurons. Neurons receive inputs from other neurons through branching structures called <a href="https://en.wikipedia.org/wiki/Dendrite">dendrites</a>. As electical signals passively propagate through these dendritic branches, they sum in a roughly linear fashion. When these signals reach the first section of the neuron's <a href="https://en.wikipedia.org/wiki/Axon">axon</a>, they evoke an all-or-none (non-linear) response, called an <a href="https://en.wikipedia.org/wiki/Action_potential">action potential</a>. Actual neurons are, of course, much more complicated than this simplified picture, but as we will see, this abstract model is nonetheless capable of performing some level of computation.
-                        </p>
-                        <p>
-                        
-                        <h3>Network Architecture</h3>
-                        
-                        Up to this point, our focus has been on the workings of an individual unit in the network. However, computation in neural networks depends heavily on the cooperation of many of these units, representing aspects of the input in a distributed fashion. In a feedforward network architecture, we have two ways of adding units to our network, either in <em>parallel</em> or <em>serial</em>. The following figure illustrates each of these approaches.
-                        
-                        <center>
-                            <img src="../images/blog_images/blog_backprop/parallel_serial.png">
-                        </center>
-                        
-                        Circles represent units within the network, and lines represent connection weights between these units. Feedforward neural networks are composed of layers of units, with connections between these layers. In a standard neural network, these connections map all of the units in one layer to all of the units in the adjacent layer. However, it is possible to construct networks with more limited connections or connections between non-adjacent layers.
-                        </p>
-                        
-                        <p>
-                        We see that adding units in parallel is equivalent to increasing the number of units in a particular layer or layers, whereas adding units serially is equivalent to adding an additional layer to the network. Both approaches are essential for constructing a neural network that is capable of performing useful computations; we need the network to be sufficiently wide and deep.
-                        
-                        <center>
-                            <img src="../images/blog_images/blog_backprop/depth_width.png">
-                        </center>
-                        
-                        </p>
-                        
-                        <p>
-                        Part of the inspiration for this hierarchical, layered network architecture comes from biological neural networks, in particular, the neocortex. This brain structure is composed of many repeated basic circuits, grouped into regions, which are arranged hierarchically. For instance, when a visual signal first reaches the neocortex, it is represented by the primary visual cortex as a set of simple visual features, such as oriented lines, color patches, and motion vectors. As the signal propagates down the ventral visual pathway, downstream areas combine the visual features from previous areas into more complicated, abstract features, such as simple shapes, patterns, and eventually objects. There is obviously more to the neocortex than this simple description, but the general principle of hierarchical design is nevertheless valid.
-                        
-                        <center>
-                            <img src="../images/blog_images/blog_backprop/visual_features3.png">
-                                <p>
-                                    <em>Sources: Left: Serre &amp; Poggio, 2010, Right: Kandel et al., 2012</em>
-                                </p>
-                        </center>
-                        
-                        </p>
-                        <p>
-                        So why does the network need to be wide? If we don't have enough units in a particular layer of the network, we introduce a bottleneck in the computation process; the layer won't have enough units to adequately represent the features. Why does the network need to be deep? Assuming the layers are sufficiently wide, deeper networks are capable of representing more levels of abstraction. For a complicated task, such as object recognition, that involves a highly abstract mapping between the input pixels and output object identity, depth is vital. This higher level of abstraction is the force behind the trend toward deep learning.
-                        </p>
-                        
-                        <p>
-                        Let's now formalize our notation for an arbitrary feedforward neural network architecture. Assume we have a neural network with a total of $L$ layers. At layer $\ell$, we have inputs $\vec{x}^{\,\ell-1}$, weights $W^\ell$, the resulting summations $\vec{s}^{\,\ell}$, and outputs $\vec{x}^{\,\ell}$. Notice that, unlike our formulation in equation 3, $W$ is no longer a vector, but rather a matrix of weights. As a consequence, $\vec{s}$ is now a vector of summations. This just generalizes our previous formulations to the case where we have multiple output units in layer $\ell$. We can always recover the summation for a particular unit as
-                        
-                        \begin{equation}
-                        s^\ell_j = \sum_i W^\ell_{j,i}x^{\ell-1}_i.
-                        \end{equation}
-                        
-                        However, in vector notation, we can write the entire vector of summations as
-                        
-                        \begin{equation}
-                            \vec{s}^{\,\ell} = W^\ell \vec{x}^{\,\ell-1}.
-                        \end{equation}
-                        
-                        There's one point to mention before proceeding. To add additional capacity to our model, we may not want a simple linear weighting of the inputs. We may want to introduce an offset term, $b$, also referred to as a bias term. This would change equation 2 into
-                        
-                        \begin{equation}
-                        s = b + \sum_i w_i x_i,
-                        \end{equation}
-                        
-                        and would change equation 7 into
-                        
-                        \begin{equation}
-                        \vec{s}^{\,\ell} = \vec{b}^{\,\ell} + W^\ell \vec{x}^{\,\ell-1},
-                        \end{equation}
-                        
-                        where $\vec{b}^{\,\ell}$ is the vector of biases for layer $\ell$.
-                        
-                        <p>
-                        In working with these vectorized equations, it's important to step back and look at the dimensions of the matrix multiplications. Let's say that there are $N^\ell$ units in layer $\ell$. If we draw out equation 9, then we have:
-                        
-                        <center>
-                            <img src="../images/blog_images/blog_backprop/matrix1.png">
-                        </center>
-                        
-                        We see that $W^\ell$ is a matrix of size $N^\ell \times N^{\ell-1}$. For simplicity, let's make the following change: let's redefine our weight matrix by absorbing the bias vector. We append $\vec{b}^{\,\ell}$ to $W^\ell$, making it the first column of the weight matrix. To properly account for this change, we append a 1 to the top of our input vector, $\vec{x}^{\,\ell-1}$. The math works out exactly the same, except now instead of a matrix multiplication followed by a vector addition, we simply have a matrix multiplication. With the redefined $W^\ell$, the new operation is
-                        
-                        \begin{equation}
-                        \vec{s}^{\,\ell} = W^\ell \begin{pmatrix} 1 \\ \vec{x}^{\,\ell-1} \end{pmatrix}.
-                        \end{equation}
-                        
-                        Note that we have implicitly redefined $W^\ell$ to contain the bias terms, whereas we have explicitly rewritten $\vec{x}^{\,\ell-1}$ with an appended 1. This can be drawn as
-                        
-                        <center>
-                            <img src="../images/blog_images/blog_backprop/matrix2.png">
-                        </center>
-                        
-                        Finally, we make one more modification to vectorize our network even further. We would like to be able to feed multiple examples into the network at the same time. We can accomplish this be appending multiple example vectors together to form a matrix, with each example being a column of the matrix. Thus, $x$ and $s$ are now matrices. If each batch has $N_{examples}$ examples, then we can re-draw the linear operation as
-                        
-                        <center>
-                            <img src="../images/blog_images/blog_backprop/matrix3.png">
-                        </center>
-                        
-                        </p>
-                        
-                        <p>
-                        We have now defined a layer of the network. If we stack many of these layers together, we will have defined the entire network architecture. The following figure provides an illustration of a general network architecture. $x^0$ is the input to the network, and $x^L$ is the output. The dotted circles containing 1s represent the appended 1s to each $x^\ell$. Note that we do not append 1s to $x^L$, since there is no further forward computation to be done.
-                        
-                        <center>
-                            <img src="../images/blog_images/blog_backprop/neural_net.png">
-                        </center>
-                        
-                        Let's review by briefly summarizing a forward pass through the network. We are given a set of data examples, each of which we assume to be a vector of real numbers. We string together some number of examples, and pass them into our network as the matrix $x^0$. We append a vector of 1s to the top of this matrix and multiply by the first set of weights and biases, wrapped together as $W^1$ to get the first set of summations:
-                        
-                        \begin{equation}
-                        s^1 = W^1 \begin{pmatrix} 1 \\ x^0 \end{pmatrix}.
-                        \end{equation}
-                        
-                        We then pass this matrix through some non-linearity, performing this non-linear operation element-wise on the matrix, to get the next layer's inputs:
-                        
-                        \begin{equation}
-                        x^1 = g(s^1).
-                        \end{equation}
-                        
-                        We proceed in this fashion until we reach the outputs of the final layer, $x^L$. This series of operations, as simple as they are, may still seem abstract or unintuitive. But remember, what we have constructed is all just one big function, albeit with many layers:
-                        
-                        \begin{equation}
-                        \hat{y} = x^L = f(x^0) = g\left(W^L \begin{pmatrix} 1 \\ g\left(W^{L-1} \begin{pmatrix} 1 \\ g\left(W^{L-2} \begin{pmatrix} 1 \\ \dots \end{pmatrix}\right) \end{pmatrix}\right) \end{pmatrix}\right).
-                        \end{equation}
-                        
-                        </p>
-                        
-                        
-                        
+                        			</p>
+
+
+						<h3>The Basic Unit: Linear Summation + Non-Linear Transformation</h3>
+						
 						<p>
-                        
-                        <h3>Learning Through Backpropagation</h3>
-                        
-                        So we have defined the method of passing data forward through the network, however without learning the weights of the network (the parameters of the function), the output will be useless. The network will be guessing at random. In this section, we will walk through the backpropagation algorithm, allowing us to learn these weights from the data.
-                        
+						Feedforward neural networks are functions of a very specific form. They contain many units, analogous to biological neurons, each performing the same set of operations: a linear summation and a non-linear transformation. Let's break each of these down. What is a linear summation? Say we have a vector of inputs, $\vec{x}$, and say we have a corresponding vector of weights, $\vec{w}$, with the same number of entries as $\vec{x}$. A linear summation has the form
+						
+						\begin{equation}
+						    s = \sum_i w_i x_i,
+						\end{equation}
+						    
+						    where $i$ indexes over the entries in $w$ and $x$. The result of this operation, $s$, is a scalar. If you are familiar with basic linear algebra, this can be equivalently written as the <a href="https://en.wikipedia.org/wiki/Dot_product">dot product</a> of these two vectors:
+						    
+						\begin{equation}
+						    s = \vec{w} \cdot \vec{x}.
+						\end{equation}
+						
+						    The <em>linear</em> part comes from the fact that we are multiplying each weight by a linear version of the input. That is to say, in equation 2, we multiply each $w_i$ by $x_i$, not by $x_i^2$ or $\log x_i$ or something else. The <em>summation</em> part is straightfoward: we sum up the results from each of these multiplications.
 						</p>
-                        
-                        <p>
-                        In order to learn the weights, we need to define some measure of the performance of the network. In other words, how well do our predictions $\hat{y}$ match the ground truth $y$? In the machine learning and optimization literature, this measure of goodness is referred to as a <a href="https://en.wikipedia.org/wiki/Loss_function">loss function</a>, which we will refer to as $\mathcal{L}(\hat{y},y)$. Once we have a loss function, we can use <a href="https://en.wikipedia.org/wiki/Gradient_descent">gradient descent</a> to change the weights of our network to improve the loss, i.e. make better predictions. We do so by updating the weights as follows:
-                        
-                        \begin{equation}
-                        W^\ell \leftarrow W^\ell - \eta \frac{\partial \mathcal{L}}{\partial W^\ell}.
-                        \end{equation}
-                        
-                        </p>
-                        <p>
-                        For anyone unfamiliar with gradient descent, let's briefly explain equation 14. The loss $\mathcal{L}$ is a function of our prediction $\hat{y}$, which, in turn, is a function of our network's weights $W^1, W^2, \dots , W^L$. This means that the loss is, in fact, a function of the weights. Our goal is to find weights that give us a smaller loss, which will thereby give us better predictions. We do so by optimizing the loss with respect to each of the weights. That is, we update $W^\ell$ to be itself plus a step that will bring us down the slope of the loss function in the direction of $W^\ell$ (the minus sign represents the fact that we are stepping down the slope). The size of this step is quantified by $\eta$, the learning rate.
-                        </p>
-                        <p>
-                        
-                        The most basic loss function is what is called 0-1 loss, in which we incur a penalty if the prediction doesn't exactly match the ground truth:
-                        
-                        \begin{equation}
-                        \mathcal{L}(\hat{y}_i,y_i) = 1_{[\hat{y}_i \neq y_i]}.
-                        \end{equation}
-                        
-                        If we take this loss over our entire dataset, we simply count up the number of mistakes. <em>One quick note: in the last section, we eventually let $\hat{y}$, and therefore $y$, be matrices, however, in equation 15, they each define a matrix containing the results of the $i^{\text{th}}$ example, yielding a vector. We have omitted the vector arrows for simplicity.</em> Alright, so we have defined a loss function; we know the number of mistakes the network is making. Now it's just a matter of doing some optimization over the weights to decrease the number of mistakes!
-                        </p>
-                        
-                        <p>
-                        Not so fast! There are a number of reasons why 0-1 loss is not a good choice of loss function, but chief among them is the fact that it is either zero or not differentiable everywhere. If we make an incorrect prediction, $\frac{\partial \mathcal{L}}{\partial W^\ell}$ will be zero. You can intuitively think of it using this simplified example: let's say I'm thinking of a number, any number, and you want to guess what it is. If, after every guess, I only give you a simple 'yes' or 'no', you have almost zero chance of ever correctly guessing it. However, if I tell you 'bigger' or 'smaller', you now have a method of modifying your guess toward the correct number. So what is a better choice of loss function? The loss function that we use in CNS 187 is called squared loss, and is defined as follows:
-                        
-                        \begin{equation}
-                        \mathcal{L}(\hat{y}_i,y_i) = ||\hat{y}_i - y_i||^2.
-                        \end{equation}
-                        
-                        This gives us a differentiable distance measure between our prediction and the ground truth. Later on, we will define the softmax loss function, which is more commonly used with neural networks.
-                        
-                        </p>
-                        
-                        <p>
-                        Now that we have defined the loss $\mathcal{L}$, it's a matter of calculating $\frac{\partial \mathcal{L}}{\partial W^\ell}$ for each set of weights $W^\ell$ in the network. From equation 13, we see that we will need to use the <a href="https://en.wikipedia.org/wiki/Chain_rule">chain rule</a> to calculate these partial derivatives. This is where backpropagation begins...
-                        </p>
-                        
-                        <p>
-                        Let's start by calculating the partial derivatives of the loss with respect to the final layer of weights, $\frac{\partial \mathcal{L}}{\partial W^L}$. Using the chain rule, we can write out
-                        
-                        \begin{equation}
-                        \frac{\partial \mathcal{L}}{\partial W^L} = \frac{\partial \mathcal{L}}{\partial \hat{y}} \frac{\partial \hat{y}}{\partial s^L}\frac{\partial s^L}{\partial W^L}.
-                        \end{equation}
-                        
-                        To simplify the notation, let's define a term $\delta$ to be
-                        
-                        \begin{equation}
-                        \delta^\ell \triangleq \frac{\partial \mathcal{L}}{\partial s^\ell}.
-                        \end{equation}
-                        
-                        Thus, the partial derivative at the final layer becomes
-                        
-                        \begin{equation}
-                        \frac{\partial \mathcal{L}}{\partial W^L} = \delta^L \frac{\partial s^L}{\partial W^L}.
-                        \end{equation}
-                        
-                        Remembering that $\hat{y} = x^L$, we calculate $\delta^L$ as follows:
-                        
-                        \begin{equation}
-                        \delta^L = \frac{\partial \mathcal{L}}{\partial \hat{y}} \frac{\partial \hat{y}}{\partial s^L} = \frac{\partial}{\partial x^L}\left(||x^L - y||_F^2\right) \frac{\partial}{\partial s^L}g(s^L) = 2(x^L - y) \otimes x^L \otimes (1 - x^L).
-                        \end{equation}
-                        
-                        Here, $\otimes$ represents the elementwise multiplication of two matrices (or vectors), and the 1 is the matrix of 1s with the same dimensions as $x^L$: $N^L \times N_{examples}$. The term $x^L \otimes (1 - x^L)$ comes from the derivative of the logistic sigmoid non-linearity. From equation 4, this is calculated as follows:
-                        
-                        \begin{equation}
-                        \frac{d}{ds} g(s) = \frac{d}{ds} \frac{1}{1+e^{-s}} = \frac{e^{-s}}{(1+e^{-s})^2} =  \frac{1}{1+e^{-s}} \frac{e^{-s}}{1+e^{-s}} = \frac{1}{1+e^{-s}} \frac{1 + e^{-s} - 1}{1+e^{-s}}
-                        \end{equation}
-                        
-                        \begin{equation}
-                        \frac{d}{ds} g(s) = g(s)(1 - g(s)) = x(1 - x).
-                        \end{equation}
-                        
-                        From equation 17, we still need to calculate $\frac{\partial s^L}{\partial W^L}$:
-                        
-                        \begin{equation}
-                        \frac{\partial s^L}{\partial W^L} = \frac{\partial}{\partial W^L} \left( W^L \begin{pmatrix} 1 \\ x^{L-1} \end{pmatrix} \right) = \begin{pmatrix} 1 \\ x^{L-1} \end{pmatrix}^\intercal,
-                        \end{equation}
-                        
-                        where $a^\intercal$ is the <a href="https://en.wikipedia.org/wiki/Transpose">transpose</a> of $a$.
-                        
-                        </p>
-                        
-                        <p>
-                        Before moving on, let's briefly double check our matrix dimensions to make sure everything looks alright. Equation 17 has become
-                        
-                        \begin{equation}
-                        \frac{\partial \mathcal{L}}{\partial W^L} = \left(2(x^L - y) \otimes x^L \otimes (1 - x^L)\right)\begin{pmatrix} 1 \\ x^{L-1} \end{pmatrix}^\intercal.
-                        \end{equation}
-                        
-                        $\frac{\partial \mathcal{L}}{\partial W^L}$ should have the same dimensions as $W^L$, as seen from equation 14. Thus, it should have dimensions $N^L \times (N^{L-1}+1)$. On the right side of the equation, $x^L$ and $y$ both have dimensions of $N^L \times N_{examples}$, thus the entire term $2(x^L - y) \otimes x^L \otimes (1 - x^L)$ has dimensions of $N^L \times N_{examples}$. Finally,$\begin{pmatrix} 1 \\ x^{L-1} \end{pmatrix}$ has dimensions of $ (N^{L-1} + 1) \times N_{examples}$, which, when transposed, yields $N_{examples} \times (N^{L-1} + 1)$. Putting these all together, we see that
-                        
-                        \begin{equation}
-                        N^L \times (N^{L-1}+1) = ((N^L \times N_{examples}) (N_{examples} \times (N^{L-1} + 1)) = N^L \times (N^{L-1}+1).
-                        \end{equation}
-                        
-                        Thus, the dimensions are consistent.
-                        
-                        </p>
-                        
-                        <p>
-                        Now that we have derived the equation for the partial derivative of the loss with respect to the final layer of weights, if we want derive this expression for an arbitrary layer $\ell$ in the network, we simply continue using the chain rule:
-                        
-                        \begin{equation}
-                        \frac{\partial \mathcal{L}}{\partial W^\ell} = \frac{\partial \mathcal{L}}{\partial x^L} \frac{\partial x^L}{\partial s^L}\frac{\partial s^L}{\partial x^{L-1}}\frac{\partial x^{L-1}}{\partial s^{L-1}} \dots \frac{\partial x^{\ell+1}}{\partial s^{\ell+1}}\frac{\partial s^{\ell+1}}{\partial x^{\ell}} \frac{\partial x^{\ell}}{\partial s^{\ell}}\frac{\partial s^{\ell}}{\partial W^{\ell}}.
-                        \end{equation}
-                        
-                        This looks like a lot to compute, especially if we are dealing with a deep network (i.e. many layers). The beauty of the backpropagation algorithm is that we actually don't need to recompute all of these terms. Once we have computed the derivative with respect to a particular layer, we can store the value of $\delta$ at that layer to compute the derivatives at the next layer. To see how this works, let's rewrite equation 26 as
-                        
-                        \begin{equation}
-                        \frac{\partial \mathcal{L}}{\partial W^\ell} = \frac{\partial \mathcal{L}}{\partial s^{\ell+1}}\frac{\partial s^{\ell+1}}{\partial x^{\ell}} \frac{\partial x^{\ell}}{\partial s^{\ell}}\frac{\partial s^{\ell}}{\partial W^{\ell}}.
-                        \end{equation}
-                        
-                        We are perfectly justified in combining the terms from $\frac{\partial \mathcal{L}}{\partial x^L}$ to $\frac{\partial x^{\ell+1}}{\partial s^{\ell+1}}$ into a single term, $\frac{\partial \mathcal{L}}{\partial s^{\ell+1}}$, which happens to be $\delta^{\ell+1}$. Thus, we see that we have greatly simplified the expression for the partial derivative at any given internal layer. Now let's examine the rest of the terms in equation 27. The next term is
-                        
-                        \begin{equation}
-                        \frac{\partial s^{\ell+1}}{\partial x^{\ell}} = \frac{\partial}{\partial x^{\ell}} \left( W^{\ell+1} \begin{pmatrix} 1 \\ x^\ell \end{pmatrix} \right).
-                        \end{equation}
-                        
-                        Remember that the first column of $W^{\ell+1}$ contains the biases at layer $\ell+1$. These weights are not multiplied by $x^\ell$, and therefore have no effect on the derivative $\frac{\partial s^{\ell+1}}{\partial x^{\ell}}$. Let's define $W^{\ell+1}_*$ to be the matrix of weights at layer $\ell+1$ with the biases removed. Equation 28 then becomes
-                        
-                        \begin{equation}
-                        \frac{\partial s^{\ell+1}}{\partial x^{\ell}} = W^{\ell+1}_*.
-                        \end{equation}
-                        
-                        On to the next term of equation 27. As we saw in equation 22,
-                        
-                        \begin{equation}
-                        \frac{\partial x^{\ell}}{\partial s^{\ell}} = \frac{\partial}{\partial s^{\ell}} (g(s^\ell)) = x^{\ell} \otimes (1 - x^{\ell}).
-                        \end{equation}
-                        
-                        Finally, as we saw in equation 23, the final term in equation 27 evaluates to
-                        
-                        \begin{equation}
-                        \frac{\partial s^{\ell}}{\partial W^{\ell}} = \frac{\partial}{\partial W^\ell} \left( W^\ell \begin{pmatrix} 1 \\ x^{\ell-1} \end{pmatrix} \right) = \begin{pmatrix} 1 \\ x^{\ell-1} \end{pmatrix}^\intercal.
-                        \end{equation}
-                        
-                        Putting all of this together, and enforcing consistency in matrix dimensions, equation 27 becomes
-                        
-                        \begin{equation}
-                        \frac{\partial \mathcal{L}}{\partial W^\ell} = \left(((W^{\ell+1}_*)^\intercal \delta^{\ell+1})  \otimes x^{\ell} \otimes (1 - x^{\ell})\right) \begin{pmatrix} 1 \\ x^{\ell-1} \end{pmatrix}^\intercal = \delta^\ell \begin{pmatrix} 1 \\ x^{\ell-1} \end{pmatrix}^\intercal.
-                        \end{equation}
-                        
-                        When evaluated, both sides have dimensions of $N^\ell \times (N^{\ell-1}+1)$.
-                        </p>
-                        
-                        <p>
-                        Now that we have expressions for $\frac{\partial \mathcal{L}}{\partial W^\ell}$ for $\ell = 1, \dots, L$, we can run the entire backpropagation algorithm. Recapping, the steps are
-                        
-                        <ol>
-                            <li>Feed the dataset (or a batch) into the network, running the network forward to compute $x^L$</li>
-                            <li>Compute the loss $\mathcal{L}$</li>
-                            <li>Compute $\frac{\partial \mathcal{L}}{\partial W^L}$ and store $\delta^L$</li>
-                            <li>For layer $\ell$ = $L-1$ through 1:
-                                <ul>
-                                    <li>Use $\delta^{\ell + 1}$ to compute $\frac{\partial \mathcal{L}}{\partial W^\ell}$ and store $\delta^\ell$</li>
-                                </ul>
-                            </li>
-                            <li>Use $\frac{\partial \mathcal{L}}{\partial W^\ell}$ to update each $W^\ell$</li>
-                        </ol>
-                        
-                        This process is repeated until the weights converge and the network's performance ceases to improve.
-                        
-                        </p>
-                        
-                        
-                        <code style=display:block;white-space:pre-wrap></code>
 
-					</div>
-                    
-                    <div id="disqus_thread"></div>
-                    <script>
-                        /**
-                         * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-                         */
-                    
-                    var disqus_config = function () {
-                        this.page.url = 'http://joelouismarino.github.io/blog_posts/blog_backprop.html'; // Replace PAGE_URL with your page's canonical URL variable
-                        this.page.identifier = implementing_backprop; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                    };
-                    
-                    (function() { // DON'T EDIT BELOW THIS LINE
-                     var d = document, s = d.createElement('script');
-                     
-                     s.src = '//marinoblog.disqus.com/embed.js';
-                     
-                     s.setAttribute('data-timestamp', +new Date());
-                     (d.head || d.body).appendChild(s);
-                     })();
-                        </script>
-                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
-				</article> <!-- /entry -->
-						   
-	         
-	   	</div> <!-- /main -->
-
-	   </div> <!-- /row -->      
-
-   </section> <!-- /content -->  
+						<p>
+						Now on to the non-linear transformation. After taking a linear summation of the inputs, we pass the resulting scalar through a non-linear function. While there are many options that will work, the non-linearity traditionally employed in the neural network literature is the logistic <a href="https://en.wikipedia.org/wiki/Sigmoid_function">sigmoid function</a>, which has the form
+						
+						\begin{equation}
+						    g(s) = \frac{1}{1+e^{-s}}.
+						\end{equation}
+						
+						Plotting this out, we get the following curve:
+						
+						<div class="box alt">
+							<div class="row 50% uniform">
+								<div class="12u$"><span class="image fit"><img src="../images/blog_images/blog_backprop/sigmoid_labels.png" alt="" /></span></div>
+							</div>
+						</div>
+						
+						For large negative inputs, the exponential blows up and the function approaches 0, whereas for large positive inputs, the exponential goes to zero and the function approaches 1. For inputs that lie between these two extremes, we fall into an approximately linear region.
+						</p>
 
 
-<!-- Footer
- ================================================== -->
-<footer>
-    
-    <div class="row">
-        
-        <div class="twelve columns tab-whole right-cols">
-            
-            <div class="row">
-                
-                <div class="columns">
-                    <h3 class="address">Contact</h3>
-                    <p>
-                    jmarino [at] caltech.edu
-                    </p>
-                    <p>
-                    1200 E. California Blvd.<br>
-                    MC 136-93<br>
-                    Pasadena, 91125 CA<br>
-                    </p>
-                </div> <!-- /columns -->
-                
-                <div class="columns">
-                    <h3 class="contact">Connect</h3>
-                    
-                    <ul>
-                        <li><a href="https://www.linkedin.com/pub/joe-marino/37/bb0/73"><span></span><i class="fa fa-linkedin"></i></a>
-                            <a href="https://github.com/joelouismarino"><span></span><i class="fa fa-github"></i></a>
-                            <a href="https://www.facebook.com/joe.marino.9022"><span></span><i class="fa fa-facebook"></i></a>
-                        </li>
-                    </ul>
-                    
-                </div> <!-- /Row(nested) -->
-                
-            </div>
-            
-            <p class="copyright">&copy; Copyright 2016 Joseph Marino.</a></p>
-            
-            <div id="go-top">
-                <a class="smoothscroll" title="Back to Top" href="#top"><span>Top</span><i class="fa fa-long-arrow-up"></i></a>
-            </div>
-            
-        </div> <!-- /row -->
-        
-        </footer> <!-- /footer -->
+						<p>
+						Let's look at another non-linearity, the <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">rectified linear unit (ReLU)</a>. This function has the form
+						
+						\begin{equation}
+						    g(s) = \text{max}(0,s).
+						\end{equation}
+						
+						When plotted out, we have this curve:
+						
+						<div class="box alt">
+							<div class="row 50% uniform">
+								<div class="12u$"><span class="image fit"><img src="../images/blog_images/blog_backprop/relu_labels.png" alt="" /></span></div>
+							</div>
+						</div>
+						
+						Anything less than zero gets mapped to zero, while anything greater than zero is passed through as the identity.
+						
+						</p>
+						<p>
+						There are arguments in favor of using each of these non-linearities, as well as others. However, in practice, with the right training techniques, it may not make a substantial difference which non-linear function we choose. We are also not constrained to use the same non-linearity for every unit in the network. We only require that the non-linear function(s) we choose be 1) <a href="https://en.wikipedia.org/wiki/Monotonic_function">monotonic</a>, 2) differentiable, and 3) defined everywhere. The second point is actually not entirely strict, since we can get by with using the ReLU function, even though it has a (non-differentiable) cusp at 0.
+						</p>
+						
+						<div class="box alt">
+							<div class="row 50% uniform">
+								<div class="12u$"><span class="image fit"><img src="../images/blog_images/blog_backprop/connected-neurons.jpg" alt="" /></span></div>
+							</div>
+						</div>
+						
+						<p>
+						Stepping back, let's ask ourselves: why a linear summation followed by a non-linear transformation? The motivation is rooted in biological neurons. Neurons receive inputs from other neurons through branching structures called <a href="https://en.wikipedia.org/wiki/Dendrite">dendrites</a>. As electical signals passively propagate through these dendritic branches, they sum in a roughly linear fashion. When these signals reach the first section of the neuron's <a href="https://en.wikipedia.org/wiki/Axon">axon</a>, they evoke an all-or-none (non-linear) response, called an <a href="https://en.wikipedia.org/wiki/Action_potential">action potential</a>. Actual neurons are, of course, much more complicated than this simplified picture, but as we will see, this abstract model is nonetheless capable of performing some level of computation.
+						</p>
+						<p>
+						
+						<h3>Network Architecture</h3>
+						
+						Up to this point, our focus has been on the workings of an individual unit in the network. However, computation in neural networks depends heavily on the cooperation of many of these units, representing aspects of the input in a distributed fashion. In a feedforward network architecture, we have two ways of adding units to our network, either in <em>parallel</em> or <em>serial</em>. The following figure illustrates each of these approaches.
+						
+						<div class="box alt">
+							<div class="row 50% uniform">
+								<div class="12u$"><span class="image fit"><img src="../images/blog_images/blog_backprop/parallel_serial.png" alt="" /></span></div>
+							</div>
+						</div>
+						
+						Circles represent units within the network, and lines represent connection weights between these units. Feedforward neural networks are composed of layers of units, with connections between these layers. In a standard neural network, these connections map all of the units in one layer to all of the units in the adjacent layer. However, it is possible to construct networks with more limited connections or connections between non-adjacent layers.
+						</p>
+						
+						<p>
+						We see that adding units in parallel is equivalent to increasing the number of units in a particular layer or layers, whereas adding units serially is equivalent to adding an additional layer to the network. Both approaches are essential for constructing a neural network that is capable of performing useful computations; we need the network to be sufficiently wide and deep.
+						
+						<div class="box alt">
+							<div class="row 50% uniform">
+								<div class="12u$"><span class="image fit"><img src="../images/blog_images/blog_backprop/depth_width.png" alt="" /></span></div>
+							</div>
+						</div>
+						
+						</p>
+						
+						<p>
+						Part of the inspiration for this hierarchical, layered network architecture comes from biological neural networks, in particular, the neocortex. This brain structure is composed of many repeated basic circuits, grouped into regions, which are arranged hierarchically. For instance, when a visual signal first reaches the neocortex, it is represented by the primary visual cortex as a set of simple visual features, such as oriented lines, color patches, and motion vectors. As the signal propagates down the ventral visual pathway, downstream areas combine the visual features from previous areas into more complicated, abstract features, such as simple shapes, patterns, and eventually objects. There is obviously more to the neocortex than this simple description, but the general principle of hierarchical design is nevertheless valid.
+						
+						<div class="box alt">
+							<div class="row 50% uniform">
+								<div class="12u$"><span class="image fit"><img src="../images/blog_images/blog_backprop/visual_features3.png" alt="" /></span></div>
+							<p>
+						            <em>Sources: Left: Serre &amp; Poggio, 2010, Right: Kandel et al., 2012</em>
+						        </p>
+							</div>
+						</div>
+						
+						</p>
+						<p>
+						So why does the network need to be wide? If we don't have enough units in a particular layer of the network, we introduce a bottleneck in the computation process; the layer won't have enough units to adequately represent the features. Why does the network need to be deep? Assuming the layers are sufficiently wide, deeper networks are capable of representing more levels of abstraction. For a complicated task, such as object recognition, that involves a highly abstract mapping between the input pixels and output object identity, depth is vital. This higher level of abstraction is the force behind the trend toward deep learning.
+						</p>
+						
+						<p>
+						Let's now formalize our notation for an arbitrary feedforward neural network architecture. Assume we have a neural network with a total of $L$ layers. At layer $\ell$, we have inputs $\vec{x}^{\,\ell-1}$, weights $W^\ell$, the resulting summations $\vec{s}^{\,\ell}$, and outputs $\vec{x}^{\,\ell}$. Notice that, unlike our formulation in equation 3, $W$ is no longer a vector, but rather a matrix of weights. As a consequence, $\vec{s}$ is now a vector of summations. This just generalizes our previous formulations to the case where we have multiple output units in layer $\ell$. We can always recover the summation for a particular unit as
+						
+						\begin{equation}
+						s^\ell_j = \sum_i W^\ell_{j,i}x^{\ell-1}_i.
+						\end{equation}
+						
+						However, in vector notation, we can write the entire vector of summations as
+						
+						\begin{equation}
+						    \vec{s}^{\,\ell} = W^\ell \vec{x}^{\,\ell-1}.
+						\end{equation}
+						
+						There's one point to mention before proceeding. To add additional capacity to our model, we may not want a simple linear weighting of the inputs. We may want to introduce an offset term, $b$, also referred to as a bias term. This would change equation 2 into
+						
+						\begin{equation}
+						s = b + \sum_i w_i x_i,
+						\end{equation}
+						
+						and would change equation 7 into
+						
+						\begin{equation}
+						\vec{s}^{\,\ell} = \vec{b}^{\,\ell} + W^\ell \vec{x}^{\,\ell-1},
+						\end{equation}
+						
+						where $\vec{b}^{\,\ell}$ is the vector of biases for layer $\ell$.
+						
+						<p>
+						In working with these vectorized equations, it's important to step back and look at the dimensions of the matrix multiplications. Let's say that there are $N^\ell$ units in layer $\ell$. If we draw out equation 9, then we have:
+						
+						<div class="box alt">
+							<div class="row 50% uniform">
+								<div class="12u$"><span class="image fit"><img src="../images/blog_images/blog_backprop/matrix1.png" alt="" /></span></div>
+							</div>
+						</div>
+						
+						We see that $W^\ell$ is a matrix of size $N^\ell \times N^{\ell-1}$. For simplicity, let's make the following change: let's redefine our weight matrix by absorbing the bias vector. We append $\vec{b}^{\,\ell}$ to $W^\ell$, making it the first column of the weight matrix. To properly account for this change, we append a 1 to the top of our input vector, $\vec{x}^{\,\ell-1}$. The math works out exactly the same, except now instead of a matrix multiplication followed by a vector addition, we simply have a matrix multiplication. With the redefined $W^\ell$, the new operation is
+						
+						\begin{equation}
+						\vec{s}^{\,\ell} = W^\ell \begin{pmatrix} 1 \\ \vec{x}^{\,\ell-1} \end{pmatrix}.
+						\end{equation}
+						
+						Note that we have implicitly redefined $W^\ell$ to contain the bias terms, whereas we have explicitly rewritten $\vec{x}^{\,\ell-1}$ with an appended 1. This can be drawn as
+						
+						<div class="box alt">
+							<div class="row 50% uniform">
+								<div class="12u$"><span class="image fit"><img src="../images/blog_images/blog_backprop/matrix2.png" alt="" /></span></div>
+							</div>
+						</div>
+						
+						Finally, we make one more modification to vectorize our network even further. We would like to be able to feed multiple examples into the network at the same time. We can accomplish this be appending multiple example vectors together to form a matrix, with each example being a column of the matrix. Thus, $x$ and $s$ are now matrices. If each batch has $N_{examples}$ examples, then we can re-draw the linear operation as
+						
+						<div class="box alt">
+							<div class="row 50% uniform">
+								<div class="12u$"><span class="image fit"><img src="../images/blog_images/blog_backprop/matrix3.png" alt="" /></span></div>
+							</div>
+						</div>
+						
+						</p>
+						
+						<p>
+						We have now defined a layer of the network. If we stack many of these layers together, we will have defined the entire network architecture. The following figure provides an illustration of a general network architecture. $x^0$ is the input to the network, and $x^L$ is the output. The dotted circles containing 1s represent the appended 1s to each $x^\ell$. Note that we do not append 1s to $x^L$, since there is no further forward computation to be done.
+						
+						<div class="box alt">
+							<div class="row 50% uniform">
+								<div class="12u$"><span class="image fit"><img src="../images/blog_images/blog_backprop/neural_net.png" alt="" /></span></div>
+							</div>
+						</div>
+						
+						Let's review by briefly summarizing a forward pass through the network. We are given a set of data examples, each of which we assume to be a vector of real numbers. We string together some number of examples, and pass them into our network as the matrix $x^0$. We append a vector of 1s to the top of this matrix and multiply by the first set of weights and biases, wrapped together as $W^1$ to get the first set of summations:
+						
+						\begin{equation}
+						s^1 = W^1 \begin{pmatrix} 1 \\ x^0 \end{pmatrix}.
+						\end{equation}
+						
+						We then pass this matrix through some non-linearity, performing this non-linear operation element-wise on the matrix, to get the next layer's inputs:
+						
+						\begin{equation}
+						x^1 = g(s^1).
+						\end{equation}
+						
+						We proceed in this fashion until we reach the outputs of the final layer, $x^L$. This series of operations, as simple as they are, may still seem abstract or unintuitive. But remember, what we have constructed is all just one big function, albeit with many layers:
+						
+						\begin{equation}
+						\hat{y} = x^L = f(x^0) = g\left(W^L \begin{pmatrix} 1 \\ g\left(W^{L-1} \begin{pmatrix} 1 \\ g\left(W^{L-2} \begin{pmatrix} 1 \\ \dots \end{pmatrix}\right) \end{pmatrix}\right) \end{pmatrix}\right).
+						\end{equation}
+						
+						</p>
+						
+						
+						
+									<p>
+						
+						<h3>Learning Through Backpropagation</h3>
+						
+						So we have defined the method of passing data forward through the network, however without learning the weights of the network (the parameters of the function), the output will be useless. The network will be guessing at random. In this section, we will walk through the backpropagation algorithm, allowing us to learn these weights from the data.
+						
+									</p>
+						
+						<p>
+						In order to learn the weights, we need to define some measure of the performance of the network. In other words, how well do our predictions $\hat{y}$ match the ground truth $y$? In the machine learning and optimization literature, this measure of goodness is referred to as a <a href="https://en.wikipedia.org/wiki/Loss_function">loss function</a>, which we will refer to as $\mathcal{L}(\hat{y},y)$. Once we have a loss function, we can use <a href="https://en.wikipedia.org/wiki/Gradient_descent">gradient descent</a> to change the weights of our network to improve the loss, i.e. make better predictions. We do so by updating the weights as follows:
+						
+						\begin{equation}
+						W^\ell \leftarrow W^\ell - \eta \frac{\partial \mathcal{L}}{\partial W^\ell}.
+						\end{equation}
+						
+						</p>
+						<p>
+						For anyone unfamiliar with gradient descent, let's briefly explain equation 14. The loss $\mathcal{L}$ is a function of our prediction $\hat{y}$, which, in turn, is a function of our network's weights $W^1, W^2, \dots , W^L$. This means that the loss is, in fact, a function of the weights. Our goal is to find weights that give us a smaller loss, which will thereby give us better predictions. We do so by optimizing the loss with respect to each of the weights. That is, we update $W^\ell$ to be itself plus a step that will bring us down the slope of the loss function in the direction of $W^\ell$ (the minus sign represents the fact that we are stepping down the slope). The size of this step is quantified by $\eta$, the learning rate.
+						</p>
+						<p>
+						
+						The most basic loss function is what is called 0-1 loss, in which we incur a penalty if the prediction doesn't exactly match the ground truth:
+						
+						\begin{equation}
+						\mathcal{L}(\hat{y}_i,y_i) = 1_{[\hat{y}_i \neq y_i]}.
+						\end{equation}
+						
+						If we take this loss over our entire dataset, we simply count up the number of mistakes. <em>One quick note: in the last section, we eventually let $\hat{y}$, and therefore $y$, be matrices, however, in equation 15, they each define a matrix containing the results of the $i^{\text{th}}$ example, yielding a vector. We have omitted the vector arrows for simplicity.</em> Alright, so we have defined a loss function; we know the number of mistakes the network is making. Now it's just a matter of doing some optimization over the weights to decrease the number of mistakes!
+						</p>
+						
+						<p>
+						Not so fast! There are a number of reasons why 0-1 loss is not a good choice of loss function, but chief among them is the fact that it is either zero or not differentiable everywhere. If we make an incorrect prediction, $\frac{\partial \mathcal{L}}{\partial W^\ell}$ will be zero. You can intuitively think of it using this simplified example: let's say I'm thinking of a number, any number, and you want to guess what it is. If, after every guess, I only give you a simple 'yes' or 'no', you have almost zero chance of ever correctly guessing it. However, if I tell you 'bigger' or 'smaller', you now have a method of modifying your guess toward the correct number. So what is a better choice of loss function? The loss function that we use in CNS 187 is called squared loss, and is defined as follows:
+						
+						\begin{equation}
+						\mathcal{L}(\hat{y}_i,y_i) = ||\hat{y}_i - y_i||^2.
+						\end{equation}
+						
+						This gives us a differentiable distance measure between our prediction and the ground truth. Later on, we will define the softmax loss function, which is more commonly used with neural networks.
+						
+						</p>
+						
+						<p>
+						Now that we have defined the loss $\mathcal{L}$, it's a matter of calculating $\frac{\partial \mathcal{L}}{\partial W^\ell}$ for each set of weights $W^\ell$ in the network. From equation 13, we see that we will need to use the <a href="https://en.wikipedia.org/wiki/Chain_rule">chain rule</a> to calculate these partial derivatives. This is where backpropagation begins...
+						</p>
+						
+						<p>
+						Let's start by calculating the partial derivatives of the loss with respect to the final layer of weights, $\frac{\partial \mathcal{L}}{\partial W^L}$. Using the chain rule, we can write out
+						
+						\begin{equation}
+						\frac{\partial \mathcal{L}}{\partial W^L} = \frac{\partial \mathcal{L}}{\partial \hat{y}} \frac{\partial \hat{y}}{\partial s^L}\frac{\partial s^L}{\partial W^L}.
+						\end{equation}
+						
+						To simplify the notation, let's define a term $\delta$ to be
+						
+						\begin{equation}
+						\delta^\ell \triangleq \frac{\partial \mathcal{L}}{\partial s^\ell}.
+						\end{equation}
+						
+						Thus, the partial derivative at the final layer becomes
+						
+						\begin{equation}
+						\frac{\partial \mathcal{L}}{\partial W^L} = \delta^L \frac{\partial s^L}{\partial W^L}.
+						\end{equation}
+						
+						Remembering that $\hat{y} = x^L$, we calculate $\delta^L$ as follows:
+						
+						\begin{equation}
+						\delta^L = \frac{\partial \mathcal{L}}{\partial \hat{y}} \frac{\partial \hat{y}}{\partial s^L} = \frac{\partial}{\partial x^L}\left(||x^L - y||_F^2\right) \frac{\partial}{\partial s^L}g(s^L) = 2(x^L - y) \otimes x^L \otimes (1 - x^L).
+						\end{equation}
+						
+						Here, $\otimes$ represents the elementwise multiplication of two matrices (or vectors), and the 1 is the matrix of 1s with the same dimensions as $x^L$: $N^L \times N_{examples}$. The term $x^L \otimes (1 - x^L)$ comes from the derivative of the logistic sigmoid non-linearity. From equation 4, this is calculated as follows:
+						
+						\begin{equation}
+						\frac{d}{ds} g(s) = \frac{d}{ds} \frac{1}{1+e^{-s}} = \frac{e^{-s}}{(1+e^{-s})^2} =  \frac{1}{1+e^{-s}} \frac{e^{-s}}{1+e^{-s}} = \frac{1}{1+e^{-s}} \frac{1 + e^{-s} - 1}{1+e^{-s}}
+						\end{equation}
+						
+						\begin{equation}
+						\frac{d}{ds} g(s) = g(s)(1 - g(s)) = x(1 - x).
+						\end{equation}
+						
+						From equation 17, we still need to calculate $\frac{\partial s^L}{\partial W^L}$:
+						
+						\begin{equation}
+						\frac{\partial s^L}{\partial W^L} = \frac{\partial}{\partial W^L} \left( W^L \begin{pmatrix} 1 \\ x^{L-1} \end{pmatrix} \right) = \begin{pmatrix} 1 \\ x^{L-1} \end{pmatrix}^\intercal,
+						\end{equation}
+						
+						where $a^\intercal$ is the <a href="https://en.wikipedia.org/wiki/Transpose">transpose</a> of $a$.
+						
+						</p>
+						
+						<p>
+						Before moving on, let's briefly double check our matrix dimensions to make sure everything looks alright. Equation 17 has become
+						
+						\begin{equation}
+						\frac{\partial \mathcal{L}}{\partial W^L} = \left(2(x^L - y) \otimes x^L \otimes (1 - x^L)\right)\begin{pmatrix} 1 \\ x^{L-1} \end{pmatrix}^\intercal.
+						\end{equation}
+						
+						$\frac{\partial \mathcal{L}}{\partial W^L}$ should have the same dimensions as $W^L$, as seen from equation 14. Thus, it should have dimensions $N^L \times (N^{L-1}+1)$. On the right side of the equation, $x^L$ and $y$ both have dimensions of $N^L \times N_{examples}$, thus the entire term $2(x^L - y) \otimes x^L \otimes (1 - x^L)$ has dimensions of $N^L \times N_{examples}$. Finally,$\begin{pmatrix} 1 \\ x^{L-1} \end{pmatrix}$ has dimensions of $ (N^{L-1} + 1) \times N_{examples}$, which, when transposed, yields $N_{examples} \times (N^{L-1} + 1)$. Putting these all together, we see that
+						
+						\begin{equation}
+						N^L \times (N^{L-1}+1) = ((N^L \times N_{examples}) (N_{examples} \times (N^{L-1} + 1)) = N^L \times (N^{L-1}+1).
+						\end{equation}
+						
+						Thus, the dimensions are consistent.
+						
+						</p>
+						
+						<p>
+						Now that we have derived the equation for the partial derivative of the loss with respect to the final layer of weights, if we want derive this expression for an arbitrary layer $\ell$ in the network, we simply continue using the chain rule:
+						
+						\begin{equation}
+						\frac{\partial \mathcal{L}}{\partial W^\ell} = \frac{\partial \mathcal{L}}{\partial x^L} \frac{\partial x^L}{\partial s^L}\frac{\partial s^L}{\partial x^{L-1}}\frac{\partial x^{L-1}}{\partial s^{L-1}} \dots \frac{\partial x^{\ell+1}}{\partial s^{\ell+1}}\frac{\partial s^{\ell+1}}{\partial x^{\ell}} \frac{\partial x^{\ell}}{\partial s^{\ell}}\frac{\partial s^{\ell}}{\partial W^{\ell}}.
+						\end{equation}
+						
+						This looks like a lot to compute, especially if we are dealing with a deep network (i.e. many layers). The beauty of the backpropagation algorithm is that we actually don't need to recompute all of these terms. Once we have computed the derivative with respect to a particular layer, we can store the value of $\delta$ at that layer to compute the derivatives at the next layer. To see how this works, let's rewrite equation 26 as
+						
+						\begin{equation}
+						\frac{\partial \mathcal{L}}{\partial W^\ell} = \frac{\partial \mathcal{L}}{\partial s^{\ell+1}}\frac{\partial s^{\ell+1}}{\partial x^{\ell}} \frac{\partial x^{\ell}}{\partial s^{\ell}}\frac{\partial s^{\ell}}{\partial W^{\ell}}.
+						\end{equation}
+						
+						We are perfectly justified in combining the terms from $\frac{\partial \mathcal{L}}{\partial x^L}$ to $\frac{\partial x^{\ell+1}}{\partial s^{\ell+1}}$ into a single term, $\frac{\partial \mathcal{L}}{\partial s^{\ell+1}}$, which happens to be $\delta^{\ell+1}$. Thus, we see that we have greatly simplified the expression for the partial derivative at any given internal layer. Now let's examine the rest of the terms in equation 27. The next term is
+						
+						\begin{equation}
+						\frac{\partial s^{\ell+1}}{\partial x^{\ell}} = \frac{\partial}{\partial x^{\ell}} \left( W^{\ell+1} \begin{pmatrix} 1 \\ x^\ell \end{pmatrix} \right).
+						\end{equation}
+						
+						Remember that the first column of $W^{\ell+1}$ contains the biases at layer $\ell+1$. These weights are not multiplied by $x^\ell$, and therefore have no effect on the derivative $\frac{\partial s^{\ell+1}}{\partial x^{\ell}}$. Let's define $W^{\ell+1}_*$ to be the matrix of weights at layer $\ell+1$ with the biases removed. Equation 28 then becomes
+						
+						\begin{equation}
+						\frac{\partial s^{\ell+1}}{\partial x^{\ell}} = W^{\ell+1}_*.
+						\end{equation}
+						
+						On to the next term of equation 27. As we saw in equation 22,
+						
+						\begin{equation}
+						\frac{\partial x^{\ell}}{\partial s^{\ell}} = \frac{\partial}{\partial s^{\ell}} (g(s^\ell)) = x^{\ell} \otimes (1 - x^{\ell}).
+						\end{equation}
+						
+						Finally, as we saw in equation 23, the final term in equation 27 evaluates to
+						
+						\begin{equation}
+						\frac{\partial s^{\ell}}{\partial W^{\ell}} = \frac{\partial}{\partial W^\ell} \left( W^\ell \begin{pmatrix} 1 \\ x^{\ell-1} \end{pmatrix} \right) = \begin{pmatrix} 1 \\ x^{\ell-1} \end{pmatrix}^\intercal.
+						\end{equation}
+						
+						Putting all of this together, and enforcing consistency in matrix dimensions, equation 27 becomes
+						
+						\begin{equation}
+						\frac{\partial \mathcal{L}}{\partial W^\ell} = \left(((W^{\ell+1}_*)^\intercal \delta^{\ell+1})  \otimes x^{\ell} \otimes (1 - x^{\ell})\right) \begin{pmatrix} 1 \\ x^{\ell-1} \end{pmatrix}^\intercal = \delta^\ell \begin{pmatrix} 1 \\ x^{\ell-1} \end{pmatrix}^\intercal.
+						\end{equation}
+						
+						When evaluated, both sides have dimensions of $N^\ell \times (N^{\ell-1}+1)$.
+						</p>
+						
+						<p>
+						Now that we have expressions for $\frac{\partial \mathcal{L}}{\partial W^\ell}$ for $\ell = 1, \dots, L$, we can run the entire backpropagation algorithm. Recapping, the steps are
+						
+						<ol>
+						    <li>Feed the dataset (or a batch) into the network, running the network forward to compute $x^L$</li>
+						    <li>Compute the loss $\mathcal{L}$</li>
+						    <li>Compute $\frac{\partial \mathcal{L}}{\partial W^L}$ and store $\delta^L$</li>
+						    <li>For layer $\ell$ = $L-1$ through 1:
+						        <ul>
+						            <li>Use $\delta^{\ell + 1}$ to compute $\frac{\partial \mathcal{L}}{\partial W^\ell}$ and store $\delta^\ell$</li>
+						        </ul>
+						    </li>
+						    <li>Use $\frac{\partial \mathcal{L}}{\partial W^\ell}$ to update each $W^\ell$</li>
+						</ol>
+						
+						This process is repeated until the weights converge and the network's performance ceases to improve.
+						
+						</p>
 
 
-   <!-- Java Script
-   ================================================== -->
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-   <script>window.jQuery || document.write('<script src="../js/jquery-1.10.2.min.js"><\/script>')</script>
-   <script type="text/javascript" src="../js/jquery-migrate-1.2.1.min.js"></script>
-   <script src="../js/jquery.flexslider.js"></script>
-   <script src="../js/jquery.fittext.js"></script>
-   <script src="../js/backstretch.js"></script>
-   <script src="../js/waypoints.js"></script>
-   <script src="../js/main.js"></script>
-   <script id="dsq-count-scr" src="//marinoblog.disqus.com/count.js" async></script>
 
-</body>
+					<div id="disqus_thread"></div>
+					    <script>
+						/**
+						 * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+						 * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+						 */
+					    
+					    var disqus_config = function () {
+						this.page.url = 'http://joelouismarino.github.io/blog_posts/blog_backprop.html'; // Replace PAGE_URL with your page's canonical URL variable
+						this.page.identifier = implementing_backprop; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+					    };
+					    
+					    (function() { // DON'T EDIT BELOW THIS LINE
+					     var d = document, s = d.createElement('script');
+					     
+					     s.src = '//marinoblog.disqus.com/embed.js';
+					     
+					     s.setAttribute('data-timestamp', +new Date());
+					     (d.head || d.body).appendChild(s);
+					     })();
+						</script>
+					    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+					</section>
 
+
+					<section id="four">
+
+							<section>
+								<p>
+								<center>
+								&copy; 2016 Joe Marino
+								</center>
+								</p>
+							</section>
+
+					</section>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
