@@ -225,7 +225,7 @@
 	}
 
 	.row > * {
-		float: left;
+		float: center;
 		-moz-box-sizing: border-box;
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;

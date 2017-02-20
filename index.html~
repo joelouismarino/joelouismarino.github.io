@@ -40,12 +40,12 @@
 						</header>
 						<div class="row">
 							<article class="6u 12u$(xsmall) work-item">
-								<a href="research/taxonomic_curriculum_learning.pdf" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="" /></a>
+								<a href="research/taxonomic_curriculum_learning.pdf" class="image fit thumb"><img src="images/research/taxonomy.png" alt="" /></a>
 								<h3>Taxonomic Curriculum Learning</h3>
 								<p></p>
 							</article>
 							<article class="6u 12u$(xsmall) work-item">
-								<a href="research/non_expert_labels.pdf" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="" /></a>
+								<a href="research/non_expert_labels.pdf" class="image fit thumb"><img src="images/research/fine_grained.png" alt="" /></a>
 								<h3>Non-expert Labels Improve Fine-Grained Object Recognition</h3>
 								<p></p>
 							</article>
