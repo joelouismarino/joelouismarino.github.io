@@ -61,6 +61,14 @@
 
 						<section>
 							<header>
+								<h4><a href="blog_posts/blog_human_model.html">How to be a Better Model</a></h4>
+								<p>February 2017</p>
+							</header>
+							<p>I briefly explore some thoughts about the importance of data for machine learning and humans.</p>
+
+							<hr />
+
+							<header>
 								<h4><a href="blog_posts/blog_VAE.html">Thoughts on Generative Models</a></h4>
 								<p>October 2016</p>
 							</header>
