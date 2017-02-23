@@ -462,20 +462,6 @@
 							</section>
 
 					</section>
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-					<ul class="icons">
-						<li><a href="https://twitter.com/jl_marino" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="https://github.com/joelouismarino" class="icon fa-github"><span class="label">Github</span></a></li>
-						<li><a href="https://www.linkedin.com/in/joe-marino-073bb037" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-						<li><a href="mailto: jmarino [at] caltech.edu" class="icon fa-envelope-o"><span class="label">E-mail</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; 2016 Joe Marino</li>
-					</ul>
-				</div>
-			</footer>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
