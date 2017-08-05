@@ -1,147 +1,111 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Joe Marino</title>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="images/favicon.ico">
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="stylesheet" href="css/stuck.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/ihover.css">
+<script src="js/jquery.js"></script>
+<script src="js/jquery-migrate-1.1.1.js"></script>
+<script src="js/script.js"></script>
+<script src="js/superfish.js"></script>
+<script src="js/jquery.equalheights.js"></script>
+<script src="js/jquery.mobilemenu.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/tmStickUp.js"></script>
+<script src="js/jquery.ui.totop.js"></script>
+<script>
+ $(document).ready(function(){
+  $().UItoTop({ easingType: 'easeOutQuart' });
+  $('#stuck_container').tmStickUp({});
+  });
+</script>
+<!--[if lt IE 9]>
+ <div style=' clear: both; text-align:center; position: relative;'>
+   <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+     <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+   </a>
+</div>
+<script src="js/html5shiv.js"></script>
+<link rel="stylesheet" media="screen" href="css/ie.css">
+<![endif]-->
+<!--[if lt IE 10]>
+<link rel="stylesheet" media="screen" href="css/ie1.css">
+<![endif]-->
+</head>
+<body class="page1" id="top">
+<!--==============================
+              header
+=================================-->
+<header>
+<!--==============================
+            Stuck menu
+=================================-->
+  <section id="stuck_container">
+    <div class="container">
+      <div class="row">
 
-<html>
-	<head>
-		<title>Joe Marino</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	</head>
-	<body id="top">
+          <div class="navigation ">
+            <nav>
+              <ul class="sf-menu">
+               <li class="current"><a href="index.html">about</a></li>
+               <li><a href="research.html">research</a></li>
+               <li><a href="blog.html">blog</a></li>
+               <li><a href="teaching.html">teaching</a></li>
+             </ul>
+            </nav>
+            <div class="clear"></div>
+          </div>
 
-		<!-- Header -->
-			<header id="header">
-				<div class="inner">
-					<a href="images/me.jpg" class="image avatar"><img src="images/me.jpg" alt="" /></a>
-					<h1><strong>Joe Marino</h1>
-				</div>
-			</header>
-
-		<!-- Main -->
-			<div id="main">
-
-				<!-- One -->
-					<section id="one">
-						<header class="major">
-							<h2>About Me</h2>
-						</header>
-						<p>I am a Ph.D. student in the <a href="http://www.cns.caltech.edu">Computation and Neural Systems</a> program at the California Institute of Technology. I am co-advised by Professors <a href="http://www.vision.caltech.edu/pietroperona.htm">Pietro Perona</a> and <a href="http://www.yisongyue.com/about.php">Yisong Yue</a>. My focus is on combining deep learning and probabilistic graphical models, with the goal of extracting spatiotemporal structure from data in unsupervised or semi-supervised settings.</p>
-
-						<p> <em> I want to give machines the ability to learn on their own, with minimal support and interaction from humans. </em> </p>
-						<ul class="actions">
-								<li><a href="files/marino_cv.pdf" class="button icon fa-download">Download CV</a></li>
-						</ul>
-					</section>
-
-				<!-- Two -->
-					<section id="two">
-						<header class="major">
-							<h2>Research</h2>
-						</header>
-						<div class="row">
-							<article class="6u 12u$(xsmall) work-item">
-								<a href="research/taxonomic_curriculum_learning.pdf" class="image fit thumb"><img src="images/research/taxonomy.png" alt="" /></a>
-								<h3>Taxonomic Curriculum Learning</h3>
-								<p></p>
-							</article>
-							<article class="6u 12u$(xsmall) work-item">
-								<a href="research/non_expert_labels.pdf" class="image fit thumb"><img src="images/research/fine_grained.png" alt="" /></a>
-								<h3>Non-expert Labels Improve Fine-Grained Object Recognition</h3>
-								<p></p>
-							</article>
-						</div>
-					</section>
-
-				<!-- Four -->
-				
-					<section id="four">
-						<header class="major">
-							<h2>Blog</h2>
-						</header>
-
-						<section>
-							<header>
-								<h4><a href="blog_posts/blog_human_model.html">How to be a Better Model</a></h4>
-								<p>February 2017</p>
-							</header>
-							<p>I briefly explore some thoughts about the importance of data for machine learning and humans.</p>
-
-							<hr />
-
-							<header>
-								<h4><a href="blog_posts/blog_VAE.html">Thoughts on Generative Models</a></h4>
-								<p>October 2016</p>
-							</header>
-							<p>Generative deep neural networks, combined with probabilistic models, have been recently showing promising capabilities, hinting at the possiblilty of extracting meaningful abstract representations in unsupervised ways.</p>
-
-							<hr />
-
-							<header>
-								<h4><a href="blog_posts/blog_googlenet_keras.html">GoogLeNet in Keras</a></h4>
-								<p>June 2016</p>
-							</header>
-							<p>In this blog post, I'll show you how I implemented GoogLeNet in Keras and copied over the weights from Caffe. Then we'll classify some cats!</p>
-
-							<hr />
-
-							<header>
-								<h4><a href="blog_posts/blog_backprop.html">Implementing Backpropagation</a></h4>
-								<p>March 2016</p>
-							</header>
-							<p>Backpropagation is a method for computing derivatives in artificial neural networks, allowing us to use gradient descent to train these models. Here, I walk through implementing backpropagation.</p>
-
-							<hr />
-
-						</section>
-
-
-					<section id="four">
-						<header class="major">
-							<h2>Other Resources</h2>
-						</header>
-
-						<section>
-						<header>
-							<h4><a href="other_resources/ml_blogs.html">Machine Learning Blogs</a></h4>
-						</header>
-						<p><i>A collection of my favorite blogs and podcasts on machine learning and deep learning.</i></p>
-
-						<hr />
-
-						<header>
-							<h4><a href="other_resources/learning_deep_learning.html">Learning Deep Learning</a></h4>
-						</header>
-						<p><i>A brief guide on how to get started with deep learning.</i></p>
-
-						<hr />
-
-						</section>
+      </div>
+    </div>
+  </section>
+</header>
+<!--=====================
+          Content
+======================-->
+<section class="content"><div class="ic"></div>
+  <div class="container">
+    <div class="row">
+      <div class="grid_8 preffix_2">
+        <div class="ta__center">
+            <p></p>
+            <img src="images/me.jpg" alt="" />
+            <h4></h4>
+          <div class="st1">
+              <p>
+              <b>Joe Marino</b>
+              </p>
+              <p>
+          I am a Ph.D. student in the <a href="http://www.cns.caltech.edu">Computation and Neural Systems</a> program at the California Institute of Technology (Caltech). I am co-advised by Professors <a href="http://www.vision.caltech.edu/pietroperona.htm">Pietro Perona</a> and <a href="http://www.yisongyue.com/about.php">Yisong Yue</a>.
+            </p>
+            <p>
+          My focus is on combining deep learning and probabilistic graphical models, with the goal of extracting spatiotemporal structure from data in unsupervised or semi-supervised settings. <em> I want to give machines the ability to learn on their own, with minimal support from humans. </em>
+          </p>
+          
+          <a href="files/marino_cv.pdf">Download CV</a>
+          <p></p>
+          
+          <p>
+          jmarino [at] caltech [dot] edu
+          </p>
+          
+          <a href="https://twitter.com/jl_marino" class="fa fa-twitter"></a>
+          <a href="https://github.com/joelouismarino" class="fa fa-github"></a>
+          <a href="https://www.linkedin.com/in/joe-marino-073bb037" class="fa fa-linkedin"></a>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-					<ul class="icons">
-						<li><a href="https://twitter.com/jl_marino" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="https://github.com/joelouismarino" class="icon fa-github"><span class="label">Github</span></a></li>
-						<li><a href="https://www.linkedin.com/in/joe-marino-073bb037" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-						<li><a href="mailto: jmarino [at] caltech.edu" class="icon fa-envelope-o"><span class="label">E-mail</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; 2017 Joe Marino</li>
-					</ul>
-				</div>
-			</footer>
+</section>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.poptrox.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-
-	</body>
+</body>
 </html>

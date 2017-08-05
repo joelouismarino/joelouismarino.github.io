@@ -1,296 +1,306 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>thoughts on generative models</title>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="../images/favicon.ico">
+<link rel="shortcut icon" href="../images/favicon.ico">
+<link rel="stylesheet" href="../css/stuck.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/ihover.css">
+<script src="../js/jquery.js"></script>
+<script src="../js/jquery-migrate-1.1.1.js"></script>
+<script src="../js/script.js"></script>
+<script src="../js/superfish.js"></script>
+<script src="../js/jquery.equalheights.js"></script>
+<script src="../js/jquery.mobilemenu.js"></script>
+<script src="../js/jquery.easing.1.3.js"></script>
+<script src="../js/tmStickUp.js"></script>
+<script src="../js/jquery.ui.totop.js"></script>
+<script>
+ $(document).ready(function(){
+  $().UItoTop({ easingType: 'easeOutQuart' });
+  $('#stuck_container').tmStickUp({});
+  });
+</script>
+<!--[if lt IE 9]>
+ <div style=' clear: both; text-align:center; position: relative;'>
+   <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+     <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+   </a>
+</div>
+<script src="js/html5shiv.js"></script>
+<link rel="stylesheet" media="screen" href="css/ie.css">
+<![endif]-->
+<!--[if lt IE 10]>
+<link rel="stylesheet" media="screen" href="css/ie1.css">
+<![endif]-->
 
-<html>
-	<head>
-		<title>Blog - Thoughts on Generative Models</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="../assets/css/blog.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});
+    </script>
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
 
-	    <script type="text/x-mathjax-config">
-		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-	    </script>
-	    <script type="text/x-mathjax-config">
-		MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});
-	    </script>
-	    <script type="text/javascript"
-		src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-	    </script>
-	</head>
-	<body id="top">
+</head>
+<body class="page1" id="top">
+<!--==============================
+              header
+=================================-->
+<header>
+<!--==============================
+            Stuck menu
+=================================-->
+  <section id="stuck_container">
+    <div class="container">
+      <div class="row">
 
-			<header id="header">
-				<div class="inner">
-					<a href="../index.html" class="icon fa-long-arrow-left">  back</a>
-				</div>
-			</header>
+          <div class="navigation ">
+            <nav>
+              <ul class="sf-menu">
+               <li><a href="../index.html">about</a></li>
+               <li><a href="../research.html">research</a></li>
+               <li class="current"><a href="../blog.html">blog</a></li>
+               <li><a href="../teaching.html">teaching</a></li>
+             </ul>
+            </nav>
 
-
-
-		<!-- Main -->
-			<div id="main">
-
-					<section id="one">
-						<header class="major">
-							<h1>Thoughts on Generative Models</h1>
-							<h4><i>Joe Marino - October 2016</i></h4>
-						</header>
-						<h3>Preface</h3>
-
-						<p>
-						Deep learning has exploded in recent years. Researchers are continually coming up with new and exciting ways to compose deep networks to perform new tasks and learn new things. If I can borrow <a href="https://www.youtube.com/watch?v=x1kf4Zojtb0">Nando de Freitas'</a> analogy, we’re like kids playing with lego blocks, stacking these blocks together, trying to develop novel creations. When we stack these blocks into towers so tall that they become unstable, someone develops a new technique for stacking blocks, allowing us to continue constructing even bigger towers. Occasionally someone invents a new block, and if it’s useful, the rest of us scramble to incorporate this block into our towers.
-						</p>
+          <div class="clear"></div>
+          </div>
+      </div>
+    </div>
+  </section>
+</header>
+<!--=====================
+          Content
+======================-->
+<section class="content"><div class="ic"></div>
+    <div class="container">
+        <div class="row">
+            <div class="grid_8 preffix_2">
+                <div class="ta__center">
+                    <h3>thoughts on generative models</h3>
+                    <div class="st2">
+                        <p>
+                        Deep learning has exploded in recent years. Researchers are continually coming up with new and exciting ways to compose deep networks to perform new tasks and learn new things. If I can borrow <a href="https://www.youtube.com/watch?v=x1kf4Zojtb0">Nando de Freitas'</a> analogy, we’re like kids playing with lego blocks, stacking these blocks together, trying to develop novel creations. When we stack these blocks into towers so tall that they become unstable, someone develops a new technique for stacking blocks, allowing us to continue constructing even bigger towers. Occasionally someone invents a new block, and if it’s useful, the rest of us scramble to incorporate this block into our towers.
+                        </p>
                         
-						<div class="box alt">
-							<center>
-							<div class="row 50% uniform">
-								<div class="6u$"><span class="image fit"><img src="../images/blog_images/blog_VAE/lego_tower.jpg" alt="" /></span></div>
-								<p><em>The world’s tallest lego tower in Milan reaches a height of 35 meters.</em></p>
-							</div>
-							</center>
-						</div>
+                        <div class="box alt">
+                            <center>
+                                <div class="row 50% uniform">
+                                    <div class="6u$"><span class="image fit"><img src="../images/blog_images/blog_VAE/lego_tower.jpg" alt="" /></span></div>
+                                    <p><em>The world’s tallest lego tower in Milan reaches a height of 35 meters.</em></p>
+                                </div>
+                            </center>
+                        </div>
                         
-						<p>
-						The result has been a flourishing of new deep learning designs and capabilities, everything from attentional mechanisms to memory to planning and reasoning (just to name a few). Likewise, these networks are becoming more capable, improving on benchmark tasks as well as taking on new ones. While I would like to devote time to all of these developments, I want to use this blog post to explore one exciting area of research, generative models, and offer my vision for where these models may eventually take us.
-						</p>
-						
-						<h3>Biological Inspiration</h3>
-						
-						<p>
-						
-						As a student of both machine learning and neuroscience, I’m continually trying to understand the ways in which these two domains align and differ, particularly with regard to deep learning and the human brain. With the ultimate goal of building general machine intelligence, my guiding assumption is that by understanding the capabilities of the human brain and having theories as to how it accomplishes these tasks, we can better direct our efforts in deep learning, whether or not we try to emulate the brain’s computational principles. Seeing one solution to a problem tends to make solving that problem easier, even if it only provides you with a better appreciation of the problem itself.
-						</p>
-						
-						<p>
-						
-						Deep learning takes inspiration from biology. In particular, much of the work in deep feedforward neural networks (especially convolutional neural networks) is loosely based on the sensory processing pathways in the mammalian neocortex. This structure, the folded exterior portion of the brain, is involved in processing sensory signals, storing memories, planning and executing actions, as well as reasoning and abstract thought. With such a wide variety of capabilities, one might expect to find drastic anatomical differences between regions that are specialized for one task over another. However, the neocortex consists of a surprisingly uniform six-layer architecture, with a columnar structure of neurons between layers. It appears as though evolution has found a general purpose computing architecture, capable of performing an array of tasks that are useful for survival.
-						</p>
-						
+                        <p>
+                        The result has been a flourishing of new deep learning designs and capabilities, everything from attentional mechanisms to memory to planning and reasoning (just to name a few). Likewise, these networks are becoming more capable, improving on benchmark tasks as well as taking on new ones. While I would like to devote time to all of these developments, I want to use this blog post to explore one exciting area of research, generative models, and offer my vision for where these models may eventually take us.
+                        </p>
+                        
+                        <center><b>Biological Inspiration</b></center>
+                        
+                        <p></p>
+                        
+                        <p>
+                        As a student of both machine learning and neuroscience, I’m continually trying to understand the ways in which these two domains align and differ, particularly with regard to deep learning and the human brain. With the ultimate goal of building general machine intelligence, my guiding assumption is that by understanding the capabilities of the human brain and having theories as to how it accomplishes these tasks, we can better direct our efforts in deep learning, whether or not we try to emulate the brain’s computational principles. Seeing one solution to a problem tends to make solving that problem easier, even if it only provides you with a better appreciation of the problem itself.
+                        </p>
+                        
+                        <p>
+                        
+                        Deep learning takes inspiration from biology. In particular, much of the work in deep feedforward neural networks (especially convolutional neural networks) is loosely based on the sensory processing pathways in the mammalian neocortex. This structure, the folded exterior portion of the brain, is involved in processing sensory signals, storing memories, planning and executing actions, as well as reasoning and abstract thought. With such a wide variety of capabilities, one might expect to find drastic anatomical differences between regions that are specialized for one task over another. However, the neocortex consists of a surprisingly uniform six-layer architecture, with a columnar structure of neurons between layers. It appears as though evolution has found a general purpose computing architecture, capable of performing an array of tasks that are useful for survival.
+                        </p>
+                        
+                        <div class="box alt">
+                            <center>
+                                <div class="row 50% uniform">
+                                    <div class="8u$"><span class="image fit"><img src="../images/blog_images/blog_VAE/cortex.png" alt="" /></span></div>
+                                    <p><em>Neocortical anatomical structure. <b>Left:</b> six-layered architecture of neocortex, differentiated by neuron morphologies. <b>Right:</b> Columnar structure between layers in neocortex. Neurons within a column act as a single computational unit.</em></p>
+                                </div>
+                            </center>
+                        </div>
+                        
+                        <p>
+                        It appears, then, that the specialized functions of the neocortex are instead a function of the connections between neurons, columns, and areas. While we don’t have a detailed understanding of these connections or even the computational principles employed by different areas, we do have some, albeit vague, notion of the computations being performed by the sensory processing regions of the neocortex. For instance, we know that visual processing areas are roughly composed into a computational hierarchy, consisting of two main processing streams that communicate with each other. Neurons progressively further up the hierarchy appear to encode more abstract qualities, going from simple colors, dots, and lines in low level areas up to shapes, objects, and complex motions near the top of the hierarchy. We also know that sensory processing involves both feedforward and feedback signals. Feedforward signals are thought to propagate sensory information for higher level recognition, action, and thought, whereas feedback signals are thought to mediate sensory predictions and attention. Also, we know that the human brain is capable of inferring low level details from high level concepts. If I ask you to describe your childhood bedroom, you would have no problem describing your bed, the walls, and perhaps even some of your toys.
+                        
+                        </p>
+                        
+                        <div class="box alt">
+                            <center>
+                                <div class="row 50% uniform">
+                                    <div class="6u$"><span class="image fit"><img src="../images/blog_images/blog_VAE/hierarchy.png" alt="" /></span></div>
+                                    <p><em>Simple schematic of sensory processing in neocortex. Circles represent computational operations. Computation is performed in a roughly hierarchical manner. The architecture contains both feedforward and feedback pathways.</em></p>
+                                </div>
+                            </center>
+                        </div>
+                        
+                        <p>
+                        The human neocortex is clearly a highly complex system sitting inside the even more complex system of the human brain. The broad picture painted here is only a caricature of its intricacies. I’ve left out many of the biological details, some of which may prove to be important for understanding the computations being performed. But starting from these simplified assumptions, I’ll argue that we may be able to construct a non-biological system that at least approximates the sensory processing computations and capabilities of the human brain. <b>I contend that the sensory processing pathways of the mammalian neocortex are some form of hierarchical generative model that consists of both feedforward and feedback networks.</b>
+                        </p>
+                        
+                        <center><b>Generative Models</b></center>
+                        
+                        <p></p>
+                        
+                        <p>
+                        
+                        Creating and training a deep neural network involves <b>1)</b> choosing a network architecture, <b>2)</b> choosing a learning principle, and <b>3)</b> choosing some method for optimizing the network according to that principle. Broadly speaking, all machine learning models fall into one of two categories: discriminative and generative. While both models are capable of learning data distributions, they approach the problem in different ways. Discriminative models focus on trying to simply separate different data examples, typically by some specified class. Generative models focus on trying to actually model the underlying data distribution, which can in turn be used to separate examples by class. However, by modeling the underlying data distribution, generative models can also use this distribution to <em>generate</em> data examples. Discriminative models can only <em>discriminate</em> between classes of data examples. Both types of models have pros and cons, which are often dependent on the task at hand, but both have enjoyed many successes.
+                        
+                        
+                        </p>
+                        
+                        <div class="box alt">
+                            <center>
+                                <div class="row 50% uniform">
+                                    <div class="6u$"><span class="image fit"><img src="../images/blog_images/blog_VAE/Discriminative_generative.png" alt="" /></span></div>
+                                    <p><em>Discriminative models simply try to discriminate between different classes of data points. Generative models try to model the underlying distribution of the data.</em></p>
+                                </div>
+                            </center>
+                        </div>
+                        
+                        <p>
+                        
+                        Neural networks, especially in this new era of deep learning, have typically taken on a discriminative form. The convolutional neural networks that I train and use for object detection and classification are discriminative. Similar types of models exist for speech recognition, reinforcement learning, and other areas. These models have had many successes in the last few years as benchmarks continue to improve and new tasks are taken on. This has mainly been fueled by better datasets, more computing power, and larger models. However, something that struck me when I first started working in deep learning was an unsettling feeling that these models are not truly learning in the same way in which humans do. Take object classification for example. When training a deep network to classify objects, one typically needs hundreds or thousands of example images to successfully generalize to unseen examples. Of course, one can somewhat get around this through creative forms of data augmentation and transfer learning, but the point remains that these systems need far more examples than humans do to learn new concepts. And mind you, each of those examples needs a corresponding label. Can you imagine if you had to learn a new object by seeing it hundreds of times in different contexts while somebody said its name?
+                        
+                        </p>
+                        
+                        <p>
+                        
+                        Note that there are actually two problems here. The first is the ability of the model to
+                        (quickly) associate some high level representation of the input with some specified class, assimilating this information into the model’s body of knowledge. This is generally studied in the context of low-shot learning, where a model is expected to learn to classify a new class with minimal examples. The second problem is one of developing a high level representation in which the model can easily generalize between different instances of the same concept. This is the problem we are most concerned with. Clearly, these two problems are related: a representation that generalizes better will allow the model to learn new concepts more quickly. I strongly believe that the best representation for easy generalization is one in which the constituent high level parts of the input are disentangled, or in a sense, understood. For object recognition, this would entail having a representation in which objects are recognized irrespective of the specific context in which they are seen; the model understands that objects and contexts are separate concepts (as far as recognition is concerned).
+                        </p>
+                        
+                        
+                        <div class="box alt">
+                            <center>
+                                <div class="row 50% uniform">
+                                    <div class="8u$"><span class="image fit"><img src="../images/blog_images/blog_VAE/ducks.png" alt="" /></span></div>
+                                    <p><em>Classifications of three images of ducks by a state-of-the-art convolutional neural network. The left image shows that the network can successfully classify a duck when it is in plain sight in a typical context: in water. The center image shows that once the duck is in a non-typical context, partially occluded by foliage, the network is unable to correctly classify the image. Finally, the right image shows the ducks in an even more obscure context, highly occluded. Again, the network is unable to correctly classify the ducks.</em></p>
+                                </div>
+                            </center>
+                        </div>
+                        
+                        <p>
+                        
+                        
+                        Discriminative models have a difficult time encapsulating an understanding of the examples themselves because they do not model the data generation process. Unless explicitly trained to separate out different concepts, these networks tend to overfit to the data with which they are trained. They simply look for patterns in the data that are helpful for the task they are trained to perform. We can argue whether this amounts to 'understanding,’ but bear with me for the time being. A discriminative model succeeds when it has access to copious amounts of data (seeing most of the possible patterns from the data distribution) and the capacity to store this information. However, when presented with new data examples or familiar examples in new contexts, these models are often unable to generalize well. The object domain we tend to use in the Caltech vision lab is birds. Imagine a network that has only ever seen images of ducks in or near water. During training, it learns that water is a key feature for classifying ducks, and the network’s weights adjust so as to be selective for water patterns within images when classifying ducks. This is, in fact, what actually happens when training a discriminative model for this task. However, water does not determine whether or not a duck is a duck; it’s merely a helpful contextual clue. When you or I see a duck in a new context, there may be an initial confusion, but we often have no problem generalizing objects to entirely new contexts.
+                        </p>
+                        
+                        
+                        <p>
+                        
+                        So how do we fix this problem? How do we move beyond current deep learning techniques to arrive at some form of deep understanding? The answer, I’m convinced, is by building a gen- erative model. Generative models cannot as easily get away with simply finding useful patterns in the data. They are required to build a model of how the data is generated. Depending on the expressive power of the model, this implies developing some level of understanding of the underlying data generation mechanism. When trained in an appropriate way, such a model could, in theory, disentangle the underlying factors that influence the world around us. In the setting of our duck example, a generative model could potentially understand that there are objects called ducks that have bills, wings, eyes, etc. and that such objects exist independent of their context. In other words, a duck is what makes a duck a duck. With this level of understanding, we may be justified in hoping that the model will more easily generalize to new examples and classes through transfer learning.
+                        
+                        </p>
+                        
+                        <p>
+                        
+                        In the rest of this blog post, I will look at one particular generative model, the variational auto-encoder. After, I’ll point to a few recent papers, their possible connections to neuroscience, and where I think things are headed.
+                        
+                        </p>
+                        
+                        <center><b>Variational Autoencoders</b></center>
+                        
+                        <p></p>
+                        
+                        <p>
+                        
+                        Variational auto-encoders are a form of latent variable generative model. Unlike transformation models (e.g. generative adversarial networks), which convert random noise into data examples, or autoregressive models (e.g. Pixel RNN/CNN, WaveNet), which condition the generation of parts of an example on the previously generated parts, latent variable models have a greater potential for more levels of abstraction. Variational auto-encoders were independently developed by <a href="https://arxiv.org/abs/1312.6114">Kingma and Welling</a> and <a href="https://arxiv.org/abs/1401.4082">Rezende, Mohamed, and Wierstra</a>  in 2013. I will spare you the details of the derivation and will instead point you toward the two original papers and this excellent <a href="https://arxiv.org/abs/1606.05908">tutorial</a>. The overall model is composed as follows. We have input data $\mathbf{x}$ and a set of latent variables $\mathbf{z}$, which have a prior probability distribution $p(\mathbf{z})$. We have a recognition model $q(\mathbf{z}|\mathbf{x})$, an encoding neural network that approximates the true posterior of the latent variables.  We also have a generative model $p(\mathbf{x}|\mathbf{z})$, which is a decoding neural network that generates data by taking the latent variables as input. For tractability issues, the true posterior is assumed to be a multi-variate Gaussian with diagonal covariance. Similarly, the prior is set to be $\mathcal{N}(\mathbf{z}; 0, \mathbf{I})$. The model is train by maximizing the variational lower bound on the log likelihood, which for an example $\mathbf{x}^{(i)}$ is written as
+                        
+                        $$ \mathcal{L} (\mathbf{x}^{(i)}) = \mathbb{E}_{q(\mathbf{z}|\mathbf{x}^{(i)})}\left[\log p(\mathbf{x}^{(i)}|\mathbf{z})\right] - D_{KL}\left(q(\mathbf{z}|\mathbf{x}^{(i)})||p(\mathbf{z})\right).$$
+                        
+                        When adding the assumptions on the prior and posterior, this becomes
+                        
+                        
+                        $$\mathcal{L} (\mathbf{x}^{(i)}) = \frac{1}{L} \sum_{\ell = 1}^{L} \log p(\mathbf{x}^{(i)}|\mathbf{z}^{(i,\ell)}) - \frac{1}{2} \sum_{j=1}^J \left(  1 + \log((\sigma_j^{(i)})^2) - (\mu_j^{(i)})^2 - (\sigma_j^{(i)})^2 \right),$$
+                        
+                        
+                        $$\text{where } \mathbf{z}^{(i,\ell)} = \mu^{(i)} +  \sigma^{(i)} \odot \epsilon^{(\ell)} \text{ and } \epsilon^{(\ell)} \sim \mathcal{N}(0,\mathbf{I}).$$
+                        
+                        
+                        $L$ is the number of samples drawn from the approximate posterior for each example, and $J$ is the number of latent variables (the length of $\mathbf{z}$). Let's deconstruct this equation. The first term is the expectation of the generative model at the input according to the approximate posterior. This is simply a reconstruction term: how well the model does at reconstructing the input it is given. The second term is the KL divergence between the approximate posterior and the prior. This regularizes the latent variables toward the prior. If a particular latent variable is unnecessary for reconstructing the input, its value is set toward the prior of a Gaussian with zero mean and unit variance.
+                        
+                        </p>
+                        
+                        <div class="box alt">
+                            <center>
+                                <div class="row 50% uniform">
+                                    <div class="6u$"><span class="image fit"><img src="../images/blog_images/blog_VAE/VAE_schematic.png" alt="" /></span></div>
+                                    <p><em>Schematic of a one level VAE.</em></p>
+                                </div>
+                            </center>
+                        </div>
+                        
+                        <p>
+                        
+                        The independence assumption on the latent variables has some interesting consequences. By weighting either one of the terms in the VAE equation, we can increase or decrease the amount of regularization during training. Decreasing the weight on the regularization term results in latent variables that are free to be whatever value is best for reconstruction, approaching maximum likelihood learning as we decrease the weight toward zero. Increasing the weighting, however, results in latent variables that are turned off, with the remaining latent variables being strongly encouraged toward independence. Recently, <a href="https://arxiv.org/abs/1606.05579">Higgins et al.</a> showed that by increasing the weighting on the regularization term, one can begin to disentangle the factors of variation underlying the data distribution. For instance, they learn to separate translation, rotation, and scale on a simple 2D shapes dataset. They also learn the different factors in atari games, including score, health, and position (see <a href="http://tinyurl.com/jgbyzke">here</a>). While they demonstrate this phenomenon on only a handful of toy examples, the results offer an encouraging path forward toward deep understanding. This suggests that with a powerful enough model, one might be able to uncover the factors of variation underlying the natural world. This would be a momentous step beyond simply matching patterns. In this way, a machine could actually understand the world we live in, more easily enabling it to perform a wide array of higher level cognitive abilities, including memory, planning, and reasoning.
+                        
+                        </p>
+                        
+                        <div class="box alt">
+                            <center>
+                                <div class="row 50% uniform">
+                                    <div class="8u$"><span class="image fit"><img src="../images/blog_images/blog_VAE/VAE_results.png" alt="" /></span></div>
+                                    <p><em>Increasing the weight of the independence prior on the latent variables in VAEs induces `conceptual compression,' thereby disentangling the underlying factors of variation generating the data. <b>Left:</b> Disentangled latent variables on a 2D shapes dataset. The first five latent variables encode position, scale, and rotation of a 2D shape. The other latent variables are set to the prior. <b>Right:</b> The higher images are produced by a VAE with a larger relative amount of regularization and appear to have more visually cohesive global structure. The model for the lower images has less regularization and focuses too much on fine details.</em></p>
+                                </div>
+                            </center>
+                        </div>
+                        
+                        <p>
+                        
+                        Another hint of the potential of such a strategy is seen in a recent paper by <a href="https://arxiv.org/abs/1604.08772">Gregor et al.</a>, in which they train a VAE with recurrent encoding and decoding functions to progressively generate natural images. Similarly to Higgins et al., they investigate weighting the terms in the variational lower bound. What they notice is that models with higher amounts of regularization tend to generate images with more coherent global structure. Admittedly, these images are still quite blurry, which is likely the result of a number of things (a simplified approximate posterior distribution form, no attentional mechanism, etc.), but the fact remains that these models appear to have internalized the concepts of certain objects better than their less regularized counterparts. While these results are slightly more difficult to interpret, they at least seem to agree with the work of Higgins et al. This offers hope that learning latent variable models of a more expressive form may allow us to teach a machine to understand the natural world.
+                        </p>
+                        
+                        <center><b>Relation to Sensory Processing in the Neocortex</b></center>
+                        <p></p>
+                        
+                        
+                        <p>
+                        As discussed earlier, the sensory processing pathways in the neocortex appear to be some form of hierarchical generative model consisting of feedforward and feedback pathways. In this regard, VAEs may be performing a crude approximation of neocortical processing. Feedforward processing in the neocortex would thus correspond to the recognition network, encoding stimuli by selecting out progressively more abstract features from the input. Similarly, feedback processing would correspond to the generative network, whereby activity in high level areas is used to generate predictions in low level areas. However, as we compare neocortical sensory processing with VAEs, one immediate difference we see is that VAEs are typically formulated with a single level of latent variables. Neocortex, on the other hand, could consist of many such stages. It's possible that the stochastic latent variables correspond to the neuron activities themselves, with the recognition network corresponding to dendritic processing. The generative network may likewise correspond to dendritic processing in the feedback pathway.
+                        
+                        </p>
+                        
+                        <div class="box alt">
+                            <center>
+                                <div class="row 50% uniform">
+                                    <div class="6u$"><span class="image fit"><img src="../images/blog_images/blog_VAE/multi_level_VAE.png" alt="" /></span></div>
+                                    <p><em>Schematic of a possible three level VAE.</em></p>
+                                </div>
+                            </center>
+                        </div>
+                        
+                        <p>
+                        With multiple levels of latent variables, during the feedforward pass, one would propagate inputs through the entire network, generating activations (using the approximate posterior) for each of the latent variables at each level. At the top of the hierarchy, one might insist on using an independence prior like that used in the one level VAE. During the feedback pass, we generate predictions of the lower level activations using the higher level activations. We can view this as a top down prior on the activations at each processing level, acting as a generalized version of the independence prior used in the one level VAE. This overall processing scheme is not a new idea; it is referred to as hierarchical Bayesian inference, and was proposed as a neocortical sensory processing technique by <a href="http://www.cnbc.cmu.edu/~tai/papers/lee_mumford_josa.pdf">Lee and Mumford</a> in 2003. While there is still much debate as to how neocortex actually learns and processes sensory stimuli, this approach at least seems plausible.
+                        </p>
+                        
+                        <p>
+                        In the deep learning community, this approach does not currently seem to be an area of intense interest. Furthermore, it is difficult to train latent variable models of this form. However, recent work by Yoshua Bengio and his colleagues proposes a biologically plausible method for learning, called <a href="https://arxiv.org/abs/1407.7906">TargetProp</a>, that appears to agree with this framework. The basic idea is as follows: rather than propagating error derivatives throughout the entire network as in backpropagation (which many consider to be biologically implausible), one constructs feedforward and feedback networks, with the feedback network generating activation predictions (targets) for the feedforward network. Learning occurs in both networks by trying to match the predictions to the actual activations. In the hierarchical Bayesian framework, predictions can be considered top down priors, while bottom up activities are samples from the approximate posterior. The goal of learning is to try to match these two activities as closely as possible. In general terms, we want to learn a model of the world by continuously predicting a prior on what will happen next, then updating our predictions if they don't align with reality's posterior.
+                        </p>
+                        
+                        <center><b>Conclusion</b></center>
+                        <p></p>
+                        
+                        <p>
+                        I hope I have successfully conveyed that this is an exciting area of research. Through building models that are more closely inspired by the brain, we can hope to 1) gain a better understanding of our brains and how we learn and process information as well as 2) build machines that are increasingly capable of understanding the world that we live in. What I have presented here is in the very early stages. It is a departure from many of the current techniques for deep learning that are used in practice, which are largely discriminative models. However, there is a great deal of promise behind this technique in moving us toward models that actually understand aspects of the world. I feel this is a vital condition for creating machines that are capable of interacting with us and their environments in meaningful ways. Such models could eventually facilitate machines that are able to plan, reason, and perform other types of abstract thought that we typically associate with human intelligence.
+                        </p>
+                        
+                        <p>
+                        Be sure to check out recent work on <a href="https://arxiv.org/abs/1602.02282">Ladder Variational Autoencoders</a> as well as Gerben van den Broeke's excellent  <a href="http://archive.treora.com/2016/thesis/thesis.pdf">master's thesis</a>. These works agree nicely with the further directions outlined here, and go into detail about how to incorporate more biological inspiration to arrive at more powerful models and algorithms.
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</section>
 
-						<div class="box alt">
-							<center>
-							<div class="row 50% uniform">
-								<div class="8u$"><span class="image fit"><img src="../images/blog_images/blog_VAE/cortex.png" alt="" /></span></div>
-								<p><em>Neocortical anatomical structure. <b>Left:</b> six-layered architecture of neocortex, differentiated by neuron morphologies. <b>Right:</b> Columnar structure between layers in neocortex. Neurons within a column act as a single computational unit.</em></p>
-							</div>
-							</center>
-						</div>
-						
-						<p>
-						It appears, then, that the specialized functions of the neocortex are instead a function of the connections between neurons, columns, and areas. While we don’t have a detailed understanding of these connections or even the computational principles employed by different areas, we do have some, albeit vague, notion of the computations being performed by the sensory processing regions of the neocortex. For instance, we know that visual processing areas are roughly composed into a computational hierarchy, consisting of two main processing streams that communicate with each other. Neurons progressively further up the hierarchy appear to encode more abstract qualities, going from simple colors, dots, and lines in low level areas up to shapes, objects, and complex motions near the top of the hierarchy. We also know that sensory processing involves both feedforward and feedback signals. Feedforward signals are thought to propagate sensory information for higher level recognition, action, and thought, whereas feedback signals are thought to mediate sensory predictions and attention. Also, we know that the human brain is capable of inferring low level details from high level concepts. If I ask you to describe your childhood bedroom, you would have no problem describing your bed, the walls, and perhaps even some of your toys.
-						
-						</p>
-						
-						<div class="box alt">
-							<center>
-							<div class="row 50% uniform">
-								<div class="6u$"><span class="image fit"><img src="../images/blog_images/blog_VAE/hierarchy.png" alt="" /></span></div>
-								<p><em>Simple schematic of sensory processing in neocortex. Circles represent computational operations. Computation is performed in a roughly hierarchical manner. The architecture contains both feedforward and feedback pathways.</em></p>
-							</div>
-							</center>
-						</div>
-						
-						<p>
-						The human neocortex is clearly a highly complex system sitting inside the even more complex system of the human brain. The broad picture painted here is only a caricature of its intricacies. I’ve left out many of the biological details, some of which may prove to be important for understanding the computations being performed. But starting from these simplified assumptions, I’ll argue that we may be able to construct a non-biological system that at least approximates the sensory processing computations and capabilities of the human brain. <b>I contend that the sensory processing pathways of the mammalian neocortex are some form of hierarchical generative model that consists of both feedforward and feedback networks.</b>
-						</p>
-						
-						<h3>Generative Models</h3>
-						
-						<p>
-						
-						Creating and training a deep neural network involves <b>1)</b> choosing a network architecture, <b>2)</b> choosing a learning principle, and <b>3)</b> choosing some method for optimizing the network according to that principle. Broadly speaking, all machine learning models fall into one of two categories: discriminative and generative. While both models are capable of learning data distributions, they approach the problem in different ways. Discriminative models focus on trying to simply separate different data examples, typically by some specified class. Generative models focus on trying to actually model the underlying data distribution, which can in turn be used to separate examples by class. However, by modeling the underlying data distribution, generative models can also use this distribution to <em>generate</em> data examples. Discriminative models can only <em>discriminate</em> between classes of data examples. Both types of models have pros and cons, which are often dependent on the task at hand, but both have enjoyed many successes.
-						
-						
-						</p>
-						
-
-						<div class="box alt">
-							<center>
-							<div class="row 50% uniform">
-								<div class="6u$"><span class="image fit"><img src="../images/blog_images/blog_VAE/Discriminative_generative.png" alt="" /></span></div>
-								<p><em>Discriminative models simply try to discriminate between different classes of data points. Generative models try to model the underlying distribution of the data.</em></p>
-							</div>
-							</center>
-						</div>
-						
-						<p>
-						
-						Neural networks, especially in this new era of deep learning, have typically taken on a discriminative form. The convolutional neural networks that I train and use for object detection and classification are discriminative. Similar types of models exist for speech recognition, reinforcement learning, and other areas. These models have had many successes in the last few years as benchmarks continue to improve and new tasks are taken on. This has mainly been fueled by better datasets, more computing power, and larger models. However, something that struck me when I first started working in deep learning was an unsettling feeling that these models are not truly learning in the same way in which humans do. Take object classification for example. When training a deep network to classify objects, one typically needs hundreds or thousands of example images to successfully generalize to unseen examples. Of course, one can somewhat get around this through creative forms of data augmentation and transfer learning, but the point remains that these systems need far more examples than humans do to learn new concepts. And mind you, each of those examples needs a corresponding label. Can you imagine if you had to learn a new object by seeing it hundreds of times in different contexts while somebody said its name?
-						
-						</p>
-						
-						<p>
-						
-						Note that there are actually two problems here. The first is the ability of the model to
-						(quickly) associate some high level representation of the input with some specified class, assimilating this information into the model’s body of knowledge. This is generally studied in the context of low-shot learning, where a model is expected to learn to classify a new class with minimal examples. The second problem is one of developing a high level representation in which the model can easily generalize between different instances of the same concept. This is the problem we are most concerned with. Clearly, these two problems are related: a representation that generalizes better will allow the model to learn new concepts more quickly. I strongly believe that the best representation for easy generalization is one in which the constituent high level parts of the input are disentangled, or in a sense, understood. For object recognition, this would entail having a representation in which objects are recognized irrespective of the specific context in which they are seen; the model understands that objects and contexts are separate concepts (as far as recognition is concerned).
-						</p>
-						
-						<div class="box alt">
-							<center>
-							<div class="row 50% uniform">
-								<div class="8u$"><span class="image fit"><img src="../images/blog_images/blog_VAE/ducks.png" alt="" /></span></div>
-								<p><em>Classifications of three images of ducks by a state-of-the-art convolutional neural network. The left image shows that the network can successfully classify a duck when it is in plain sight in a typical context: in water. The center image shows that once the duck is in a non-typical context, partially occluded by foliage, the network is unable to correctly classify the image. Finally, the right image shows the ducks in an even more obscure context, highly occluded. Again, the network is unable to correctly classify the ducks.</em></p>
-							</div>
-							</center>
-						</div>
-						
-						<p>
-						
-						
-						Discriminative models have a difficult time encapsulating an understanding of the examples themselves because they do not model the data generation process. Unless explicitly trained to separate out different concepts, these networks tend to overfit to the data with which they are trained. They simply look for patterns in the data that are helpful for the task they are trained to perform. We can argue whether this amounts to 'understanding,’ but bear with me for the time being. A discriminative model succeeds when it has access to copious amounts of data (seeing most of the possible patterns from the data distribution) and the capacity to store this information. However, when presented with new data examples or familiar examples in new contexts, these models are often unable to generalize well. The object domain we tend to use in the Caltech vision lab is birds. Imagine a network that has only ever seen images of ducks in or near water. During training, it learns that water is a key feature for classifying ducks, and the network’s weights adjust so as to be selective for water patterns within images when classifying ducks. This is, in fact, what actually happens when training a discriminative model for this task. However, water does not determine whether or not a duck is a duck; it’s merely a helpful contextual clue. When you or I see a duck in a new context, there may be an initial confusion, but we often have no problem generalizing objects to entirely new contexts.
-						</p>
-						
-
-						
-						<p>
-						
-						So how do we fix this problem? How do we move beyond current deep learning techniques to arrive at some form of deep understanding? The answer, I’m convinced, is by building a gen- erative model. Generative models cannot as easily get away with simply finding useful patterns in the data. They are required to build a model of how the data is generated. Depending on the expressive power of the model, this implies developing some level of understanding of the underlying data generation mechanism. When trained in an appropriate way, such a model could, in theory, disentangle the underlying factors that influence the world around us. In the setting of our duck example, a generative model could potentially understand that there are objects called ducks that have bills, wings, eyes, etc. and that such objects exist independent of their context. In other words, a duck is what makes a duck a duck. With this level of understanding, we may be justified in hoping that the model will more easily generalize to new examples and classes through transfer learning.
-						
-						</p>
-						
-						<p>
-						
-						In the rest of this blog post, I will look at one particular generative model, the variational auto-encoder. After, I’ll point to a few recent papers, their possible connections to neuroscience, and where I think things are headed.
-						
-						</p>
-						
-						<h3>Variational Auto-Encoders (VAEs)</h3>
-						
-						
-						<p>
-						
-						Variational auto-encoders are a form of latent variable generative model. Unlike transformation models (e.g. generative adversarial networks), which convert random noise into data examples, or autoregressive models (e.g. Pixel RNN/CNN, WaveNet), which condition the generation of parts of an example on the previously generated parts, latent variable models have a greater potential for more levels of abstraction. Variational auto-encoders were independently developed by <a href="https://arxiv.org/abs/1312.6114">Kingma and Welling</a> and <a href="https://arxiv.org/abs/1401.4082">Rezende, Mohamed, and Wierstra</a>  in 2013. I will spare you the details of the derivation and will instead point you toward the two original papers and this excellent <a href="https://arxiv.org/abs/1606.05908">tutorial</a>. The overall model is composed as follows. We have input data $\mathbf{x}$ and a set of latent variables $\mathbf{z}$, which have a prior probability distribution $p(\mathbf{z})$. We have a recognition model $q(\mathbf{z}|\mathbf{x})$, an encoding neural network that approximates the true posterior of the latent variables.  We also have a generative model $p(\mathbf{x}|\mathbf{z})$, which is a decoding neural network that generates data by taking the latent variables as input. For tractability issues, the true posterior is assumed to be a multi-variate Gaussian with diagonal covariance. Similarly, the prior is set to be $\mathcal{N}(\mathbf{z}; 0, \mathbf{I})$. The model is train by maximizing the variational lower bound on the log likelihood, which for an example $\mathbf{x}^{(i)}$ is written as
-						
-						$$ \mathcal{L} (\mathbf{x}^{(i)}) = \mathbb{E}_{q(\mathbf{z}|\mathbf{x}^{(i)})}\left[\log p(\mathbf{x}^{(i)}|\mathbf{z})\right] - D_{KL}\left(q(\mathbf{z}|\mathbf{x}^{(i)})||p(\mathbf{z})\right).$$
-						
-						When adding the assumptions on the prior and posterior, this becomes
-						
-						
-						$$\mathcal{L} (\mathbf{x}^{(i)}) = \frac{1}{L} \sum_{\ell = 1}^{L} \log p(\mathbf{x}^{(i)}|\mathbf{z}^{(i,\ell)}) - \frac{1}{2} \sum_{j=1}^J \left(  1 + \log((\sigma_j^{(i)})^2) - (\mu_j^{(i)})^2 - (\sigma_j^{(i)})^2 \right),$$
-						
-						
-						$$\text{where } \mathbf{z}^{(i,\ell)} = \mu^{(i)} +  \sigma^{(i)} \odot \epsilon^{(\ell)} \text{ and } \epsilon^{(\ell)} \sim \mathcal{N}(0,\mathbf{I}).$$
-						
-						
-						$L$ is the number of samples drawn from the approximate posterior for each example, and $J$ is the number of latent variables (the length of $\mathbf{z}$). Let's deconstruct this equation. The first term is the expectation of the generative model at the input according to the approximate posterior. This is simply a reconstruction term: how well the model does at reconstructing the input it is given. The second term is the KL divergence between the approximate posterior and the prior. This regularizes the latent variables toward the prior. If a particular latent variable is unnecessary for reconstructing the input, its value is set toward the prior of a Gaussian with zero mean and unit variance.
-						
-						</p>
-						
-						<div class="box alt">
-							<center>
-							<div class="row 50% uniform">
-								<div class="6u$"><span class="image fit"><img src="../images/blog_images/blog_VAE/VAE_schematic.png" alt="" /></span></div>
-								<p><em>Schematic of a one level VAE.</em></p>
-							</div>
-							</center>
-						</div>
-						
-						<p>
-						
-						The independence assumption on the latent variables has some interesting consequences. By weighting either one of the terms in the VAE equation, we can increase or decrease the amount of regularization during training. Decreasing the weight on the regularization term results in latent variables that are free to be whatever value is best for reconstruction, approaching maximum likelihood learning as we decrease the weight toward zero. Increasing the weighting, however, results in latent variables that are turned off, with the remaining latent variables being strongly encouraged toward independence. Recently, <a href="https://arxiv.org/abs/1606.05579">Higgins et al.</a> showed that by increasing the weighting on the regularization term, one can begin to disentangle the factors of variation underlying the data distribution. For instance, they learn to separate translation, rotation, and scale on a simple 2D shapes dataset. They also learn the different factors in atari games, including score, health, and position (see <a href="http://tinyurl.com/jgbyzke">here</a>). While they demonstrate this phenomenon on only a handful of toy examples, the results offer an encouraging path forward toward deep understanding. This suggests that with a powerful enough model, one might be able to uncover the factors of variation underlying the natural world. This would be a momentous step beyond simply matching patterns. In this way, a machine could actually understand the world we live in, more easily enabling it to perform a wide array of higher level cognitive abilities, including memory, planning, and reasoning.
-						
-						</p>
-						
-						<div class="box alt">
-							<center>
-							<div class="row 50% uniform">
-								<div class="8u$"><span class="image fit"><img src="../images/blog_images/blog_VAE/VAE_results.png" alt="" /></span></div>
-								<p><em>Increasing the weight of the independence prior on the latent variables in VAEs induces `conceptual compression,' thereby disentangling the underlying factors of variation generating the data. <b>Left:</b> Disentangled latent variables on a 2D shapes dataset. The first five latent variables encode position, scale, and rotation of a 2D shape. The other latent variables are set to the prior. <b>Right:</b> The higher images are produced by a VAE with a larger relative amount of regularization and appear to have more visually cohesive global structure. The model for the lower images has less regularization and focuses too much on fine details.</em></p>
-							</div>
-							</center>
-						</div>
-						
-						<p>
-						
-						Another hint of the potential of such a strategy is seen in a recent paper by <a href="https://arxiv.org/abs/1604.08772">Gregor et al.</a>, in which they train a VAE with recurrent encoding and decoding functions to progressively generate natural images. Similarly to Higgins et al., they investigate weighting the terms in the variational lower bound. What they notice is that models with higher amounts of regularization tend to generate images with more coherent global structure. Admittedly, these images are still quite blurry, which is likely the result of a number of things (a simplified approximate posterior distribution form, no attentional mechanism, etc.), but the fact remains that these models appear to have internalized the concepts of certain objects better than their less regularized counterparts. While these results are slightly more difficult to interpret, they at least seem to agree with the work of Higgins et al. This offers hope that learning latent variable models of a more expressive form may allow us to teach a machine to understand the natural world.
-						</p>
-						
-						<h3>Relation to Sensory Processing in the Neocortex</h3>
-						
-						
-						<p>
-						As discussed earlier, the sensory processing pathways in the neocortex appear to be some form of hierarchical generative model consisting of feedforward and feedback pathways. In this regard, VAEs may be performing a crude approximation of neocortical processing. Feedforward processing in the neocortex would thus correspond to the recognition network, encoding stimuli by selecting out progressively more abstract features from the input. Similarly, feedback processing would correspond to the generative network, whereby activity in high level areas is used to generate predictions in low level areas. However, as we compare neocortical sensory processing with VAEs, one immediate difference we see is that VAEs are typically formulated with a single level of latent variables. Neocortex, on the other hand, could consist of many such stages. It's possible that the stochastic latent variables correspond to the neuron activities themselves, with the recognition network corresponding to dendritic processing. The generative network may likewise correspond to dendritic processing in the feedback pathway.
-						
-						</p>
-						
-						<div class="box alt">
-							<center>
-							<div class="row 50% uniform">
-								<div class="6u$"><span class="image fit"><img src="../images/blog_images/blog_VAE/multi_level_VAE.png" alt="" /></span></div>
-								<p><em>Schematic of a possible three level VAE.</em></p>
-							</div>
-							</center>
-						</div>
-						
-						<p>
-						With multiple levels of latent variables, during the feedforward pass, one would propagate inputs through the entire network, generating activations (using the approximate posterior) for each of the latent variables at each level. At the top of the hierarchy, one might insist on using an independence prior like that used in the one level VAE. During the feedback pass, we generate predictions of the lower level activations using the higher level activations. We can view this as a top down prior on the activations at each processing level, acting as a generalized version of the independence prior used in the one level VAE. This overall processing scheme is not a new idea; it is referred to as hierarchical Bayesian inference, and was proposed as a neocortical sensory processing technique by <a href="http://www.cnbc.cmu.edu/~tai/papers/lee_mumford_josa.pdf">Lee and Mumford</a> in 2003. While there is still much debate as to how neocortex actually learns and processes sensory stimuli, this approach at least seems plausible.
-						</p>
-						
-						<p>
-						In the deep learning community, this approach does not currently seem to be an area of intense interest. Furthermore, it is difficult to train latent variable models of this form. However, recent work by Yoshua Bengio and his colleagues proposes a biologically plausible method for learning, called <a href="https://arxiv.org/abs/1407.7906">TargetProp</a>, that appears to agree with this framework. The basic idea is as follows: rather than propagating error derivatives throughout the entire network as in backpropagation (which many consider to be biologically implausible), one constructs feedforward and feedback networks, with the feedback network generating activation predictions (targets) for the feedforward network. Learning occurs in both networks by trying to match the predictions to the actual activations. In the hierarchical Bayesian framework, predictions can be considered top down priors, while bottom up activities are samples from the approximate posterior. The goal of learning is to try to match these two activities as closely as possible. In general terms, we want to learn a model of the world by continuously predicting a prior on what will happen next, then updating our predictions if they don't align with reality's posterior.
-						</p>
-						
-						<h3>Conclusion</h3>
-						
-
-						
-						<p>
-						I hope I have successfully conveyed that this is an exciting area of research. Through building models that are more closely inspired by the brain, we can hope to 1) gain a better understanding of our brains and how we learn and process information as well as 2) build machines that are increasingly capable of understanding the world that we live in. What I have presented here is in the very early stages. It is a departure from many of the current techniques for deep learning that are used in practice, which are largely discriminative models. However, there is a great deal of promise behind this technique in moving us toward models that actually understand aspects of the world. I feel this is a vital condition for creating machines that are capable of interacting with us and their environments in meaningful ways. Such models could eventually facilitate machines that are able to plan, reason, and perform other types of abstract thought that we typically associate with human intelligence.
-						</p>
-						
-						<h3>Update</h3>
-						
-						<p>
-						Be sure to check out recent work on <a href="https://arxiv.org/abs/1602.02282">Ladder Variational Autoencoders</a> as well as Gerben van den Broeke's excellent  <a href="http://archive.treora.com/2016/thesis/thesis.pdf">master's thesis</a>. These works agree nicely with the further directions outlined here, and go into detail about how to incorporate more biological inspiration to arrive at more powerful models and algorithms.
-						</p>
-
-
-					<div id="disqus_thread"></div>
-					    <script>
-						/**
-						 * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-						 * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-						 */
-					    
-					    var disqus_config = function () {
-						this.page.url = 'http://joelouismarino.github.io/blog_posts/blog_VAE.html'; // Replace PAGE_URL with your page's canonical URL variable
-						this.page.identifier = implementing_backprop; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-					    };
-					    
-					    (function() { // DON'T EDIT BELOW THIS LINE
-					     var d = document, s = d.createElement('script');
-					     
-					     s.src = '//marinoblog.disqus.com/embed.js';
-					     
-					     s.setAttribute('data-timestamp', +new Date());
-					     (d.head || d.body).appendChild(s);
-					     })();
-						</script>
-					    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-					</section>
-
-
-					<section id="four">
-
-							<section>
-								<p>
-								<center>
-								&copy; 2017 Joe Marino
-								</center>
-								</p>
-							</section>
-
-					</section>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.poptrox.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-
-	</body>
+</body>
 </html>

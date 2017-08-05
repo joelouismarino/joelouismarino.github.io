@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>statistical whitening</title>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="../images/favicon.ico">
+<link rel="shortcut icon" href="../images/favicon.ico">
+<link rel="stylesheet" href="../css/stuck.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/ihover.css">
+<script src="../js/jquery.js"></script>
+<script src="../js/jquery-migrate-1.1.1.js"></script>
+<script src="../js/script.js"></script>
+<script src="../js/superfish.js"></script>
+<script src="../js/jquery.equalheights.js"></script>
+<script src="../js/jquery.mobilemenu.js"></script>
+<script src="../js/jquery.easing.1.3.js"></script>
+<script src="../js/tmStickUp.js"></script>
+<script src="../js/jquery.ui.totop.js"></script>
+<script>
+ $(document).ready(function(){
+  $().UItoTop({ easingType: 'easeOutQuart' });
+  $('#stuck_container').tmStickUp({});
+  });
+</script>
+<!--[if lt IE 9]>
+ <div style=' clear: both; text-align:center; position: relative;'>
+   <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+     <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+   </a>
+</div>
+<script src="js/html5shiv.js"></script>
+<link rel="stylesheet" media="screen" href="css/ie.css">
+<![endif]-->
+<!--[if lt IE 10]>
+<link rel="stylesheet" media="screen" href="css/ie1.css">
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});
+    </script>
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+</head>
+<body class="page1" id="top">
+<!--==============================
+              header
+=================================-->
+<header>
+<!--==============================
+            Stuck menu
+=================================-->
+  <section id="stuck_container">
+    <div class="container">
+      <div class="row">
+
+          <div class="navigation ">
+            <nav>
+              <ul class="sf-menu">
+               <li><a href="../index.html">about</a></li>
+               <li><a href="../research.html">research</a></li>
+               <li class="current"><a href="../blog.html">blog</a></li>
+               <li><a href="../teaching.html">teaching</a></li>
+             </ul>
+            </nav>
+
+          <div class="clear"></div>
+          </div>
+      </div>
+    </div>
+  </section>
+</header>
+<!--=====================
+          Content
+======================-->
+<section class="content"><div class="ic"></div>
+    <div class="container">
+        <div class="row">
+            <div class="grid_8 preffix_2">
+                <div class="ta__center">
+                    <h3>statistical whitening</h3>
+                    <div class="st2">
+                        <p>
+                        Normalization is a fundamental component of machine learning. Take any introductory machine learning course, and you'll learn about the importance of normalizing the inputs to your model. The justification goes something like this: the important patterns in the data often correspond to the <i>relative</i> relationships between the different input dimensions. Therefore, you can make the task of learning and recognizing these patterns easier by removing the constant offset and standardizing the scales.
+                        </p>
+                        
+                        <p>
+                        There have been a number of recent advances in deep learning related to normalization. As just a sampling, the often cited <a href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf">AlexNet</a> convolutional neural network used local response normalization, <a href="https://arxiv.org/pdf/1502.03167.pdf">batch normalization</a> is a powerful technique for normalizing the activations within a network, <a href="https://arxiv.org/pdf/1607.06450.pdf">layer normalization</a> is another form of normalization suited for recurrent networks, <a href="https://arxiv.org/pdf/1602.07868.pdf">weight normalization</a> is a way to normalize the weights within a network, and <a href="https://arxiv.org/pdf/1505.05770.pdf">normalizing flows</a> is a normalization method for building flexible posterior probability distributions to improve variational inference.
+                        </p>
+                        
+                        <p>
+                        Another interesting aspect about normalization is that it is one area where machine learning and neuroscience seem to agree. Normalization appears to be ubiquitous in the brain, often implemented in the form of <a href="https://en.wikipedia.org/wiki/Lateral_inhibition">lateral inhibition</a>. This is the process by which activity in one neuron inhibits activity in nearby neurons and vice versa, effectively shifting their overall activations to highlight their relative differences. For example, <a href="https://en.wikipedia.org/wiki/Retina_horizontal_cell">horizontal cells</a> in the retina inhibit neighboring photoreceptor neurons, acting to sharpen the input and allowing the eye to adjust to different lighting levels. Likewise, lateral inhibition appears to be a key component of other sensory processing pathways as well as processing in the <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3236361/">cerebral cortex</a>, where inhibitory interneurons constitute roughly 20% of the neural population.
+                        </p>
+                        
+                        <p>
+                        I find this commonality of normalization between machine learning and neuroscience encouraging, as it offers the opportunity to find connections between these two fields. Studying normalization in nervous systems may provide suggestions for ways to improve machine learning models, and studying normalization in machine learning models may provide a better theoretical understanding of normalization in nervous systems. I recently decided to learn more about normalization, in particular, <b>statistical whitening</b>. In the rest of this blog post, I'll share what I learned along with code for implementing some examples.
+                        </p>
+                        
+                        <h4>
+                        what is normalization?
+                        </h4>
+                        
+                        <p>
+                        Normalization can signify different things depending on the context. In the realm of statistics, normalization technically refers to taking a distribution and transforming it into a (standard) <i>normal</i>, i.e. Gaussian, distribution. For instance, imagine we have samples from a probability distribution defined along one real-valued dimension. This could be height measurements, house prices, etc.
+                        </p>
+                        
+                        
+                        <p>
+                        Basic demonstration of normalization in 1d and 2d with equations. Start with 2d by just repeating 1d case twice.
+                        
+                        Explain infinite options for 2d whitening and covariance.
+                        
+                        Explain different options for whitening (ZCA, PCA, etc.) with math and with code.
+                        
+                        Pontificate on normalization for machine learning, neuroscience.
+                        </p>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</section>
+
+</body>
+</html>

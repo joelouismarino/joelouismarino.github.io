@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>About</title>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="images/favicon.ico">
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="stylesheet" href="css/stuck.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/ihover.css">
+<script src="js/jquery.js"></script>
+<script src="js/jquery-migrate-1.1.1.js"></script>
+<script src="js/script.js"></script>
+<script src="js/superfish.js"></script>
+<script src="js/jquery.equalheights.js"></script>
+<script src="js/jquery.mobilemenu.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/tmStickUp.js"></script>
+<script src="js/jquery.ui.totop.js"></script>
+<script>
+ $(document).ready(function(){
+  $().UItoTop({ easingType: 'easeOutQuart' });
+  $('#stuck_container').tmStickUp({});
+  });
+</script>
+<!--[if lt IE 9]>
+ <div style=' clear: both; text-align:center; position: relative;'>
+   <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+     <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+   </a>
+</div>
+<script src="js/html5shiv.js"></script>
+<link rel="stylesheet" media="screen" href="css/ie.css">
+<![endif]-->
+<!--[if lt IE 10]>
+<link rel="stylesheet" media="screen" href="css/ie1.css">
+<![endif]-->
+</head>
+<body class="page1" id="top">
+<!--==============================
+              header
+=================================-->
+<header>
+<!--==============================
+            Stuck menu
+=================================-->
+  <section id="stuck_container">
+    <div class="container">
+      <div class="row">
+
+          <div class="navigation ">
+            <nav>
+              <ul class="sf-menu">
+               <li><a href="index.html">about</a></li>
+               <li><a href="research.html">research</a></li>
+               <li class="current"><a href="blog.html">blog</a></li>
+               <li><a href="teaching.html">teaching</a></li>
+             </ul>
+            </nav>
+
+          <div class="clear"></div>
+          </div>
+      </div>
+    </div>
+  </section>
+</header>
+<!--=====================
+          Content
+======================-->
+<section class="content"><div class="ic"></div>
+  <div class="container">
+    <div class="row">
+      <div class="grid_8 preffix_2">
+        <h3 class="ta__center"></h3>
+        <div class="ta__center">
+            <div class="blog">
+                <div class="text1"><a href="blog_posts/blog_whitening.html">statistical whitening</a></div>
+                <div class="blog_links">
+                    <time datetime="02/2017">Aug. 2017</time>
+                </div>
+                <div class="st1">
+                    <p>A discussion and tutorial on statistical whitening.</p>
+                    
+                </div>
+            </div>
+            <div class="blog">
+                <div class="text1"><a href="blog_posts/blog_human_model.html">how to be a better model</a></div>
+                <div class="blog_links">
+                    <time datetime="02/2017">Feb. 2017</time>
+                </div>
+                    <div class="st1">
+                        <p>Thoughts about the importance of data for machine learning and humans.</p>
+                        
+                    </div>
+                </div>
+            <div class="blog">
+                <div class="text1"><a href="blog_posts/blog_VAE.html">thoughts on generative models</a></div>
+                <div class="blog_links">
+                    <time datetime="10/2016">Oct. 2016</time>
+                </div>
+                <div class="st1">
+                    <p>Generative probabilistic models, combined with deep neural networks, demonstrate the possiblilty of extracting meaningful abstract representations in unsupervised ways.</p>
+                    </div>
+                </div>
+            <div class="blog">
+                <div class="text1"><a href="blog_posts/blog_googlenet_keras.html">googlenet in keras</a></div>
+                <div class="blog_links">
+                    <time datetime="06/2016">Jun. 2016</time>
+                </div>
+                <div class="st1">
+                    <p>In this blog post, I'll show you how I implemented GoogLeNet in Keras and copied over the weights from Caffe. Then we'll classify some cats!</p>
+                    </div>
+                </div>
+            <div class="blog">
+                <div class="text1"><a href="blog_posts/blog_backprop.html">implementing backpropagation</a></div>
+                <div class="blog_links">
+                    <time datetime="03/2016">Mar. 2016</time>
+                </div>
+                <div class="st1">
+                    <p>Backpropagation is a method for computing derivatives in artificial neural networks, allowing us to use gradient descent to train these models. Here, I walk through implementing backpropagation.</p>
+                </div>
+                </div>
+            </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+</body>
+</html>
