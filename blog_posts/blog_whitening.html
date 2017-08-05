@@ -107,7 +107,9 @@
                         </h4>
                         
                         <p>
-                        Normalization can signify different things depending on the context. In the realm of statistics, normalization technically refers to taking a distribution and transforming it into a (standard) <i>normal</i>, i.e. Gaussian, distribution. For instance, imagine we have samples from a probability distribution defined along one real-valued dimension. This could be height measurements, house prices, etc.
+                        Normalization can signify different things depending on the context. In the realm of statistics, normalization technically refers to taking a distribution and transforming it into a (standard) <i>normal</i>, i.e. Gaussian, distribution. For instance, imagine we have samples $X$ from a probability distribution defined along one real-valued dimension. This could be a $N \times 1$ vector of height measurements, house prices, etc., where $N$ is the number of samples. To normalize this distribution, we subtract off the empirical mean, $\mu$, and divide by the standard deviation, $\sigma$.
+                        
+                        $$ \hat{X} = \frac{X - \mu}{\sigma} $$
                         </p>
                         
                         
