@@ -73,7 +73,7 @@ img {
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
     color: #383636;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 h2 {
@@ -221,7 +221,7 @@ a:hover {
 }
 
 .btn {
-    font: 30px/30px 'Pathway Gothic One', sans-serif;
+    font: 30px/30px 'Open Sans', sans-serif;
     display: inline-block;
     border: 1px solid #828282;
     color: #3a3838;
@@ -420,7 +420,7 @@ header h1 a img {
     float: left;
     position: relative;
     color: #fff;
-    font: 48px/48px 'BenchNine', sans-serif;
+    font: 48px/48px 'Open Sans', sans-serif;
     padding-left: 1px;
 }
 
@@ -688,7 +688,7 @@ header h1 a img {
 .text1 {
     color: #3a3838;
     margin-bottom: 11px;
-    font: 30px/30px 'Pathway Gothic One', sans-serif;
+    font: 30px/30px 'Open Sans', sans-serif;
 }
 
 .fw1 {
