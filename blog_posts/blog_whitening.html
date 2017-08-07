@@ -33,7 +33,7 @@
 <script src="js/html5shiv.js"></script>
 <link rel="stylesheet" media="screen" href="css/ie.css">
 <![endif]-->
-<!--[if lt IE 10]>
+<!--[if lt IE 10]>_
 <link rel="stylesheet" media="screen" href="css/ie1.css">
 <![endif]-->
 
@@ -323,19 +323,19 @@
                         <center><img src="../images/blog_images/blog_whitening/bases_comparison.png" alt="" /></center>
                         
                         <p>
-                        Look closely at the ZCA, ZCA_cor, and Cholesky images and you'll notice small patches of light. These are localized <i>center-surround patches</i>, which encode large changes between neighboring pixels. The following figure shows a close-up of one such patch from ZCA.
+                        Look closely at the ZCA, ZCA-cor, and Cholesky images and you'll notice small patches of light. These are localized <i>center-surround patches</i>, which encode large changes between neighboring pixels. The following figure shows a close-up of one such patch from ZCA.
                         </p>
                         
                         <center><img src="../images/blog_images/blog_whitening/zca_basis.png" alt="" /></center>
                         
                         <p>
-                        The PCA and PCA_cor basis filters, on the other hand, are encoding progressively higher <i>spatial frequencies and color patterns</i>. This is consistent with Kessy et al.'s interpretation of PCA and PCA_cor as maximally compressing the input: first capture the large spatial components, then capture finer and finer details. The following figure shows an example PCA basis vector, which is encoding high spatial and color frequencies.
+                        The PCA and PCA-cor basis filters, on the other hand, are encoding progressively higher <i>spatial frequencies and color patterns</i>. This is consistent with Kessy et al.'s interpretation of PCA and PCA-cor as maximally compressing the input: first capture the large spatial components, then capture finer and finer details. The following figure shows an example PCA basis vector, which is encoding high spatial and color frequencies.
                         </p>
                         
                         <center><img src="../images/blog_images/blog_whitening/pca_basis_example.png" alt="" /></center>
                         
                         <p>
-                        We can also gain a better understanding of each procedure by visualizing whitened images. The following figure displays the first 36 images from the training set, along with their whitened versions from each procedure. The whitened images from ZCA, ZCA_cor, and Cholesky whitening all resemble the original images in form, but the edges are exaggerated. This is to be expected, since the basis filters from these procedures are encoding large changes in color and intensity. The whitened images from PCA and PCA_cor do not visually resemble the original images. Rather, each pixel within these whitened images represents the degree to which the corresponding principle component (spatial frequency, color, etc.) is present. That is, PCA and PCA_cor do not produce whitened images that are in the image basis; they are in the eigenbasis.
+                        We can also gain a better understanding of each procedure by visualizing whitened images. The following figure displays the first 36 images from the training set, along with their whitened versions from each procedure. The whitened images from ZCA, ZCA-cor, and Cholesky whitening all resemble the original images in form, but the edges are exaggerated. This is to be expected, since the basis filters from these procedures are encoding large changes in color and intensity. The whitened images from PCA and PCA-cor do not visually resemble the original images. Rather, each pixel within these whitened images represents the degree to which the corresponding principle component (spatial frequency, color, etc.) is present. That is, PCA and PCA-cor do not produce whitened images that are in the image basis; they are in the eigenbasis.
                         </p>
                         
                         <center><img src="../images/blog_images/blog_whitening/compare_whitened_images.png" alt="" /></center>
