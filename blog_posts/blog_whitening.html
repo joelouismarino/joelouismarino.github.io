@@ -317,30 +317,40 @@
                         <center><img src="../images/blog_images/blog_whitening/cifar_10.png" alt="" /></center>
                         
                         <p>
-                        Each of the whitening methods mentioned above results in diagonalized covariance matrices, i.e. dimensions that are linearly decorrelated. However, visualizing the rows of each of the whitening matrices reveals drastically different operations. The following figure displays raster images of the first 64 rows of each of the whitening matrices.
+                        Each of the whitening methods mentioned above results in diagonalized covariance matrices, i.e. dimensions that are linearly decorrelated. However, visualizing the rows of each of the whitening matrices reveals drastically different operations. The following figure displays raster images of the first 16 rows of each of the whitening matrices.
                         </p>
                         
                         <center><img src="../images/blog_images/blog_whitening/bases_comparison.png" alt="" /></center>
                         
                         <p>
-                        Look closely at the ZCA, ZCA_cor, and Cholesky images and you'll notice small patches of light. These are center-surround patches, which select for small changes between neighboring pixels. The following figure shows a close-up of one such patch from ZCA.
+                        Look closely at the ZCA, ZCA_cor, and Cholesky images and you'll notice small patches of light. These are localized <i>center-surround patches</i>, which encode large changes between neighboring pixels. The following figure shows a close-up of one such patch from ZCA.
                         </p>
                         
                         <center><img src="../images/blog_images/blog_whitening/zca_basis.png" alt="" /></center>
                         
                         <p>
-                        The PCA basis filters, on the other hand, are encoding progressively higher spatial frequencies and color patterns. This is consistent with Kessy et al.'s interpretation of PCA and PCA_cor as maximally compressing the input.
+                        The PCA and PCA_cor basis filters, on the other hand, are encoding progressively higher <i>spatial frequencies and color patterns</i>. This is consistent with Kessy et al.'s interpretation of PCA and PCA_cor as maximally compressing the input: first capture the large spatial components, then capture finer and finer details. The following figure shows an example PCA basis vector, which is encoding high spatial and color frequencies.
                         </p>
                         
+                        <center><img src="../images/blog_images/blog_whitening/pca_basis_example.png" alt="" /></center>
+                        
                         <p>
-                        We can also gain a better understanding of each procedure by visualizing whitened images. The following figure displays the first 64 images from the training set, along with their whitened versions from each procedure. The whitened images from ZCA, ZCA_cor, and Cholesky whitening all resemble the original images in form, but the edges are exaggerated. The whitened images from PCA and PCA_cor do not resemble the original images. Rather, the pixels in these whitened images represent the degree to which the corresponding spatial frequency or color patch is present. In other words, PCA and PCA_cor do not produce whitened data that are in the image basis.
+                        We can also gain a better understanding of each procedure by visualizing whitened images. The following figure displays the first 36 images from the training set, along with their whitened versions from each procedure. The whitened images from ZCA, ZCA_cor, and Cholesky whitening all resemble the original images in form, but the edges are exaggerated. This is to be expected, since the basis filters from these procedures are encoding large changes in color and intensity. The whitened images from PCA and PCA_cor do not visually resemble the original images. Rather, each pixel within these whitened images represents the degree to which the corresponding principle component (spatial frequency, color, etc.) is present. That is, PCA and PCA_cor do not produce whitened images that are in the image basis; they are in the eigenbasis.
                         </p>
                         
                         <center><img src="../images/blog_images/blog_whitening/compare_whitened_images.png" alt="" /></center>
                         
                         <h4>
-                            final thoughts: biological connections
+                            final thoughts
                         </h4>
+                        
+                        <p>
+                        Statistical whitening, at least in its multi-dimensional form, is not typically used in current computer vision and deep learning research. At the input level, where images are in the range $[0, 255]$, people often will instead normalize the dataset by dividing all images by $255$, then subtracting $0.5$, bringing the dataset into the range $[-0.5, 0.5]$. In deep networks used for large-scale image classification, it's common practice to instead subtract off the mean of each color channel from the entire dataset. Likewise, other normalization techniques, such as batch normalization, normalize using a per-dimension or per-channel normalization scheme. While these techniques scale the dynamic range of the data and center it around zero, the resulting outputs are still linearly correlated. After learning about whitening, I am now starting to question some of these practices.
+                        </p>
+                        
+                        <p>
+                        For instance, when is it helpful to whiten data, and when does it hurt performance? Do neural networks have an easier time learning from (linearly) decorrelated inputs, or is standard shifting and scaling sufficient? Especially with large datasets, is it easy to <i>learn</i> how to whiten? What about un-whitening? Finally, is it easier to learn a generative model that learns to generate data from the whitened distribution, then transform it back into the data distribution? I imagine that some of these questions were asked and answered during the early days of neural networks, but with the current wave of new normalization methods, it may be beneficial to go back and investigate these points further.
+                        </p>
                         
                     </div>
                 </div>
