@@ -210,8 +210,6 @@
                         </p>
                         
                         
-                        
-                        
                         <h4>
                             rotational freedom
                         </h4>
@@ -265,8 +263,10 @@
                         </p>
                         
                         <p>
-                        To sum up, we transform $X$ into the eigenbasis through shifting and rotating, scale it there to normalize each dimension, then perform another rotation to get to whatever basis we want. There are infinitely many choices for $Q$ due to the rotational symmetry of the scaled distribution! Check out Kessy et al. (2015) for further discussion of this geometrical interpretation. The following figure visualizes the whitening of a 2D example input distribution. The terms above each plot specify the cumulative result of the procedure.
+                        To sum up, we transform $X$ into the eigenbasis through shifting and rotating, scale it there to normalize each dimension, then perform another rotation to get to whatever basis we want. There are infinitely many choices for $Q$ due to the rotational symmetry of the scaled distribution! Check out <a href="https://arxiv.org/abs/1512.00809">Kessy et al. (2015)</a> for further discussion of this geometrical interpretation. The following figure visualizes the whitening of a 2D example input distribution. The terms above each plot specify the cumulative result of the procedure.
                         </p>
+                        
+                        
                         
                         <img src="../images/blog_images/blog_whitening/two_d_vis.png" alt="" />
                         
@@ -275,7 +275,7 @@
                         </h4>
                         
                         <p>
-                        With infinitely many choices for $W$, how do we know which one to choose? Are all choices of $W$ equally good? Kessy et al. point out five different choices for $W$, which are each <i>optimal</i> in relation to the cross-covariance $\Phi = \text{cov}(Z, X)$ and cross-correlation $\Psi = \text{cor}(Z,X)$. I will briefly mention them here, but will not cover them in-depth (see Kessy et al. for a proper treatment). All of these whitening techniques are also implemented in the accompanying Gist.
+                        With infinitely many choices for $W$, how do we know which one to choose? Are all choices of $W$ equally good? Kessy et al. point out five different choices for $W$, which are each <i>optimal</i> in relation to the cross-covariance $\Phi = \text{cov}(Z, X)$ and cross-correlation $\Psi = \text{cor}(Z,X)$. I will briefly mention them here, but will not cover them in-depth (see <a href="https://arxiv.org/abs/1512.00809">Kessy et al.</a> for a proper treatment). All of these whitening techniques are also implemented in the accompanying Gist.
                         </p>
                         
                         <p>
@@ -306,7 +306,7 @@
                         </h4>
                         
                         <p>
-                        Above, we saw an example of whitening applied to a two-dimensional input distribution. I find this example particularly useful in visually capturing how whitening impacts the data distribution. However, in higher dimensions, it's difficult to get a visual understanding of whitening. This is one of the beauties of working with images: they are a high-dimensional domain that still allow for visual inspection. In this section, we'll whiten the CIFAR 10 dataset to get a better sense of the differences between the five whitening schemes suggested above.
+                        Above, we saw an example of whitening applied to a two-dimensional input distribution. I find this example particularly useful in visually capturing how whitening impacts the data distribution. However, in higher dimensions, it's difficult to get a visual understanding of whitening. This is one of the beauties of working with images: they are a high-dimensional domain that still allow for visual inspection. In this section, we'll whiten the <a href="https://www.cs.toronto.edu/~kriz/cifar.html">CIFAR 10</a> dataset to get a better sense of the differences between the five whitening schemes suggested above.
                         
                         </p>
                         
