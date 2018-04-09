@@ -138,9 +138,9 @@
           <center><img src="../images/blog_images/blog_log_prob/Gaussian_integration.png" alt="" /></center>
           <p>
           Equivalently, we can use the density's corresponding <a href="https://en.wikipedia.org/wiki/Cumulative_distribution_function">cumulative distribution function (CDF)</a>, which quantifies the amount of probability mass under the curve from $-\infty$ to each point. Calculating the probability mass within a window then becomes a calculation of the difference between the CDF at the edges of the window:
-          \begin{equation}
-          P(x_\text{obs}) = \text{CDF} (x_\text{obs max}) - \text{CDF} (x_\text{obs min}). \nonumber
-          \end{equation}
+          $$
+          P(x_\text{obs}) = \text{CDF} (x_\text{obs max}) - \text{CDF} (x_\text{obs min}).
+          $$
           </p>
           <h5>
               latent variable models + variational inference
