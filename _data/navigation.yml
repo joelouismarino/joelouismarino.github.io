@@ -5,6 +5,6 @@ main:
   #
   # - title: "Blog Posts"
   #   url: /blog/
-  #
-  # - title: "Teaching"
-  #   url: /teaching/
+  
+  - title: "Teaching"
+    url: /teaching/
