@@ -24,7 +24,7 @@ Note that we're *broadcasting* $\mu$ and $\sigma$ to match the number of samples
 
 <script src="https://gist.github.com/joelouismarino/b7f6645792899f2b08c1b7639578e486.js"></script>
 
-![alt text](images/blog_images/blog_whitening/1d_gaussian.png "1-D Gaussian")
+![alt text](../../../../images/blog_images/blog_whitening/1d_gaussian.png "1-D Gaussian")
 
 Notice that we started by assuming the original variable's distribution took a unimodal form, that of a Gaussian. It's perhaps reasonable to expect that we can transform one Gaussian distribution into another. What would this procedure look like for a multimodal distribution? Would we still end up with a standard normal distribution, or something altogether different? In the following example, we now draw samples from a mixture of Gaussians, then perform the same normalization operation. Again, the normalized distribution has a mean of $0$ and a standard deviation of $1$, however it remains a bimodal distribution. This highlights the fact that *normalization only produces standard normal distributions when it operates on variables that are already normally distributed.* For other distributions, it may not be an appropriate choice.
 
