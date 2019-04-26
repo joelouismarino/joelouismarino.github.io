@@ -30,7 +30,7 @@ Notice that we started by assuming the original variable's distribution took a u
 
 <script src="https://gist.github.com/joelouismarino/254146c17ee8678ad33492c0e9fcb88e.js"></script>
 
-![alt text](../images/blog_images/blog_whitening/1d_non_gaussian.png "1-D Non-Gaussian")
+![alt text](../../../../images/blog_images/blog_whitening/1d_non_gaussian.png "1-D Non-Gaussian")
 
 ### adding more dimensions: whitening
 
@@ -38,7 +38,7 @@ Real data is rarely one-dimensional. We might have height and weight measurement
 
 Multi-dimensional variables are not simply a collection of their one-dimensional counterparts. There can now be *dependencies* among the dimensions, which we can think of as patterns within the data. For instance, if given an image of a blue ocean that is missing a single pixel, the value of that pixel is *not independent* of the nearby pixels; it is almost certainly blue.
 
-![alt text](../images/blog_images/blog_whitening/ocean.png "Blue Ocean")
+![alt text](../../../../images/blog_images/blog_whitening/ocean.png "Blue Ocean")
 
 Consider the *joint distribution* of the input dimensions. If there are $D$ input dimensions, where $X_i$ denotes the $i^\text{th}$ dimension, the joint distribution is written as:
 
@@ -52,7 +52,7 @@ Note that the initial dimension on which we condition ($X_1$ in this case) is ar
 
 The degree of linear dependence between the dimensions is captured by the covariance matrix, $\text{cov} (X) = \Sigma$, of the input data. This is a symmetric $D \times D$ matrix, where $\Sigma_{i, j}$ contains the covariance between dimension $i$ and dimension $j$. The diagonal entries of this matrix contain the variance of each dimension. The figure below on the left depicts the covariance matrix of the $3,072$ dimensions ($ 32 \times 32 \times 3$) of CIFAR 10.
 
-![alt text](../images/blog_images/blog_whitening/covariance_transform.png "Covariance Transform")
+![alt text](../../../../images/blog_images/blog_whitening/covariance_transform.png "Covariance Transform")
 
 Normalization of multi-dimensional variables, which we call statistical whitening, not only scales each variance term to $1$, it removes all of the off-diagonal covariance terms. **Whitening linearly decorrelates the input dimensions.** In other words, whitening transforms $X$ into a matrix $Z$, such that $\text{cov}(Z) = \mathbf{I}$. Here, $\mathbf{I}$ is the $D \times D$ identity matrix, with ones along the diagonal and zeros everywhere else. This is shown in the above figure on the right. We can write $Z$ as:
 
@@ -99,7 +99,7 @@ When using this $W$ in the whitening transformation $Z = W(X - \mu)$, we see tha
 
 To sum up, we transform $X$ into the eigenbasis through shifting and rotating, scale it there to normalize each dimension, then perform another rotation to get to whatever basis we want. There are infinitely many choices for $Q$ due to the rotational symmetry of the scaled distribution! Check out [Kessy et al. (2015)](https://arxiv.org/abs/1512.00809) for further discussion of this geometrical interpretation. The following figure visualizes the whitening of a 2D example input distribution. The terms above each plot specify the cumulative result of the procedure.
 
-![alt text](../images/blog_images/blog_whitening/two_d_vis.png "2-D Visualization")
+![alt text](../../../../images/blog_images/blog_whitening/two_d_vis.png "2-D Visualization")
 
 ### optimality
 
@@ -123,23 +123,23 @@ Above, we saw an example of whitening applied to a two-dimensional input distrib
 
 CIFAR 10 consists of natural images of size $32 \times 32 $ with $3$ color channels, yielding a dimensionality of $3,072$. We can run the above function on the training set, which consists of $50,000$ images. Note that for datasets with larger images or more images, this would likely be too computationally intensive. The following figure displays some example images from CIFAR 10.
 
-![alt text](../images/blog_images/blog_whitening/cifar_10.png "CIFAR 10")
+![alt text](../../../../images/blog_images/blog_whitening/cifar_10.png "CIFAR 10")
 
 Each of the whitening methods mentioned above results in diagonalized covariance matrices, i.e. dimensions that are linearly decorrelated. However, visualizing the rows of each of the whitening matrices reveals drastically different operations. The following figure displays raster images of the first 16 rows of each of the whitening matrices.
 
-![alt text](../images/blog_images/blog_whitening/bases_comparison.png "Bases Comparison")
+![alt text](../../../../images/blog_images/blog_whitening/bases_comparison.png "Bases Comparison")
 
 Look closely at the ZCA, ZCA-cor, and Cholesky images and you'll notice small patches of light. These are localized *center-surround patches*, which encode large changes between neighboring pixels. The following figure shows a close-up of one such patch from ZCA.
 
-![alt text](../images/blog_images/blog_whitening/zca_basis.png "ZCA Basis")
+![alt text](../../../../images/blog_images/blog_whitening/zca_basis.png "ZCA Basis")
 
 The PCA and PCA-cor basis filters, on the other hand, are encoding progressively higher *spatial frequencies and color patterns*. This is consistent with Kessy et al.'s interpretation of PCA and PCA-cor as maximally compressing the input: first capture the large spatial components, then capture finer and finer details. The following figure shows an example PCA basis vector, which is encoding high spatial and color frequencies.
 
-![alt text](../images/blog_images/blog_whitening/pca_basis_example.png "PCA Basis")
+![alt text](../../../../images/blog_images/blog_whitening/pca_basis_example.png "PCA Basis")
 
 We can also gain a better understanding of each procedure by visualizing whitened images. The following figure displays the first 36 images from the training set, along with their whitened versions from each procedure. The whitened images from ZCA, ZCA-cor, and Cholesky whitening all resemble the original images in form, but the edges are exaggerated. This is to be expected, since the basis filters from these procedures are encoding large changes in color and intensity. The whitened images from PCA and PCA-cor do not visually resemble the original images. Rather, each pixel within these whitened images represents the degree to which the corresponding principle component (spatial frequency, color, etc.) is present. That is, PCA and PCA-cor do not produce whitened images that are in the image basis; they are in the eigenbasis.
 
-![alt text](../images/blog_images/blog_whitening/compare_whitened_images.png "Comparison of Whitened Images")
+![alt text](../../../../images/blog_images/blog_whitening/compare_whitened_images.png "Comparison of Whitened Images")
 
 ### final thoughts
 
