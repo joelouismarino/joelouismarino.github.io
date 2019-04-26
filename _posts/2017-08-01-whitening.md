@@ -61,11 +61,17 @@ $$ Z = W(X - \mu), $$
 where $W$ is a $D \times D$ (whitening) matrix. We want to find a $W$ that satisfies
 
 $$ \text{cov}(Z) = \mathbf{I} $$
+
 $$ \mathbb{E}[ZZ^\intercal] = \mathbf{I} $$
+
 $$ \mathbb{E}[W(X - \mu)(W(X - \mu))^\intercal] = \mathbf{I} $$
+
 $$ \mathbb{E}[W(X - \mu)(X - \mu)^\intercal W^\intercal] = \mathbf{I} $$
+
 $$ W \Sigma W^\intercal = \mathbf{I} $$
+
 $$ W \Sigma W^\intercal W = W $$
+
 $$ W^\intercal W = \Sigma^{-1} $$
 
 ### rotational freedom
@@ -76,7 +82,13 @@ $$ W = Q \Sigma^{-1/2}, $$
 
 where $Q$ is an orthogonal matrix, meaning that $Q^\intercal Q = \mathbf{I}$. In this case, $W$ always satisfies equation 11, regardless of the choice of $Q$, because
 
-$$ W^\intercal W = (Q \Sigma^{-1/2})^\intercal Q \Sigma^{-1/2} = (\Sigma^{-1/2})^\intercal Q^\intercal Q \Sigma^{-1/2} = (\Sigma^{-1/2})^\intercal \mathbf{I} \Sigma^{-1/2} =  \Sigma^{-1}. $$
+$$ W^\intercal W = (Q \Sigma^{-1/2})^\intercal Q \Sigma^{-1/2} $$
+
+$$ = (\Sigma^{-1/2})^\intercal Q^\intercal Q \Sigma^{-1/2}$$
+
+$$ = (\Sigma^{-1/2})^\intercal \mathbf{I} \Sigma^{-1/2} $$
+
+$$ =  \Sigma^{-1}. $$
 
 This has a nice geometrical interpretation. To get there, we need to decompose $\Sigma$ into its eigenvectors, $U$, and eigenvalues, $\Lambda$:
 
