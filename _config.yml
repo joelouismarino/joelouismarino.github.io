@@ -83,7 +83,7 @@ author:
   name             : "Joe Marino"
   avatar           : "me.jpg"
   bio              : "Ph.D. Student"
-  location         : "Pasadena, CA"
+  location         :
   employer         : "Caltech"
   pubmed           :
   googlescholar    : "https://scholar.google.com/citations?user=LTprTF0AAAAJ&hl=en&oi=ao"
@@ -102,7 +102,7 @@ author:
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         :
+  linkedin         : "https://www.linkedin.com/in/joe-marino-073bb037"
   orcid            :
   pinterest        :
   soundcloud       :
@@ -113,7 +113,7 @@ author:
   vine             :
   weibo            :
   xing             :
-  youtube          :
+  youtube          : "https://www.youtube.com/channel/UCjf3XFRJAGvV9TiMObwhpag"
   wikipedia        :
 
 
