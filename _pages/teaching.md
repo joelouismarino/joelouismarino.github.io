@@ -64,7 +64,7 @@ ___
 
 **CS 159**:  
 *Introduction to Deep Generative Models*  
-[slides](../files/lectures/2019/CS159_lecture1).pdf)
+[slides](../files/lectures/2019/CS159_lecture1.pdf)
 
 *Maximum Likelihood and Latent Variable Models*  
 [slides](../files/lectures/2019/CS159_lecture2.pdf)
