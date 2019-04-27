@@ -39,7 +39,7 @@ Bayesian Deep Learning Workshop, NeurIPS 2018
 **A General Framework for Amortizing Variational Filtering**  
 *Joseph Marino, Milan Cvitkovic, Yisong Yue*  
 ICML 2018 Workshop on Theoretical Foundations and Applications of Deep Generative Models  
-[PDF](../files/papers/2018/avf/avf_workshop_paper.pdf)
+[PDF](../files/papers/2018/avf/avf_workshop_paper.pdf) [poster](../files/papers/2018/avf/avf_workshop_poster.pdf)
 
 **Learning to Infer**  
 *Joseph Marino, Yisong Yue, Stephan Mandt*  
