@@ -33,7 +33,7 @@ ___
 
 **An Inference Perspective on Model-Based Reinforcement Learning**  
 *Joseph Marino, Tony Zhang, Yisong Yue*  
-ICML 2019 Workshop on Generative Modeling and Model-Based Reasoning for Robotics and AI
+ICML 2019 Workshop on Generative Modeling and Model-Based Reasoning for Robotics and AI 
 Coming Soon
 
 **Variational Latent Dependency Learning**  
