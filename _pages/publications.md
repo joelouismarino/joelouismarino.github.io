@@ -31,9 +31,14 @@ ICML 2018
 ## Workshop Publications & Manuscripts
 ___
 
+**An Inference Perspective on Model-Based Reinforcement Learning**  
+*Joseph Marino, Tony Zhang, Yisong Yue*  
+ICML 2019 Workshop on Generative Modeling and Model-Based Reasoning for Robotics and AI
+Coming Soon
+
 **Variational Latent Dependency Learning**  
 *Jiawei He, Yu Gong, Joseph Marino, Greg Mori, Andreas Lehrmann*  
-Bayesian Deep Learning Workshop, NeurIPS 2018  
+NeurIPS 2018 Workshop on Bayesian Deep Learning
 [PDF](../files/papers/2019/variational_latent_dependency_learning/variational_latent_dependency_learning_workshop.pdf)
 
 **A General Framework for Amortizing Variational Filtering**  
