@@ -68,3 +68,7 @@ ___
 
 *Maximum Likelihood and Latent Variable Models*  
 [slides](../files/lectures/2019/CS159_lecture2.pdf)
+
+**CS 295 (UC Irvine)**:  
+*Deep Sequential Latent Variable Models*  
+[slides](../files/lectures/2019/deep_sequential_models.pdf)
