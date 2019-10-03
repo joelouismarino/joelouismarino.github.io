@@ -31,6 +31,16 @@ ICML 2018
 ## Workshop Publications & Manuscripts
 ___
 
+**Predictive Coding, Variational Autoencoders, and Biological Connections**  
+*Joseph Marino*  
+NeurIPS 2019 Workshop on Real Neurons and Hidden Units   
+PDF Coming Soon!
+
+**On the Design of Variational RL Algorithms**  
+*Joseph Marino, Alex Piche, Yisong Yue*  
+NeurIPS 2019 Workshop on Deep Reinforcement Learning   
+PDF Coming Soon!
+
 **An Inference Perspective on Model-Based Reinforcement Learning**  
 *Joseph Marino, Yisong Yue*  
 ICML 2019 Workshop on Generative Modeling and Model-Based Reasoning for Robotics and AI  
