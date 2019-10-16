@@ -34,7 +34,7 @@ ___
 **Predictive Coding, Variational Autoencoders, and Biological Connections**  
 *Joseph Marino*  
 NeurIPS 2019 Workshop on Real Neurons and Hidden Units   
-PDF Coming Soon!
+[PDF](../files/papers/2019/predictive_coding/neuro_ai_workshop_submission_2-3.pdf)
 
 **On the Design of Variational RL Algorithms**  
 *Joseph Marino, Alex Piche, Yisong Yue*  
