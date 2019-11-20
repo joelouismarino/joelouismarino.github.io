@@ -34,10 +34,15 @@ ___
 **Predictive Coding, Variational Autoencoders, and Biological Connections**  
 *Joseph Marino*  
 NeurIPS 2019 Workshop on Real Neurons and Hidden Units   
-[PDF](../files/papers/2019/predictive_coding/neuro_ai_workshop_submission_2-3.pdf)
+[PDF](../files/papers/2019/predictive_coding/neuro_ai_workshop_submission_2-3.pdf) [poster](../files/papers/2019/predictive_coding/pc_vae_poster.pdf)
+
+**Improving Sequential Latent Variable Models with Autoregressive Flows**  
+*Joseph Marino, Lei Chen, Jiawei He, Stephan Mandt*  
+Advances in Approximate Bayesian Inference (AABI) 2019   
+PDF Coming Soon!
 
 **On the Design of Variational RL Algorithms**  
-*Joseph Marino, Alex Piche, Yisong Yue*  
+*Joseph Marino, Alex Piché, Yisong Yue*  
 NeurIPS 2019 Workshop on Deep Reinforcement Learning   
 PDF Coming Soon!
 
