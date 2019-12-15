@@ -39,12 +39,12 @@ NeurIPS 2019 Workshop on Real Neurons and Hidden Units
 **Improving Sequential Latent Variable Models with Autoregressive Flows**  
 *Joseph Marino, Lei Chen, Jiawei He, Stephan Mandt*  
 Advances in Approximate Bayesian Inference (AABI) 2019   
-[PDF](../files/papers/2019/seq_flow/AABI_Improving_Sequence_Modelling.pdf) [poster](../files/papers/2019/seq_flow/symposium_poster.pdf)
+[PDF](../files/papers/2019/seq_flow/AABI_Improving_Sequence_Modelling.pdf) [poster](../files/papers/2019/seq_flow/symposium_poster.pdf) [slides](../files/papers/2019/seq_flow/marino_aabi_spotlight.pdf)
 
 **On the Design of Variational RL Algorithms**  
 *Joseph Marino, Alexandre Piché, Yisong Yue*  
 NeurIPS 2019 Workshop on Deep Reinforcement Learning   
-[PDF](../files/papers/2019/variational_rl/neurips_workshop_paper.pdf)
+[PDF](../files/papers/2019/variational_rl/neurips_workshop_paper.pdf) [poster](../files/papers/2019/variational_rl/neurips_workshop_poster.pdf)
 
 **An Inference Perspective on Model-Based Reinforcement Learning**  
 *Joseph Marino, Yisong Yue*  
