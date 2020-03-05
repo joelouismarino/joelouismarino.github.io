@@ -76,7 +76,6 @@ ___
 ### 2020
 ___
 
-**CS 155**
-
+**CS 155**:
 *Deep Generative Models*  
 [slides](https://drive.google.com/file/d/1SGGWQR_FCHzsg-_aYzCjgHypXNesl6ML/view)
