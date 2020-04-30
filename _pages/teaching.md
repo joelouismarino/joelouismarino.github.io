@@ -82,4 +82,4 @@ ___
 
 **CS 159**:  
 *Amortized Inference in Deep Generative Models*  
-[slides](../files/lectures/2020/2020-04-30-caltech-cs-159.pdf)
+[slides](../files/lectures/2020/2020-04-30-caltech-cs-159.pdf), [video](https://www.youtube.com/watch?v=mc8uP_T5qZs&feature=youtu.be)
