@@ -7,7 +7,7 @@ author_profile: true
 
 ![alt text](../images/me_teaching.jpg "Lecturing in Ramo Auditorium")
 
-I have been a TA for CNS 187: *Neural Computation* (2015 & 2016) as well as CS 159: *Special Topics in Machine Learning* (2019 & 2020). I have also given a series of guest lectures in CS 155: *Machine Learning & Data Mining* (2017 - 2020).
+I have been a TA for CNS 187: *Neural Computation* (2015 & 2016) as well as CS 159: *Special Topics in Machine Learning* (2019 & 2020). I have also given a series of guest lectures on Deep Learning in CS 155: *Machine Learning & Data Mining* (2017 - 2020).
 
 ### 2015
 ___
@@ -69,7 +69,7 @@ ___
 *Maximum Likelihood and Latent Variable Models*  
 [slides](../files/lectures/2019/CS159_lecture2.pdf)
 
-**CS 295 (UC Irvine)**:  
+**CS 295 (@ UC Irvine)**:  
 *Deep Sequential Latent Variable Models*  
 [slides](../files/lectures/2019/deep_sequential_models.pdf)
 
@@ -83,3 +83,7 @@ ___
 **CS 159**:  
 *Amortized Inference in Deep Generative Models*  
 [slides](../files/lectures/2020/2020-04-30-caltech-cs-159.pdf), [video](https://www.youtube.com/watch?v=mc8uP_T5qZs&feature=youtu.be)
+
+**CS 295 (@ UC Irvine)**:  
+*Deep Sequential Latent Variable Models*  
+[slides](../files/lectures/2020/deep_sequential_models.pdf)
