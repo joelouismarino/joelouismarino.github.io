@@ -31,6 +31,16 @@ ICML 2018
 ## Workshop Publications & Manuscripts
 ___
 
+**Sequential Autoregressive Flow-Based Policies**  
+*Alex Guerra, Joseph Marino*  
+ICML 2020 Workshop on Invertible Neural Networks, Normalizing Flows, and Explicit Likelihood Models   
+[PDF](../files/papers/2020/arrl/arrl_innf_workshop.pdf)
+
+**Deep Generative Video Compression with Temporal Autoregressive Transform**  
+*Ruihan Yang, Yibo Yang, Joseph Marino, Yang Yang, Stephan Mandt*  
+ICML 2020 Workshop on Invertible Neural Networks, Normalizing Flows, and Explicit Likelihood Models   
+PDF Coming Soon
+
 **Predictive Coding, Variational Autoencoders, and Biological Connections**  
 *Joseph Marino*  
 NeurIPS 2019 Workshop on Real Neurons and Hidden Units   
