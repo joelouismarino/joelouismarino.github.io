@@ -39,7 +39,7 @@ ICML 2020 Workshop on Invertible Neural Networks, Normalizing Flows, and Explici
 **Deep Generative Video Compression with Temporal Autoregressive Transform**  
 *Ruihan Yang, Yibo Yang, Joseph Marino, Yang Yang, Stephan Mandt*  
 ICML 2020 Workshop on Invertible Neural Networks, Normalizing Flows, and Explicit Likelihood Models   
-PDF Coming Soon
+[PDF](../files/papers/2020/seq_flows_compression/seq_flows_compression.pdf)
 
 **Predictive Coding, Variational Autoencoders, and Biological Connections**  
 *Joseph Marino*  
