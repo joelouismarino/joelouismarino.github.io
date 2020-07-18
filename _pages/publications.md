@@ -34,7 +34,7 @@ ___
 **Sequential Autoregressive Flow-Based Policies**  
 *Alex Guerra, Joseph Marino*  
 ICML 2020 Workshop on Invertible Neural Networks, Normalizing Flows, and Explicit Likelihood Models   
-[PDF](../files/papers/2020/arrl/arrl_innf_workshop.pdf) [code](https://github.com/aguerra7002/ARSAC)
+[PDF](../files/papers/2020/arrl/arrl_innf_workshop.pdf) [code](https://github.com/aguerra7002/ARSAC) [video](https://slideslive.com/38931462/sequentional-autoregressive-flowbased-policies)
 
 **Deep Generative Video Compression with Temporal Autoregressive Transform**  
 *Ruihan Yang, Yibo Yang, Joseph Marino, Yang Yang, Stephan Mandt*  
