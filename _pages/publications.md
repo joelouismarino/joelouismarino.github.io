@@ -4,32 +4,18 @@ title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
-## Conference Publications
+### 2020
 ___
 
-**Variational Autoencoders with Jointly Optimized Latent Dependency Structure**  
-*Jiawei He, Yu Gong, Joseph Marino, Greg Mori, Andreas Lehrmann*  
-ICLR 2019  
-[PDF](../files/papers/2019/variational_latent_dependency_learning/iclr_2019_paper.pdf)
+**Iterative Amortized Policy Optimization**  
+*Joseph Marino, Alexandre Piché, Alessandro Davide Ialongo, Yisong Yue*  
+Preprint, 2020   
+[arXiv -- Coming Soon] [code](https://github.com/joelouismarino/variational_rl)
 
-**A General Method for Amortizing Variational Filtering**  
-*Joseph Marino, Milan Cvitkovic, Yisong Yue*  
-NeurIPS 2018  
-[arXiv](https://arxiv.org/abs/1811.05090) [PDF](../files/papers/2018/avf/avf_conference_paper.pdf) [poster](../files/papers/2018/avf/nips2018_poster.pdf) [code](https://github.com/joelouismarino/amortized-variational-filtering)
-
-**Probabilistic Video Generation using Holistic Attribute Control**  
-*Jiawei He, Andreas Lehrmann, Joseph Marino, Greg Mori, Leonid Sigal*  
-ECCV 2018  
-[arXiv](https://arxiv.org/abs/1803.08085)
-
-**Iterative Amortized Inference**  
-*Joseph Marino, Yisong Yue, Stephan Mandt*  
-ICML 2018  
-[arXiv](https://arxiv.org/abs/1807.09356) [PDF](../files/papers/2018/iterative_amortized_inference/icml_2018_paper.pdf) [poster](../files/papers/2018/iterative_amortized_inference/icml_2018_poster.pdf) [code](https://github.com/joelouismarino/iterative_inference)
-
-
-## Workshop Publications & Manuscripts
-___
+**Hierarchical Autoregressive Modeling for Neural Video Compression**  
+*Ruihan Yang, Yibo Yang, Joseph Marino, Stephan Mandt*  
+Preprint, 2020   
+[arXiv](https://arxiv.org/abs/2010.10258) [code](https://github.com/privateyoung/Youtube-NT)
 
 **Sequential Autoregressive Flow-Based Policies**  
 *Alex Guerra, Joseph Marino*  
@@ -40,6 +26,9 @@ ICML 2020 Workshop on Invertible Neural Networks, Normalizing Flows, and Explici
 *Ruihan Yang, Yibo Yang, Joseph Marino, Yang Yang, Stephan Mandt*  
 ICML 2020 Workshop on Invertible Neural Networks, Normalizing Flows, and Explicit Likelihood Models   
 [PDF](../files/papers/2020/seq_flows_compression/seq_flows_compression.pdf)
+
+### 2019
+___
 
 **Predictive Coding, Variational Autoencoders, and Biological Connections**  
 *Joseph Marino*  
@@ -61,10 +50,33 @@ NeurIPS 2019 Workshop on Deep Reinforcement Learning
 ICML 2019 Workshop on Generative Modeling and Model-Based Reasoning for Robotics and AI  
 [PDF](../files/papers/2019/variational_rl/inference_perspective_on_mbrl.pdf) [poster](../files/papers/2019/variational_rl/icml_workshop_poster.pdf) [slides](../files/papers/2019/variational_rl/icml_workshop_presentation.pdf) [talk](https://www.facebook.com/icml.imls/videos/449245405622423/) @ 41m 30s
 
+**Variational Autoencoders with Jointly Optimized Latent Dependency Structure**  
+*Jiawei He, Yu Gong, Joseph Marino, Greg Mori, Andreas Lehrmann*  
+ICLR 2019  
+[PDF](../files/papers/2019/variational_latent_dependency_learning/iclr_2019_paper.pdf)
+
+### 2018
+___
+
+**A General Method for Amortizing Variational Filtering**  
+*Joseph Marino, Milan Cvitkovic, Yisong Yue*  
+NeurIPS 2018  
+[arXiv](https://arxiv.org/abs/1811.05090) [PDF](../files/papers/2018/avf/avf_conference_paper.pdf) [poster](../files/papers/2018/avf/nips2018_poster.pdf) [code](https://github.com/joelouismarino/amortized-variational-filtering)
+
 **Variational Latent Dependency Learning**  
 *Jiawei He, Yu Gong, Joseph Marino, Greg Mori, Andreas Lehrmann*  
 NeurIPS 2018 Workshop on Bayesian Deep Learning  
 [PDF](../files/papers/2019/variational_latent_dependency_learning/variational_latent_dependency_learning_workshop.pdf)
+
+**Probabilistic Video Generation using Holistic Attribute Control**  
+*Jiawei He, Andreas Lehrmann, Joseph Marino, Greg Mori, Leonid Sigal*  
+ECCV 2018  
+[arXiv](https://arxiv.org/abs/1803.08085)
+
+**Iterative Amortized Inference**  
+*Joseph Marino, Yisong Yue, Stephan Mandt*  
+ICML 2018  
+[arXiv](https://arxiv.org/abs/1807.09356) [PDF](../files/papers/2018/iterative_amortized_inference/icml_2018_paper.pdf) [poster](../files/papers/2018/iterative_amortized_inference/icml_2018_poster.pdf) [code](https://github.com/joelouismarino/iterative_inference)
 
 **A General Framework for Amortizing Variational Filtering**  
 *Joseph Marino, Milan Cvitkovic, Yisong Yue*  
@@ -76,15 +88,23 @@ ICML 2018 Workshop on Theoretical Foundations and Applications of Deep Generativ
 ICLR 2018 Workshop Track  
 [PDF](../files/papers/2018/iterative_amortized_inference/Iterative_Inference_ICLR_Workshop.pdf) [poster](../files/papers/2018/iterative_amortized_inference/iclr2018_poster.pdf)
 
+### 2017
+___
+
 **Iterative Inference Models**  
 *Joseph Marino, Yisong Yue, Stephan Mandt*  
 NeurIPS 2017 Workshop on Bayesian Deep Learning  
 [PDF](../files/papers/2018/iterative_amortized_inference/Iterative_Inference_BDL_Workshop.pdf) [poster](../files/papers/2018/iterative_amortized_inference/NIPS_poster.pdf)
 
+### 2016
+___
+
 **Non-expert Labels Improve Fine-Grained Object Recognition**  
 *Joseph Marino*  
+Preprint 2016  
 [PDF](../files/papers/2016/non_expert_labels.pdf)
 
 **Taxonomic Curriculum Learning for Fine-Grained Object Recognition**  
 *Joseph Marino*  
+Preprint 2016  
 [PDF](../files/papers/2016/taxonomic_curriculum_learning.pdf)
