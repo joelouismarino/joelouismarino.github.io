@@ -9,45 +9,20 @@ author_profile: true
 
 I have been a TA for CNS 187: *Neural Computation* (2015 & 2016) as well as CS 159: *Special Topics in Machine Learning* (2019 & 2020). I have also given a series of guest lectures on Deep Learning in CS 155: *Machine Learning & Data Mining* (2017 - 2020).
 
-### 2015
-___
-
-**CNS 187**:  
-*Convolutional Neural Networks*  
-[slides](../files/lectures/2015/Convolution.pdf)
-
-### 2016
-___
-
-**CNS 187**:  
-*Convolutional Neural Networks*  
-[slides](../files/lectures/2016/deep_learning_cnns.pdf)
-
-*Special Topics: Biological Inspiration*  
-[slides](../files/lectures/2016/Special_Topics.pdf)
-
-### 2017
+### 2020
 ___
 
 **CS 155**:  
-*Deep Learning Part I: Neural Networks*  
-[slides](../files/lectures/2017/deep_learning_part_1.pdf), video: [1](https://www.youtube.com/watch?v=deAK7a7TB1o) [2](https://www.youtube.com/watch?v=YGRxbXTsMks)
+*Deep Generative Models*  
+[slides](https://drive.google.com/file/d/1SGGWQR_FCHzsg-_aYzCjgHypXNesl6ML/view)
 
-*Deep Learning Part II: CNNs & RNNs*  
-[slides](../files/lectures/2017/deep_learning_part_2.pdf), video: [1](https://www.youtube.com/watch?v=k9AYjOXzePM) [2](https://www.youtube.com/watch?v=BEw_9il7qwY)
+**CS 159**:  
+*Amortized Inference in Deep Generative Models*  
+[slides](../files/lectures/2020/2020-04-30-caltech-cs-159.pdf), [video](https://www.youtube.com/watch?v=mc8uP_T5qZs&feature=youtu.be)
 
-### 2018
-___
-
-**CS 155**:  
-*Deep Learning Part I: Neural Networks*  
-[slides](../files/lectures/2018/Deep Learning Part I.pdf), [video](https://www.youtube.com/watch?v=tUeWFEZCn7U)
-
-*Deep Learning Part II: CNNs & RNNs*  
-[slides](../files/lectures/2018/Deep Learning Part II.pdf), [video](https://www.youtube.com/watch?v=ggcomuj0-8U)
-
-*Deep Learning Part III: Deep Generative Models*  
-[slides](../files/lectures/2018/Deep Learning Part III.pdf), [video](https://www.youtube.com/watch?v=hWbnZKXZdEs)
+**CS 295 (@ UC Irvine)**:  
+*Deep Sequential Latent Variable Models*  
+[slides](../files/lectures/2020/deep_sequential_models.pdf)
 
 ### 2019
 ___
@@ -73,17 +48,42 @@ ___
 *Deep Sequential Latent Variable Models*  
 [slides](../files/lectures/2019/deep_sequential_models.pdf)
 
-### 2020
+### 2018
 ___
 
 **CS 155**:  
-*Deep Generative Models*  
-[slides](https://drive.google.com/file/d/1SGGWQR_FCHzsg-_aYzCjgHypXNesl6ML/view)
+*Deep Learning Part I: Neural Networks*  
+[slides](../files/lectures/2018/Deep Learning Part I.pdf), [video](https://www.youtube.com/watch?v=tUeWFEZCn7U)
 
-**CS 159**:  
-*Amortized Inference in Deep Generative Models*  
-[slides](../files/lectures/2020/2020-04-30-caltech-cs-159.pdf), [video](https://www.youtube.com/watch?v=mc8uP_T5qZs&feature=youtu.be)
+*Deep Learning Part II: CNNs & RNNs*  
+[slides](../files/lectures/2018/Deep Learning Part II.pdf), [video](https://www.youtube.com/watch?v=ggcomuj0-8U)
 
-**CS 295 (@ UC Irvine)**:  
-*Deep Sequential Latent Variable Models*  
-[slides](../files/lectures/2020/deep_sequential_models.pdf)
+*Deep Learning Part III: Deep Generative Models*  
+[slides](../files/lectures/2018/Deep Learning Part III.pdf), [video](https://www.youtube.com/watch?v=hWbnZKXZdEs)
+
+### 2017
+___
+
+**CS 155**:  
+*Deep Learning Part I: Neural Networks*  
+[slides](../files/lectures/2017/deep_learning_part_1.pdf), video: [1](https://www.youtube.com/watch?v=deAK7a7TB1o) [2](https://www.youtube.com/watch?v=YGRxbXTsMks)
+
+*Deep Learning Part II: CNNs & RNNs*  
+[slides](../files/lectures/2017/deep_learning_part_2.pdf), video: [1](https://www.youtube.com/watch?v=k9AYjOXzePM) [2](https://www.youtube.com/watch?v=BEw_9il7qwY)
+
+### 2016
+___
+
+**CNS 187**:  
+*Convolutional Neural Networks*  
+[slides](../files/lectures/2016/deep_learning_cnns.pdf)
+
+*Special Topics: Biological Inspiration*  
+[slides](../files/lectures/2016/Special_Topics.pdf)
+
+### 2015
+___
+
+**CNS 187**:  
+*Convolutional Neural Networks*  
+[slides](../files/lectures/2015/Convolution.pdf)
