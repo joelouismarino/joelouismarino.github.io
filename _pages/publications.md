@@ -10,7 +10,7 @@ ___
 **Iterative Amortized Policy Optimization**  
 *Joseph Marino, Alexandre Piché, Alessandro Davide Ialongo, Yisong Yue*  
 Preprint, 2020   
-[arXiv -- Coming Soon] [code](https://github.com/joelouismarino/variational_rl)
+[arXiv](https://arxiv.org/abs/2010.10670) [code](https://github.com/joelouismarino/variational_rl)
 
 **Hierarchical Autoregressive Modeling for Neural Video Compression**  
 *Ruihan Yang, Yibo Yang, Joseph Marino, Stephan Mandt*  
