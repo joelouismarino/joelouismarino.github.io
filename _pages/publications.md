@@ -32,8 +32,8 @@ ___
 
 **Predictive Coding, Variational Autoencoders, and Biological Connections**  
 *Joseph Marino*  
-NeurIPS 2019 Workshop on Real Neurons and Hidden Units   
-[PDF](../files/papers/2019/predictive_coding/neuro_ai_workshop_submission_2-3.pdf) [poster](../files/papers/2019/predictive_coding/pc_vae_poster.pdf)
+NeurIPS 2019 Workshop on Real Neurons and Hidden Units, NAISys   
+[arXiv](https://arxiv.org/abs/2011.07464) [PDF](../files/papers/2019/predictive_coding/neuro_ai_workshop_submission_2-3.pdf) [NeurIPS poster](../files/papers/2019/predictive_coding/pc_vae_poster.pdf) [NAISys poster](../files/papers/2019/predictive_coding/naisys_workshop_poster.pdf)
 
 **Improving Sequential Latent Variable Models with Autoregressive Flows**  
 *Joseph Marino, Lei Chen, Jiawei He, Stephan Mandt*  
