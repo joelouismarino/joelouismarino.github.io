@@ -10,7 +10,7 @@ ___
 **Scale Space Flow with Autoregressive Priors**  
 *Ruihan Yang, Yibo Yang, Joseph Marino, Stephan Mandt*  
 ICLR 2021 Workshop on Neural Compression   
-PDF Coming Soon
+[PDF](../files/papers/2021/compression/scale_space_flow_with_autoregressive_priors.pdf)
 
 **Hierarchical Autoregressive Modeling for Neural Video Compression**  
 *Ruihan Yang, Yibo Yang, Joseph Marino, Stephan Mandt*  
