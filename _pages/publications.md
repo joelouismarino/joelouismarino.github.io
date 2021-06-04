@@ -7,6 +7,11 @@ author_profile: true
 ### 2021
 ___
 
+**Beyond Target Networks: Improving Deep Q-learning with Functional Regularization**  
+*Alexandre Piché, Joseph Marino, Gian Maria Marconi, Chris J. Pal, Mohammad Emtiyaz Khan*  
+Preprint, 2021   
+PDF coming soon!
+
 **Scale Space Flow with Autoregressive Priors**  
 *Ruihan Yang, Yibo Yang, Joseph Marino, Stephan Mandt*  
 ICLR 2021 Workshop on Neural Compression   
