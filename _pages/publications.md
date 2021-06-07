@@ -9,6 +9,7 @@ ___
 
 **Beyond Target Networks: Improving Deep Q-learning with Functional Regularization**  
 *Alexandre Piché, Joseph Marino, Gian Maria Marconi, Chris J. Pal, Mohammad Emtiyaz Khan*  
+Preprint, 2021   
 [arXiv](https://arxiv.org/abs/2106.02613)  
 
 **Scale Space Flow with Autoregressive Priors**  
