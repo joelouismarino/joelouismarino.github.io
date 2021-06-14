@@ -7,10 +7,14 @@ author_profile: true
 ### 2021
 ___
 
+**Learned Feedback & Feedforward Perception & Control**  
+*Joseph Marino*  
+Ph.D. Thesis, 2021   
+
 **Beyond Target Networks: Improving Deep Q-learning with Functional Regularization**  
 *Alexandre Piché, Joseph Marino, Gian Maria Marconi, Chris J. Pal, Mohammad Emtiyaz Khan*  
 Preprint, 2021   
-[arXiv](https://arxiv.org/abs/2106.02613)  
+[arXiv](https://arxiv.org/abs/2106.02613)
 
 **Scale Space Flow with Autoregressive Priors**  
 *Ruihan Yang, Yibo Yang, Joseph Marino, Stephan Mandt*  
@@ -89,7 +93,7 @@ ECCV 2018
 **Iterative Amortized Inference**  
 *Joseph Marino, Yisong Yue, Stephan Mandt*  
 ICML 2018  
-[arXiv](https://arxiv.org/abs/1807.09356) [PDF](../files/papers/2018/iterative_amortized_inference/icml_2018_paper.pdf) [poster](../files/papers/2018/iterative_amortized_inference/icml_2018_poster.pdf) [code](https://github.com/joelouismarino/iterative_inference)
+[arXiv](https://arxiv.org/abs/1807.09356) [PDF](../files/papers/2018/iterative_amortized_inference/icml_2018_paper.pdf) [poster](../files/papers/2018/iterative_amortized_inference/icml_2018_poster.pdf) [code](https://github.com/joelouismarino/iterative_inference) [video](https://vimeo.com/287766880)
 
 **A General Framework for Amortizing Variational Filtering**  
 *Joseph Marino, Milan Cvitkovic, Yisong Yue*  
