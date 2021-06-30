@@ -10,6 +10,7 @@ ___
 **Learned Feedback & Feedforward Perception & Control**  
 *Joseph Marino*  
 Ph.D. Thesis, 2021   
+[PDF](https://thesis.library.caltech.edu/14178/1/joseph_marino_Caltech_PhD_Thesis.pdf)
 
 **Beyond Target Networks: Improving Deep Q-learning with Functional Regularization**  
 *Alexandre Piché, Joseph Marino, Gian Maria Marconi, Chris J. Pal, Mohammad Emtiyaz Khan*  
