@@ -7,6 +7,11 @@ author_profile: true
 ### 2021
 ___
 
+**Insights from Generative Modeling for Neural Video Compression**  
+*Ruihan Yang, Yibo Yang, Joseph Marino, Stephan Mandt*  
+Preprint, 2021   
+[arXiv](https://arxiv.org/abs/2107.13136)
+
 **Learned Feedback & Feedforward Perception & Control**  
 *Joseph Marino*  
 Ph.D. Thesis, 2021   
