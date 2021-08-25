@@ -7,6 +7,11 @@ author_profile: true
 ### 2021
 ___
 
+**Predictive Coding, Variational Autoencoders, and Biological Connections**  
+*Joseph Marino*  
+To appear in Neural Computation, 2021   
+Link coming soon!
+
 **Insights from Generative Modeling for Neural Video Compression**  
 *Ruihan Yang, Yibo Yang, Joseph Marino, Stephan Mandt*  
 Preprint, 2021   
@@ -53,7 +58,7 @@ ICML 2020 Workshop on Invertible Neural Networks, Normalizing Flows, and Explici
 ### 2019
 ___
 
-**Predictive Coding, Variational Autoencoders, and Biological Connections**  
+**Predictive Coding, Variational Autoencoders, and Biological Connections (Workshop Version)**  
 *Joseph Marino*  
 NeurIPS 2019 Workshop on Real Neurons and Hidden Units, NAISys   
 [arXiv](https://arxiv.org/abs/2011.07464) [PDF](../files/papers/2019/predictive_coding/biological_connections_arXiv.pdf) [NeurIPS poster](../files/papers/2019/predictive_coding/pc_vae_poster.pdf) [NAISys poster](../files/papers/2019/predictive_coding/naisys_workshop_poster.pdf)
