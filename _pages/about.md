@@ -10,7 +10,7 @@ redirect_from:
 
 I recently obtained my Ph.D. from the [Computation and Neural Systems](http://www.cns.caltech.edu) program at the California Institute of Technology (Caltech). I was co-advised by Professors [Pietro Perona](http://www.vision.caltech.edu/people.html) and [Yisong Yue](http://www.yisongyue.com/about.php). This fall, I will be starting as a research scientist at DeepMind in London.
 
-[Download CV](../files/marino_cv.pdf)
+[curriculum vitae](../files/marino_cv.pdf)
 
 ## Research Focus
 
