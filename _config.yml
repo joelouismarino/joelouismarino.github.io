@@ -82,9 +82,9 @@ analytics:
 author:
   name             : "Joe Marino"
   avatar           : "me.jpg"
-  bio              : "Ph.D."
+  bio              : "Research Scientist @ DeepMind"
   location         : "London, UK"
-  employer         : "DeepMind"
+  employer         :
   pubmed           :
   googlescholar    : "https://scholar.google.com/citations?user=LTprTF0AAAAJ&hl=en&oi=ao"
   email            : "jmarino@caltech.edu"
