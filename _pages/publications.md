@@ -7,6 +7,11 @@ author_profile: true
 ### 2021
 ___
 
+**Iterative Amortized Policy Optimization**  
+*Joseph Marino, Alexandre Piché, Alessandro Davide Ialongo, Yisong Yue*  
+NeurIPS, 2021   
+[arXiv](https://arxiv.org/abs/2010.10670) [code](https://github.com/joelouismarino/variational_rl)
+
 **Predictive Coding, Variational Autoencoders, and Biological Connections**  
 *Joseph Marino*  
 To appear in Neural Computation, 2021   
@@ -39,11 +44,6 @@ ICLR 2021
 
 ### 2020
 ___
-
-**Iterative Amortized Policy Optimization**  
-*Joseph Marino, Alexandre Piché, Alessandro Davide Ialongo, Yisong Yue*  
-Preprint, 2020   
-[arXiv](https://arxiv.org/abs/2010.10670) [code](https://github.com/joelouismarino/variational_rl)
 
 **Sequential Autoregressive Flow-Based Policies**  
 *Alex Guerra, Joseph Marino*  
