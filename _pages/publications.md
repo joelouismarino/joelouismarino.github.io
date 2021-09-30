@@ -17,6 +17,11 @@ NeurIPS, 2021
 To appear in Neural Computation, 2021   
 Link coming soon!
 
+**Improving Sequential Latent Variable Models with Autoregressive Flows**  
+*Joseph Marino, Lei Chen, Jiawei He, Stephan Mandt*  
+Machine Learning, 2021   
+Link coming soon!
+
 **Insights from Generative Modeling for Neural Video Compression**  
 *Ruihan Yang, Yibo Yang, Joseph Marino, Stephan Mandt*  
 Preprint, 2021   
@@ -63,7 +68,7 @@ ___
 NeurIPS 2019 Workshop on Real Neurons and Hidden Units, NAISys   
 [arXiv](https://arxiv.org/abs/2011.07464) [PDF](../files/papers/2019/predictive_coding/biological_connections_arXiv.pdf) [NeurIPS poster](../files/papers/2019/predictive_coding/pc_vae_poster.pdf) [NAISys poster](../files/papers/2019/predictive_coding/naisys_workshop_poster.pdf)
 
-**Improving Sequential Latent Variable Models with Autoregressive Flows**  
+**Improving Sequential Latent Variable Models with Autoregressive Flows (Workshop Version)**  
 *Joseph Marino, Lei Chen, Jiawei He, Stephan Mandt*  
 Advances in Approximate Bayesian Inference (AABI) 2019   
 [arXiv](https://arxiv.org/abs/2010.03172) [PDF](../files/papers/2019/seq_flow/AABI_Improving_Sequence_Modelling.pdf) [poster](../files/papers/2019/seq_flow/symposium_poster.pdf) [slides](../files/papers/2019/seq_flow/marino_aabi_spotlight.pdf) [code](https://github.com/joelouismarino/sequential_flows)
