@@ -19,7 +19,7 @@ Link coming soon!
 
 **Improving Sequential Latent Variable Models with Autoregressive Flows**  
 *Joseph Marino, Lei Chen, Jiawei He, Stephan Mandt*  
-Machine Learning, 2021   
+To appear in Machine Learning, 2021   
 Link coming soon!
 
 **Insights from Generative Modeling for Neural Video Compression**  
