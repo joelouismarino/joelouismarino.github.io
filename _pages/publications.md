@@ -4,6 +4,14 @@ title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
+### 2022
+___
+
+**Predictive Coding, Variational Autoencoders, and Biological Connections**  
+*Joseph Marino*  
+To appear in Neural Computation, Jan. 2022   
+[arXiv](https://arxiv.org/abs/2011.07464)
+
 ### 2021
 ___
 
@@ -12,15 +20,10 @@ ___
 NeurIPS, 2021   
 [arXiv](https://arxiv.org/abs/2010.10670) [code](https://github.com/joelouismarino/variational_rl)
 
-**Predictive Coding, Variational Autoencoders, and Biological Connections**  
-*Joseph Marino*  
-To appear in Neural Computation, 2021   
-Link coming soon!
-
 **Improving Sequential Latent Variable Models with Autoregressive Flows**  
 *Joseph Marino, Lei Chen, Jiawei He, Stephan Mandt*  
-To appear in Machine Learning, 2021   
-Link coming soon!
+Machine Learning, Nov. 2021   
+[arXiv](https://arxiv.org/abs/2010.03172) [publisher](https://link.springer.com/article/10.1007/s10994-021-06092-6) [code](https://github.com/joelouismarino/sequential_flows)
 
 **Insights from Generative Modeling for Neural Video Compression**  
 *Ruihan Yang, Yibo Yang, Joseph Marino, Stephan Mandt*  
