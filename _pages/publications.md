@@ -9,8 +9,8 @@ ___
 
 **Predictive Coding, Variational Autoencoders, and Biological Connections**  
 *Joseph Marino*  
-To appear in Neural Computation, Jan. 2022   
-[arXiv](https://arxiv.org/abs/2011.07464)
+Neural Computation, Jan. 2022   
+[arXiv](https://arxiv.org/abs/2011.07464) [publisher](https://direct.mit.edu/neco/article/34/1/1/107911/Predictive-Coding-Variational-Autoencoders-and)
 
 ### 2021
 ___
