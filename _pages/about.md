@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a research scientist on the Natural Intelligence team at DeepMind in London, UK. I received my Ph.D. from the [Computation and Neural Systems](http://www.cns.caltech.edu) program at the California Institute of Technology (Caltech), where I was co-advised by Professors [Pietro Perona](http://www.vision.caltech.edu/people.html) and [Yisong Yue](http://www.yisongyue.com/about.php).
+I am a research scientist on the Natural Intelligence team at DeepMind in London, UK. I received my Ph.D. from the [Computation and Neural Systems](https://www.bbe.caltech.edu/academics/cns) program at the California Institute of Technology (Caltech), where I was co-advised by Professors [Pietro Perona](http://www.vision.caltech.edu/people.html) and [Yisong Yue](http://www.yisongyue.com/about.php).
 
 [curriculum vitae](../files/marino_cv.pdf)
 
