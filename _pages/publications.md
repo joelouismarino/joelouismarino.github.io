@@ -4,6 +4,14 @@ title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
+### 2023
+___
+
+**Insights from Generative Modeling for Neural Video Compression**  
+*Ruihan Yang, Yibo Yang, Joseph Marino, Stephan Mandt*  
+TPAMI, Apr. 2023   
+[arXiv](https://arxiv.org/abs/2107.13136)
+
 ### 2022
 ___
 
@@ -24,11 +32,6 @@ NeurIPS, 2021
 *Joseph Marino, Lei Chen, Jiawei He, Stephan Mandt*  
 Machine Learning, Nov. 2021   
 [arXiv](https://arxiv.org/abs/2010.03172) [publisher](https://link.springer.com/article/10.1007/s10994-021-06092-6) [code](https://github.com/joelouismarino/sequential_flows)
-
-**Insights from Generative Modeling for Neural Video Compression**  
-*Ruihan Yang, Yibo Yang, Joseph Marino, Stephan Mandt*  
-Preprint, 2021   
-[arXiv](https://arxiv.org/abs/2107.13136)
 
 **Learned Feedback & Feedforward Perception & Control**  
 *Joseph Marino*  
