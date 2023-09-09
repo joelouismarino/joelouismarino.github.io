@@ -9,7 +9,7 @@ ___
 
 **Bridging the Gap Between Target Networks and Functional Regularization**  
 *Alexandre Piché, Valentin Thomas, Rafael Pardinas, Joseph Marino, Gian Maria Marconi, Chris J. Pal, Mohammad Emtiyaz Khan*  
-Transactions on Machine Learning Research (TMLR), 2023   
+Transactions on Machine Learning Research (TMLR), Sept. 2023   
 [arXiv](https://arxiv.org/abs/2210.12282)
 
 **Insights from Generative Modeling for Neural Video Compression**  
