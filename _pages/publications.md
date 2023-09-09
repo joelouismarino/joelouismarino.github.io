@@ -7,12 +7,17 @@ author_profile: true
 ### 2023
 ___
 
+**Bridging the Gap Between Target Networks and Functional Regularization**  
+*Alexandre Piché, Valentin Thomas, Rafael Pardinas, Joseph Marino, Gian Maria Marconi, Chris J. Pal, Mohammad Emtiyaz Khan*  
+Transactions on Machine Learning Research (TMLR), 2023   
+[arXiv](https://arxiv.org/abs/2210.12282)
+
 **Insights from Generative Modeling for Neural Video Compression**  
 *Ruihan Yang, Yibo Yang, Joseph Marino, Stephan Mandt*  
-TPAMI, Apr. 2023   
+Transactions on Pattern Analysis and Machine Intelligence (TPAMI), Apr. 2023   
 [arXiv](https://arxiv.org/abs/2107.13136)
 
-### 2022
+### 2022c
 ___
 
 **Predictive Coding, Variational Autoencoders, and Biological Connections**  

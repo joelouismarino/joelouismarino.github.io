@@ -7,7 +7,6 @@ author_profile: true
 
 ![alt text](../images/me_teaching.jpg "Lecturing in Ramo Auditorium")
 
-I have been a TA for CNS 187: *Neural Computation* (2015 & 2016) as well as CS 159: *Special Topics in Machine Learning* (2019 - 2021). I have also given a series of guest lectures on Deep Learning in CS 155: *Machine Learning & Data Mining* (2017 - 2020).
 
 ### 2021
 ___
