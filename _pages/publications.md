@@ -26,7 +26,7 @@ Transactions on Machine Learning Research (TMLR), Sept. 2023
 Transactions on Pattern Analysis and Machine Intelligence (TPAMI), Apr. 2023   
 [arXiv](https://arxiv.org/abs/2107.13136)
 
-### 2022c
+### 2022
 ___
 
 **Predictive Coding, Variational Autoencoders, and Biological Connections**  
