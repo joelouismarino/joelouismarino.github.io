@@ -4,6 +4,15 @@ title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
+### 2024
+___
+
+**Scaling Instructable Agents Across Many Simulated Worlds**  
+*The SIMA Team*  
+Tech Report, 2024   
+[Tech Report](https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/sima-generalist-ai-agent-for-3d-virtual-environments/Scaling%20Instructable%20Agents%20Across%20Many%20Simulated%20Worlds.pdf) [Blog](https://deepmind.google/discover/blog/sima-generalist-ai-agent-for-3d-virtual-environments/)
+
+
 ### 2023
 ___
 
