@@ -4,6 +4,14 @@ title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
+### 2025
+___
+
+**A Detailed Theory of Thalamic and Cortical Microcircuits for Predictive Visual Inference**  
+*Dileep George, Miguel Lazaro-Gredilla, Wolfgang Lehrach, Antoine Dedieu, Guangyao Zhao, Joseph Marino*  
+Science Advances, 2025   
+
+
 ### 2024
 ___
 
