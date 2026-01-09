@@ -10,7 +10,7 @@ ___
 **SIMA 2: A Generalist Embodied Agent for Virtual Worlds**  
 *The SIMA Team*  
 Tech Report, 2025   
-[Tech Report](https://arxiv.org/abs/2512.04797) [Blog](https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/)
+[Tech Report](https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/SIMA_Tech_Report_2025.pdf) [arXiv](https://arxiv.org/abs/2512.04797) [Blog](https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/)
 
 **A Detailed Theory of Thalamic and Cortical Microcircuits for Predictive Visual Inference**  
 *Dileep George, Miguel Lazaro-Gredilla, Wolfgang Lehrach, Antoine Dedieu, Guangyao Zhao, Joseph Marino*  
@@ -22,7 +22,7 @@ ___
 **Scaling Instructable Agents Across Many Simulated Worlds**  
 *The SIMA Team*  
 Tech Report, 2024   
-[Tech Report](https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/sima-generalist-ai-agent-for-3d-virtual-environments/Scaling%20Instructable%20Agents%20Across%20Many%20Simulated%20Worlds.pdf) [Blog](https://deepmind.google/discover/blog/sima-generalist-ai-agent-for-3d-virtual-environments/)
+[Tech Report](https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/sima-generalist-ai-agent-for-3d-virtual-environments/Scaling%20Instructable%20Agents%20Across%20Many%20Simulated%20Worlds.pdf) [arXiv](https://arxiv.org/abs/2404.10179) [Blog](https://deepmind.google/discover/blog/sima-generalist-ai-agent-for-3d-virtual-environments/)
 
 ### 2023
 ___
@@ -61,7 +61,7 @@ Machine Learning, Nov. 2021
 **Learned Feedback & Feedforward Perception & Control**  
 *Joseph Marino*  
 Ph.D. Thesis, 2021   
-[PDF](https://thesis.library.caltech.edu/14178/1/joseph_marino_Caltech_PhD_Thesis.pdf)
+[PDF](https://thesis.caltech.edu/14178/1/joseph_marino_Caltech_PhD_Thesis.pdf)
 
 **Beyond Target Networks: Improving Deep Q-learning with Functional Regularization**  
 *Alexandre Piché, Joseph Marino, Gian Maria Marconi, Chris J. Pal, Mohammad Emtiyaz Khan*  
