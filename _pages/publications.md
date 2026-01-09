@@ -7,10 +7,14 @@ author_profile: true
 ### 2025
 ___
 
+**SIMA 2: A Generalist Embodied Agent for Virtual Worlds**  
+*The SIMA Team*  
+Tech Report, 2025   
+[Tech Report](https://arxiv.org/abs/2512.04797) [Blog](https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/)
+
 **A Detailed Theory of Thalamic and Cortical Microcircuits for Predictive Visual Inference**  
 *Dileep George, Miguel Lazaro-Gredilla, Wolfgang Lehrach, Antoine Dedieu, Guangyao Zhao, Joseph Marino*  
 Science Advances, 2025   
-
 
 ### 2024
 ___
@@ -19,7 +23,6 @@ ___
 *The SIMA Team*  
 Tech Report, 2024   
 [Tech Report](https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/sima-generalist-ai-agent-for-3d-virtual-environments/Scaling%20Instructable%20Agents%20Across%20Many%20Simulated%20Worlds.pdf) [Blog](https://deepmind.google/discover/blog/sima-generalist-ai-agent-for-3d-virtual-environments/)
-
 
 ### 2023
 ___
